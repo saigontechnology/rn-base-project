@@ -1,4 +1,4 @@
-package com.template.newarchitecture.modules;
+package com.saigontechnolgy.rnbaseproject.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
