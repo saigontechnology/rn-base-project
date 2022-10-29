@@ -1,4 +1,4 @@
-# react-native-base
+# rn-base-project
 
 This project is a template for [React Native](https://reactnative.dev/) that can be used to build mobile application.
 
@@ -7,7 +7,7 @@ This project is a template for [React Native](https://reactnative.dev/) that can
 - Init project
 
 ```bash
-npx react-native init ProjectName --template react-native-base
+npx react-native init ProjectName --template rn-base-project
 ```
 
 ## iOS config

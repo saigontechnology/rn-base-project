@@ -1,8 +1,8 @@
 {
-  "name": "react-native-base",
+  "name": "rn-base-project",
   "version": "0.0.1",
   "main": "index.js",
-  "repository": "https://github.com/honghoangsts/react-native-base.git",
+  "repository": "https://github.com/honghoangsts/rn-base-project.git",
   "author": "React Native Teeam <SaiGon Technology Solutions>",
   "license": "MIT",
   "keywords": [
@@ -14,7 +14,7 @@
     "react native template",
     "saigon technology solutions"
   ],
-  "bugs": "https://github.com/honghoangsts/react-native-base.git/issues",
+  "bugs": "https://github.com/honghoangsts/rn-base-project.git/issues",
   "scripts": {
     "publish": "yarn publish"
   }
