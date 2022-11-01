@@ -11,22 +11,22 @@ export function setBaseURL (baseURL) {
 export function setToken (token, type = null) {
     switch (type) {
       case "Paymentez": {
-        return (axios.defaults.headers.common["Auth-Token"] = token);
+        return (instance.defaults.headers.common["Auth-Token"] = token);
       }
 
       case "Bearer": {
-        return (axios.defaults.headers.common["Authorization"] = `Bearer ${token}`);
+        return (instance.defaults.headers.common["Authorization"] = `Bearer ${token}`);
       }
 
       case "Basic": {
         const { user, pass } = token;
-        return (axios.defaults.headers.common["Authorization"] = `Basic ${Buffer.from(
+        return (instance.defaults.headers.common["Authorization"] = `Basic ${Buffer.from(
           `${user}:${pass}`
         ).toString("base64")}`);
       }
 
       default: {
-        return (axios.defaults.headers.common["Authorization"] = token);
+        return (instance.defaults.headers.common["Authorization"] = token);
       }
     }
   };
