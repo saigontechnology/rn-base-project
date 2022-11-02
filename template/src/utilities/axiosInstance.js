@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const instance = axios.create({
   baseURL: 'MY_URL',
-  timeout: 1000,
+  timeout: 60000,
   withCredentials: false,
   responseType: 'json',
   headers: {
@@ -20,6 +20,6 @@ instance.interceptors.request.use(config => {
 instance.interceptors.response.use(response => {
   // Do something with response data
   return response
-}).catch(error => Promise.reject(error))
+}, error => Promise.reject(error))
 
 export default instance
