@@ -49,6 +49,28 @@ export function postRequest(api, body, config) {
   })
 }
 
+export function postFormDataRequest(api, data, config) {
+  try {
+    if (data.constructor !== FormData) {
+      throw new Error('Unrecognized FormData part')
+    }
+    const headers = {
+      'content-type': 'multipart/form-data'
+    }
+    config = {
+      ...config,
+      headers,
+    }
+    return instance.post(api, data, config).then(response => {
+      return {data: response.data, status: response.status}
+    }).catch(error => {
+      return {data: null, status: error.response.status}
+    })
+  } catch (error) {
+    return {error: error.message}
+  }
+}
+
 export function putRequest(api, body, config) {
   if (typeof body === 'object' && body.constructor !== FormData) body = JSON.stringify(body)
   
