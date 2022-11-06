@@ -1,6 +1,7 @@
 import React from 'react'
 import {Provider} from 'react-redux'
-import {store} from './src/store/store'
+import {PersistGate} from 'redux-persist/integration/react'
+import {store, persistor} from './src/store/store'
 import MainLayout from './src/MainLayout'
 import {SafeAreaProvider} from 'react-native-safe-area-context'
 import {Text, TextInput, LogBox} from 'react-native'
@@ -17,9 +18,11 @@ TextInput.defaultProps = {
 function App() {
   return (
     <Provider store={store}>
-      <SafeAreaProvider>
-        <MainLayout />
-      </SafeAreaProvider>
+      <PersistGate loading={null} persistor={persistor}>
+        <SafeAreaProvider>
+          <MainLayout />
+        </SafeAreaProvider>
+      </PersistGate>
     </Provider>
   )
 }
