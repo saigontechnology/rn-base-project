@@ -37,17 +37,17 @@ export const userSlice = createSlice({
 export const userActions = {
   ...userSlice.actions,
   userLoginHandle: userSlice.actions[USER_CONSTANTS_ACTIONS.USER_LOGIN_ACTIONS.HANDLER],
-  userLoginSuccess: userSlice.actions[USER_CONSTANTS_ACTIONS.USER_LOGIN_ACTIONS.FAILURE],
-  userLoginFailure: userSlice.actions[USER_CONSTANTS_ACTIONS.USER_LOGIN_ACTIONS.SUCCESS],
+  userLoginSuccess: userSlice.actions[USER_CONSTANTS_ACTIONS.USER_LOGIN_ACTIONS.SUCCESS],
+  userLoginFailure: userSlice.actions[USER_CONSTANTS_ACTIONS.USER_LOGIN_ACTIONS.FAILURE],
   userSignUpHandle: userSlice.actions[USER_CONSTANTS_ACTIONS.USER_SIGN_UP_ACTIONS.HANDLER],
-  userSignUpSuccess: userSlice.actions[USER_CONSTANTS_ACTIONS.USER_SIGN_UP_ACTIONS.FAILURE],
-  userSignUpFailure: userSlice.actions[USER_CONSTANTS_ACTIONS.USER_SIGN_UP_ACTIONS.SUCCESS],
+  userSignUpSuccess: userSlice.actions[USER_CONSTANTS_ACTIONS.USER_SIGN_UP_ACTIONS.SUCCESS],
+  userSignUpFailure: userSlice.actions[USER_CONSTANTS_ACTIONS.USER_SIGN_UP_ACTIONS.FAILURE],
   userLogoutHandle: userSlice.actions[USER_CONSTANTS_ACTIONS.USER_LOG_OUT_ACTIONS.HANDLER],
-  userLogoutSuccess: userSlice.actions[USER_CONSTANTS_ACTIONS.USER_LOG_OUT_ACTIONS.FAILURE],
-  userLogoutFailure: userSlice.actions[USER_CONSTANTS_ACTIONS.USER_LOG_OUT_ACTIONS.SUCCESS],
+  userLogoutSuccess: userSlice.actions[USER_CONSTANTS_ACTIONS.USER_LOG_OUT_ACTIONS.SUCCESS],
+  userLogoutFailure: userSlice.actions[USER_CONSTANTS_ACTIONS.USER_LOG_OUT_ACTIONS.FAILURE],
   updateUserInfoHandle: userSlice.actions[USER_CONSTANTS_ACTIONS.UPDATE_USER_INFO_ACTIONS.HANDLER],
-  updateUserInfoSuccess: userSlice.actions[USER_CONSTANTS_ACTIONS.UPDATE_USER_INFO_ACTIONS.FAILURE],
-  updateUserInfoFailure: userSlice.actions[USER_CONSTANTS_ACTIONS.UPDATE_USER_INFO_ACTIONS.SUCCESS],
+  updateUserInfoSuccess: userSlice.actions[USER_CONSTANTS_ACTIONS.UPDATE_USER_INFO_ACTIONS.SUCCESS],
+  updateUserInfoFailure: userSlice.actions[USER_CONSTANTS_ACTIONS.UPDATE_USER_INFO_ACTIONS.FAILURE],
 }
 
 export default userSlice.reducer
