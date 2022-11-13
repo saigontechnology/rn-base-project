@@ -9,9 +9,9 @@ export function configuration() {
   }
 }
 
-I18n.missingTranslation = function (scope, options) {
-  return ''
-}
+// I18n.missingTranslation = function (scope, options) {
+//   return ''
+// }
 
 export function setLocale(locale) {
   I18n.locale = locale

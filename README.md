@@ -30,6 +30,10 @@ npx react-native init ProjectName --template rn-base-project
     - react-redux
     - redux-saga
     - i18n-js
+    - react-native-reanimated
+    - react-native-device-info
+    - react-native-draggable
+    - @gorhom/bottom-sheet
 ```
 
 ## Contributing
