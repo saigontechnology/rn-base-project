@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1210"
+   LastUpgradeVersion = "1410"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -10,13 +10,13 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp &quot;${PROJECT_DIR}/../.env.production&quot; &quot;${PROJECT_DIR}/../.env.production&quot;&#10;">
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp &quot;${PROJECT_DIR}/../.env.development&quot; &quot;${PROJECT_DIR}/../.env.development&quot;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-                     BuildableName = "RNBaseProject.app"
-                     BlueprintName = "RNBaseProject"
+                     BlueprintIdentifier = "491BA6F62920EAD300788B6D"
+                     BuildableName = "RNBaseProjectDev.app"
+                     BlueprintName = "RNBaseProjectDev"
                      ReferencedContainer = "container:RNBaseProject.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
@@ -32,9 +32,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "RNBaseProject.app"
-               BlueprintName = "RNBaseProject"
+               BlueprintIdentifier = "491BA6F62920EAD300788B6D"
+               BuildableName = "RNBaseProjectDev.app"
+               BlueprintName = "RNBaseProjectDev"
                ReferencedContainer = "container:RNBaseProject.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,16 +46,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "RNBaseProjectTests.xctest"
-               BlueprintName = "RNBaseProjectTests"
-               ReferencedContainer = "container:RNBaseProject.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -73,13 +63,13 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp &quot;${PROJECT_DIR}/../.env.production&quot; &quot;${PROJECT_DIR}/../.env.production&quot;&#10;">
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp &quot;${PROJECT_DIR}/../.env.development&quot; &quot;${PROJECT_DIR}/../.env.development&quot;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-                     BuildableName = "RNBaseProject.app"
-                     BlueprintName = "RNBaseProject"
+                     BlueprintIdentifier = "491BA6F62920EAD300788B6D"
+                     BuildableName = "RNBaseProjectDev.app"
+                     BlueprintName = "RNBaseProjectDev"
                      ReferencedContainer = "container:RNBaseProject.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
@@ -90,9 +80,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "RNBaseProject.app"
-            BlueprintName = "RNBaseProject"
+            BlueprintIdentifier = "491BA6F62920EAD300788B6D"
+            BuildableName = "RNBaseProjectDev.app"
+            BlueprintName = "RNBaseProjectDev"
             ReferencedContainer = "container:RNBaseProject.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -107,9 +97,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "RNBaseProject.app"
-            BlueprintName = "RNBaseProject"
+            BlueprintIdentifier = "491BA6F62920EAD300788B6D"
+            BuildableName = "RNBaseProjectDev.app"
+            BlueprintName = "RNBaseProjectDev"
             ReferencedContainer = "container:RNBaseProject.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
