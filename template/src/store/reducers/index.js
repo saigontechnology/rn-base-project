@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import {persistReducer} from 'redux-persist'
 import user, {initialState as userInitialState} from './user'
 import app, {initialState as appInitialState} from './app'
+import loading from './loading'
 
 export * from './app'
 export * from './user'
@@ -26,4 +27,5 @@ const userPersistConfig = {
 export default combineReducers({
   user: persistReducer(userPersistConfig, user),
   app,
+  loading,
 })
