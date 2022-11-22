@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
 import RouteKey from '../../navigation/RouteKey'
 
-const initialState = {
+export const initialState = {
   showGlobalIndicator: false,
   appState: RouteKey.SplashScreen,
   showSearchBar: false,
