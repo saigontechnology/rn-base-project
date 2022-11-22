@@ -1,6 +1,6 @@
 {
   "name": "rn-base-project",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "main": "index.js",
   "repository": "https://github.com/saigon-technology/rn-base-project.git",
   "author": "React Native Teeam <SaiGon Technology Solutions>",
@@ -16,6 +16,6 @@
   ],
   "bugs": "https://github.com/saigon-technology/rn-base-project/issues",
   "scripts": {
-    "publish": "yarn publish"
+    "release": "yarn publish"
   }
 }

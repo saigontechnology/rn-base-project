@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit'
 import {APP_CONSTANTS_ACTIONS} from '../constants/app'
 import {USER_CONSTANTS_ACTIONS} from '../constants/user'
 
-const initialState = {
+export const initialState = {
   userInfo: {},
   isEndUser: false,
   tokenData: {},
