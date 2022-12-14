@@ -2,6 +2,18 @@
 
 This project is a template for [React Native](https://reactnative.dev/) that can be used to build mobile application.
 
+## Prerequisites
+This template requires NodeJS (version 16 or later) and NPM.
+[Node](http://nodejs.org/) and [NPM](https://npmjs.org/) are really easy to install.
+To make sure you have them available on your machine,
+try running the following command.
+
+```sh
+$ npm -v && node -v
+9.2.0
+v16.19.0
+```
+
 ## Quick Start
 
 - Init project
