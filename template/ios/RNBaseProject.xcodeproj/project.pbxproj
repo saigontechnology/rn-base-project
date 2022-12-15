@@ -510,7 +510,7 @@
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = RNBaseProject/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "Base${BUNDLE_ID_SUFFIX}";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -539,7 +539,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = RNBaseProject/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "Base${BUNDLE_ID_SUFFIX}";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -633,7 +633,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = RNBaseProject/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "Base${BUNDLE_ID_SUFFIX}";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
