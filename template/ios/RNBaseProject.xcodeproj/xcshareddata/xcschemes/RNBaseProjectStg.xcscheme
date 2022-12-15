@@ -10,13 +10,13 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp &quot;${PROJECT_DIR}/../.env.staging&quot; &quot;${PROJECT_DIR}/../.env.staging&quot;&#10;">
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp &quot;${PROJECT_DIR}/../.env.staging&quot; &quot;${PROJECT_DIR}/../.env&quot;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "491BA7092920EAD700788B6D"
-                     BuildableName = "RNBaseProjectStg.app"
-                     BlueprintName = "RNBaseProjectStg"
+                     BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+                     BuildableName = "Base.app"
+                     BlueprintName = "RNBaseProject"
                      ReferencedContainer = "container:RNBaseProject.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
@@ -32,16 +32,16 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "491BA7092920EAD700788B6D"
-               BuildableName = "RNBaseProjectStg.app"
-               BlueprintName = "RNBaseProjectStg"
+               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+               BuildableName = "Base.app"
+               BlueprintName = "RNBaseProject"
                ReferencedContainer = "container:RNBaseProject.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Staging"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
@@ -63,13 +63,13 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp &quot;${PROJECT_DIR}/../.env.staging&quot; &quot;${PROJECT_DIR}/../.env.staging&quot;&#10;">
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp &quot;${PROJECT_DIR}/../.env.staging&quot; &quot;${PROJECT_DIR}/../.env&quot;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "491BA7092920EAD700788B6D"
-                     BuildableName = "RNBaseProjectStg.app"
-                     BlueprintName = "RNBaseProjectStg"
+                     BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+                     BuildableName = "Base.app"
+                     BlueprintName = "RNBaseProject"
                      ReferencedContainer = "container:RNBaseProject.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
@@ -80,15 +80,15 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "491BA7092920EAD700788B6D"
-            BuildableName = "RNBaseProjectStg.app"
-            BlueprintName = "RNBaseProjectStg"
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "Base.app"
+            BlueprintName = "RNBaseProject"
             ReferencedContainer = "container:RNBaseProject.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Staging"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -97,18 +97,18 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "491BA7092920EAD700788B6D"
-            BuildableName = "RNBaseProjectStg.app"
-            BlueprintName = "RNBaseProjectStg"
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "Base.app"
+            BlueprintName = "RNBaseProject"
             ReferencedContainer = "container:RNBaseProject.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug">
+      buildConfiguration = "Staging">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Staging"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

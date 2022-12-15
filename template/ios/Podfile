@@ -4,7 +4,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '12.4'
 install! 'cocoapods', :deterministic_uuids => false
 
-abstract_target 'RNBaseProjectCommonPods' do
+target 'RNBaseProject' do
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -25,16 +25,6 @@ abstract_target 'RNBaseProjectCommonPods' do
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-  
-  
-  target 'RNBaseProject' do
-  end
-  
-  target 'RNBaseProjectDev' do
-  end
-  
-  target 'RNBaseProjectStg' do
-  end
 
   target 'RNBaseProjectTests' do
     inherit! :complete

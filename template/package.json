@@ -18,7 +18,10 @@
     "android:dev": "react-native run-android --variant=developmentDebug",
     "android:dev-release": "react-native run-android --variant=developmentRelease",
     "android:prod": "react-native run-android --variant=productionDebug",
-    "android:prod-release": "react-native run-android --variant=productionRelease"
+    "android:prod-release": "react-native run-android --variant=productionRelease",
+    "ios:prod": "react-native run-ios --scheme 'RNBaseProject'",
+    "ios:dev": "react-native run-ios --scheme 'RNBaseProjectDev'",
+    "ios:staging": "react-native run-ios --scheme 'RNBaseProjectStg'"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.10",
