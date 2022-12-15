@@ -14,6 +14,10 @@ npx react-native init ProjectName --template rn-base-project
 
 ## Android config
 
+## Documents
+
+- [Config scheme](docs/config-scheme.md)
+
 ## Libraries used:
 ```text
     - @react-native-async-storage/async-storage
