@@ -4,6 +4,6 @@
  */
 
 const GeneratedImages = {
-  sts: require('./images/resources/sts.png'),
+  sts: require('./../assets/images/sts.png'),
 }
 export default GeneratedImages

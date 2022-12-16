@@ -1,6 +1,4 @@
 const fonts = {
-  regular: null,
-  bold: null,
+  RobotoRegular: 'Roboto-Regular',
 }
-
-export {fonts}
+export default fonts
