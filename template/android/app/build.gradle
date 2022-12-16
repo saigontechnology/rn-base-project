@@ -141,27 +141,18 @@ def reactNativeArchitectures() {
 android {
     ndkVersion rootProject.ext.ndkVersion
     compileSdkVersion rootProject.ext.compileSdkVersion
-
+    
     // add this block
     flavorDimensions "default"
     productFlavors {
         development {
-            minSdkVersion rootProject.ext.minSdkVersion
             applicationId "com.saigontechnolgy.rnbaseproject.development"
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            resValue "string", "build_config_package", "com.saigontechnolgy.rnbaseproject"
         }
         staging {
-            minSdkVersion rootProject.ext.minSdkVersion
             applicationId "com.com.saigontechnolgy.rnbaseproject.staging"
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            resValue "string", "build_config_package", "com.saigontechnolgy.rnbaseproject"
         }
         production {
-            minSdkVersion rootProject.ext.minSdkVersion
             applicationId "com.saigontechnolgy.rnbaseproject"
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            resValue "string", "build_config_package", "com.saigontechnolgy.rnbaseproject"
         }
     }
 
@@ -172,6 +163,7 @@ android {
         versionCode 1
         versionName "1.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
+        resValue "string", "build_config_package", "com.saigontechnolgy.rnbaseproject"
 
         if (isNewArchitectureEnabled()) {
             // We configure the CMake build only if you decide to opt-in for the New Architecture.
