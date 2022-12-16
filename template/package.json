@@ -2,6 +2,9 @@
   "name": "RNBaseProject",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -34,6 +37,7 @@
     "react-native-screens": "^3.18.2",
     "react-native-svg": "^13.4.0",
     "react-redux": "^8.0.4",
+    "redux-persist": "^6.0.0",
     "redux-saga": "^1.2.1"
   },
   "devDependencies": {
