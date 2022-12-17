@@ -73,28 +73,53 @@ android {
 
     // add this block
     flavorDimensions "default"
-    productFlavors {
-        development {
-            minSdkVersion rootProject.ext.minSdkVersion
-            applicationId "com.saigontechnolgy.rnbaseproject.development"
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            resValue "string", "build_config_package", "com.saigontechnolgy.rnbaseproject"
-        }
-        staging {
-            minSdkVersion rootProject.ext.minSdkVersion
-            applicationId "com.com.saigontechnolgy.rnbaseproject.staging"
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            resValue "string", "build_config_package", "com.saigontechnolgy.rnbaseproject"
-        }
-        production {
-            minSdkVersion rootProject.ext.minSdkVersion
-            applicationId "com.saigontechnolgy.rnbaseproject"
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            resValue "string", "build_config_package", "com.saigontechnolgy.rnbaseproject"
+     productFlavors {
+        development {}
+        staging {}
+        production {}
+    }
+
+    defaultConfig {
+        applicationId project.env.get("APP_ID") // using env
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
+        resValue "string", "build_config_package", "com.saigontechnolgy.rnbaseproject" // add this line
+
+        if (isNewArchitectureEnabled()) {
+            // We configure the CMake build only if you decide to opt-in for the New Architecture.
+            externalNativeBuild {
+                cmake {
+                    arguments "-DPROJECT_BUILD_DIR=$buildDir",
+                        "-DREACT_ANDROID_DIR=$rootDir/../node_modules/react-native/ReactAndroid",
+                        "-DREACT_ANDROID_BUILD_DIR=$rootDir/../node_modules/react-native/ReactAndroid/build",
+                        "-DNODE_MODULES_DIR=$rootDir/../node_modules",
+                        "-DANDROID_STL=c++_shared"
+                }
+            }
+            if (!enableSeparateBuildPerCPUArchitecture) {
+                ndk {
+                    abiFilters (*reactNativeArchitectures())
+                }
+            }
         }
     }
+
    // ---
 ...
+```
+
+Value `APP_ID` in env below:
+
+```bash
+API_URL=
+APP_ENV=dev
+CODEPUSH_KEY_IOS=
+CODEPUSH_KEY_ANDROID=
+APP_ID=com.saigontechnolgy.rnbaseproject.development // this line
+APP_NAME=BaseDev 
 ```
 
 Names should match based on **productFlavors**, so **productiondebug** will match **debug** in this case and generate debug build of App with configuration from `.env.production`.
@@ -145,20 +170,40 @@ Just copy the `android/app/main` folder and rename it to the referring names pla
 
 - To change app name, open file and rename
 
-`android/app/src/development/res/values/strings.xml`
+`android/app/src/main/AndroidManifest.xml`
 
 ```bash
-<resources>
-    <string name="app_name">Base dev</string>
-</resources>
+    <application
+      android:name=".MainApplication"
+      android:label="@string/APP_NAME" // change this line
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher"
+      android:allowBackup="false"
+      android:theme="@style/AppTheme">
+      <activity
+        android:name=".MainActivity"
+        android:label="@string/APP_NAME" // change this line
+        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+        android:launchMode="singleTask"
+        android:windowSoftInputMode="adjustResize"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>
+    </application>
 ```
 
-`android/app/src/staging/res/values/strings.xml`
+- Value `APP_NAME` in env 
 
 ```bash
-<resources>
-    <string name="app_name">Base stg</string>
-</resources>
+API_URL=
+APP_ENV=dev
+CODEPUSH_KEY_IOS=
+CODEPUSH_KEY_ANDROID=
+APP_ID=com.saigontechnolgy.rnbaseproject.development
+APP_NAME=BaseDev // this line
 ```
 
 - The result should be like
