@@ -13,7 +13,7 @@
     "prepare": "husky install",
     "postinstall": "bash ./scripts/post-install.sh",
     "reverse": "adb reverse tcp:8081 tcp:8081",
-    "generateimages": "node scripts/genimg src/assets/images --output src/themes/image.js --name GeneratedImages",
+    "generateimages": "node scripts/genimg src/assets/images --output src/themes/image.js --name Images",
     "generatefonts": "node scripts/fonts"
   },
   "dependencies": {
