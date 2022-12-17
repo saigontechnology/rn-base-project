@@ -141,23 +141,17 @@ def reactNativeArchitectures() {
 android {
     ndkVersion rootProject.ext.ndkVersion
     compileSdkVersion rootProject.ext.compileSdkVersion
-    
+
     // add this block
     flavorDimensions "default"
-    productFlavors {
-        development {
-            applicationId "com.saigontechnolgy.rnbaseproject.development"
-        }
-        staging {
-            applicationId "com.com.saigontechnolgy.rnbaseproject.staging"
-        }
-        production {
-            applicationId "com.saigontechnolgy.rnbaseproject"
-        }
+     productFlavors {
+        development {}
+        staging {}
+        production {}
     }
-
+    
     defaultConfig {
-        applicationId "com.saigontechnolgy.rnbaseproject"
+        applicationId project.env.get("APP_ID")
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

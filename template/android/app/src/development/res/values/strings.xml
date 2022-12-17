@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Base dev</string>
+    <string name="app_name">BaseDev</string>
     <string moduleConfig="true" name="CodePushDeploymentKey">DeploymentKey</string>
 </resources>
