@@ -7,9 +7,9 @@ module.exports = {
     'comma-dangle': 'off',
     'no-unused-vars': 'error',
     'unused-imports/no-unused-imports': 'error',
-    'import/no-cycle': 'error',
+    'import/no-cycle': 'warn',
     'import/first': 'error',
     'import/no-duplicates': 'warn',
-    'arrow-body-style': ['warn', 'always'],
+    'arrow-body-style': ['error', 'always'],
   },
 }
