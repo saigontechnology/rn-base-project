@@ -17,6 +17,7 @@ const Stack = createNativeStackNavigator()
 export const HomeNavigator = () => {
   return (
     <Stack.Navigator>
+      {/* Plop screen */}
       <Stack.Screen
         name={RouteKey.HomeScreen}
         component={screenMatch(RouteKey.HomeScreen)}

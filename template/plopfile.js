@@ -1,0 +1,88 @@
+module.exports = function (plop) {
+  const component = [
+    {
+      type: 'add',
+      path: 'src/components/{{properCase name}}.js',
+      templateFile: 'generators/component/index.js.hbs',
+    },
+  ]
+  const screensView = [
+    {
+      type: 'add',
+      path: 'src/screens/{{properCase name}}Component/{{properCase name}}Screen.js',
+      templateFile: 'generators/module/Module.view.js.hbs',
+    },
+    {
+      type: 'add',
+      path: 'src/screens/{{properCase name}}Component/index.js',
+      templateFile: 'generators/module/Module.index.js.hbs',
+    },
+    {
+      type: 'modify',
+      path: 'src/screens/index.js',
+      pattern: /\/\/ Screen Export/gi,
+      template: "// Screen Export\r\nexport * from './{{properCase name}}Component'",
+    },
+    {
+      type: 'modify',
+      path: 'src/navigation/RouteKey.js',
+      pattern: /\/\** Screen \*\//g,
+      template: "/** Screen */\r\n  {{properCase name}}Screen: '{{properCase name}}Screen',",
+    },
+    {
+      type: 'modify',
+      path: 'src/navigation/StackNavigation.js',
+      pattern: /\{\/\* Plop screen \*\/}/gi,
+      template:
+        '{/* Plop screen */}\r\n      <Stack.Screen\r\n        name={RouteKey.{{properCase name}}Screen}\r\n        component={screenMatch(RouteKey.{{properCase name}}Screen)}\r\n        options={optionsMatch(RouteKey.{{properCase name}}Screen)}\r\n      />',
+    },
+    {
+      type: 'modify',
+      path: 'src/navigation/ScreenService.js',
+      pattern: /\/\/ Screen Import/gi,
+      template:
+        "// Screen Import\r\nimport {{properCase name}}Screen from '../screens/{{properCase name}}Component/{{properCase name}}Screen'",
+    },
+    {
+      type: 'modify',
+      path: 'src/navigation/ScreenService.js',
+      pattern: /\/\/ Screen Match/gi,
+      template:
+        '// Screen Match\r\n    case RouteKey.{{properCase name}}Screen:\r\n      return {{properCase name}}Screen',
+    },
+    {
+      type: 'modify',
+      path: 'src/navigation/ScreenService.js',
+      pattern: /\/\/ Screen Options/gi,
+      template: '// Screen Options\r\n    case RouteKey.{{properCase name}}Screen:',
+    },
+  ]
+  plop.setGenerator('module', {
+    description: 'Generates new module with or without redux connection',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Module name (Casing will be modified)',
+      },
+      {
+        type: 'list',
+        name: 'type',
+        message: 'Choose Module type',
+        choices: ['screens', 'component', 'store'],
+      },
+    ],
+    actions(data) {
+      switch (data.type) {
+        case 'screens':
+          return screensView
+        // case 'redux':
+        //   return redux
+        case 'component':
+          return component
+        default:
+          break
+      }
+    },
+  })
+}
