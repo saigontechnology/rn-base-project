@@ -6,8 +6,8 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "android": "bash ./scripts/run-app.sh android",
+    "ios": "bash ./scripts/run-app.sh ios",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
@@ -16,15 +16,6 @@
     "prepare": "husky install",
     "postinstall": "bash ./scripts/post-install.sh",
     "reverse": "adb reverse tcp:8081 tcp:8081",
-    "android:stg": "react-native run-android --variant=stagingDebug",
-    "android:stg-release": "react-native run-android --variant=stagingRelease",
-    "android:dev": "react-native run-android --variant=developmentDebug",
-    "android:dev-release": "react-native run-android --variant=developmentRelease",
-    "android:prod": "react-native run-android --variant=productionDebug",
-    "android:prod-release": "react-native run-android --variant=productionRelease",
-    "ios:prod": "react-native run-ios --scheme 'RNBaseProject'",
-    "ios:dev": "react-native run-ios --scheme 'RNBaseProjectDev'",
-    "ios:staging": "react-native run-ios --scheme 'RNBaseProjectStg'",
     "generateimages": "node scripts/genimg src/assets/images --output src/themes/image.js --name Images",
     "generatefonts": "node scripts/fonts"
   },

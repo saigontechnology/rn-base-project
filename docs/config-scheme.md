@@ -142,17 +142,6 @@ buildTypes {
     }
 ```
 
-Create scripts on `package.json`
-
-```bash
-"android:staging": "react-native run-android --variant=stagingDebug",
-"android:staging-release": "react-native run-android --variant=stagingRelease",
-"android:dev": "react-native run-android --variant=developmentDebug",
-"android:dev-release": "react-native run-android --variant=developmentRelease",
-"android:prod": "react-native run-android --variant=productionDebug",
-"android:prod-release": "react-native run-android --variant=productionRelease",
-```
-
 ### Android Change App name and App Icon
 
 Just copy the `android/app/main` folder and rename it to the referring names placed in the flavors in our case we put it
@@ -209,6 +198,40 @@ APP_NAME=BaseDev // this line
 - The result should be like
 
 ![](https://user-images.githubusercontent.com/117077260/201819353-40780a31-e5b4-43f1-a7ca-285aa47b85ae.png)
+
+Create bash script run android `run-app.bash` in folder scripts
+
+```bash
+prompt_android="Please select variant for android: "
+OPTIONS_ANDROID=(
+    "developmentDebug" 
+    "developmentRelease"
+    "stagingDebug" 
+    "stagingRelease" 
+    "productionDebug" 
+    "productionRelease"
+    "quit"
+)
+
+if [ "$1" == "android" ]
+then
+    PS3="$prompt_android"
+    select opt in "${OPTIONS_ANDROID[@]}"; do
+        if [ "$opt" == "quit" ]
+        then
+            break
+        fi 
+        if [ "$opt" == "" ]
+        then
+            echo "Invalid"
+        else
+             echo "Variant: $opt"
+             npx react-native run-android --variant=$opt
+            break
+        fi 
+    done
+fi
+```
 
 ## Setup for iOS
 
@@ -298,12 +321,35 @@ cp "${PROJECT_DIR}/../.env.production" "${PROJECT_DIR}/../.env"
 
 ![](https://i.imgur.com/Fkepvwu.png)
 
-Create scripts on `package.json`
+Create bash script run ios `run-app.bash` in folder scripts
 
 ```bash
-"ios:prod": "react-native run-ios --scheme 'RNBaseProject'",
-"ios:dev": "react-native run-ios --scheme 'RNBaseProjectDev'",
-"ios:staging": "react-native run-ios --scheme 'RNBaseProjectStg'"
+prompt_ios="Please select variant for ios: "
+OPTIONS_IOS=(
+    "RNBaseProjectDev" 
+    "RNBaseProjectStg" 
+    "RNBaseProject" 
+    "quit"
+)
+
+if [ "$1" == "ios" ]
+then 
+    PS3="$prompt_ios"
+    select opt in "${OPTIONS_IOS[@]}"; do
+        if [ "$opt" == "quit" ]
+        then
+            break
+        fi 
+        if [ "$opt" == "" ]
+        then
+            echo "Invalid"
+        else
+            echo "Scheme: $opt"
+            npx react-native run-ios --scheme "$opt"
+            break
+        fi    
+    done
+fi
 ```
 
 ## Documentation
