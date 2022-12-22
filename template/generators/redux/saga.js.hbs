@@ -1,14 +1,17 @@
-// import {takeLatest, call, put} from 'redux-saga/effects'
-// import { {{camelCase name}}Actions } from '../reducers'
+import {takeLatest, call, put} from 'redux-saga/effects'
+import {appActions, {{camelCase name}}Actions} from '../reducers'
+import Toast from '../../components/Toast'
 
-// function* {{camelCase name}}Saga() {
-//  try {
-//    TODO:
-//  } catch (e) {
-//    TODO:
-//  } finally {
-//    TODO:  
-//  }
-// }
+function* {{camelCase name}}Saga(action) {
+  try {
+    yield put(appActions.setShowGlobalIndicator(true))
+    yield call('', '')
+    //  TODO:
+  } catch (e) {
+    Toast.error(e.message)
+  } finally {
+    yield put(appActions.setShowGlobalIndicator(false))
+  }
+}
 
-// export default [takeLatest({{camelCase name}}Actions.{{camelCase name}}Handle, {{camelCase name}}Saga)]
+export default [takeLatest({{camelCase name}}Actions.{{camelCase name}}Handler, {{camelCase name}}Saga)]

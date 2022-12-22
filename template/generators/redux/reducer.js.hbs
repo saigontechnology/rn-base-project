@@ -1,27 +1,26 @@
-// import { {{constantCase name}}_CONSTANTS_ACTIONS } from '../constants/{{camelCase name}}'
-// import {createSlice} from '@reduxjs/toolkit'
+import { {{constantCase name}}_CONSTANTS_ACTIONS } from '../constants/{{camelCase name}}'
+import {createSlice} from '@reduxjs/toolkit'
 
-const initialState = {
-// TODO
-};
+export const initialState = {
+  // TODO
+}
 
 export const {{camelCase name}}Slice = createSlice({
-  name: {{camelCase name}},
+  name: '{{camelCase name}}',
   initialState,
   reducers: {
-    [{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}.HANDLER]: () => {},
-    [{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}.SUCCESS]: () => {},
-    [{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}.FAILURE]: () => {},
+    [{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}_ACTIONS.HANDLER]: (state, action) => {},
+    [{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}_ACTIONS.SUCCESS]: (state, action) => {},
+    [{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}_ACTIONS.FAILURE]: (state, action) => {},
   },
   extraReducers: builder => {},
 })
 
 export const {{camelCase name}}Actions = {
   ...{{camelCase name}}Slice.actions,
-  {{camelCase name}}Handle: {{camelCase name}}Slice.actions[{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}.HANDLER],
-  {{camelCase name}}Success: {{camelCase name}}Slice.actions[{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}.SUCCESS],
-  {{camelCase name}}Failure: {{camelCase name}}Slice.actions[{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}.FAILURE],
+  {{camelCase name}}Handler: {{camelCase name}}Slice.actions[{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}_ACTIONS.HANDLER],
+  {{camelCase name}}Success: {{camelCase name}}Slice.actions[{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}_ACTIONS.SUCCESS],
+  {{camelCase name}}Failure: {{camelCase name}}Slice.actions[{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}_ACTIONS.FAILURE],
 }
 
 export default {{camelCase name}}Slice.reducer
-

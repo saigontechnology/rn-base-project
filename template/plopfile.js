@@ -57,6 +57,64 @@ module.exports = function (plop) {
       template: '// Screen Options\r\n    case RouteKey.{{properCase name}}Screen:',
     },
   ]
+  const store = [
+    {
+      type: 'add',
+      path: 'src/store/constants/{{camelCase name}}.js',
+      templateFile: 'generators/redux/constants.js.hbs',
+    },
+    {
+      type: 'add',
+      path: 'src/store/reducers/{{camelCase name}}.js',
+      templateFile: 'generators/redux/reducer.js.hbs',
+    },
+    {
+      type: 'add',
+      path: 'src/store/saga/{{camelCase name}}.js',
+      templateFile: 'generators/redux/saga.js.hbs',
+    },
+    {
+      type: 'modify',
+      path: 'src/store/reducers/index.js',
+      pattern: /\/\/ Reducer Imports/gi,
+      template: "// Reducer Imports\r\nimport {{camelCase name}} from './{{camelCase name}}'",
+    },
+    {
+      type: 'modify',
+      path: 'src/store/reducers/index.js',
+      pattern: /\/\/ Reducers/gi,
+      template: '// Reducers\r\n  {{camelCase name}},',
+    },
+    {
+      type: 'modify',
+      path: 'src/store/reducers/index.js',
+      pattern: /\/\/ Reducer Export/gi,
+      template: "// Reducer Export\r\nexport * from './{{camelCase name}}'",
+    },
+    {
+      type: 'modify',
+      path: 'src/store/saga/index.js',
+      pattern: /\/\/ Saga Imports/gi,
+      template: "// Saga Imports\r\nimport {{camelCase name}}Saga from './{{camelCase name}}'",
+    },
+    {
+      type: 'modify',
+      path: 'src/store/saga/index.js',
+      pattern: /\/\/ Sagas/gi,
+      template: '// Sagas\r\n    ...{{camelCase name}}Saga,',
+    },
+    {
+      type: 'add',
+      path: 'src/store/selectors/{{camelCase name}}.js',
+      template: '// export const actionSelector = state => state.{{camelCase name}}\n',
+    },
+    {
+      type: 'modify',
+      path: 'src/store/selectors/index.js',
+      pattern: /\/\/ Selector/gi,
+      template: "// Selector\r\nexport * from './{{camelCase name}}'",
+    },
+  ]
   plop.setGenerator('module', {
     description: 'Generates new module with or without redux connection',
     prompts: [
@@ -76,8 +134,8 @@ module.exports = function (plop) {
       switch (data.type) {
         case 'screens':
           return screensView
-        // case 'redux':
-        //   return redux
+        case 'store':
+          return store
         case 'component':
           return component
         default:
