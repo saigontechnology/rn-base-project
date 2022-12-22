@@ -9,7 +9,7 @@ module.exports = {
     'unused-imports/no-unused-imports': 'error',
     'import/no-cycle': 'warn',
     'import/first': 'error',
-    'import/no-duplicates': 'warn',
+    'import/no-duplicates': 'error',
     'arrow-body-style': ['error', 'always'],
   },
 }
