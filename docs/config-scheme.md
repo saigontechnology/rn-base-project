@@ -166,7 +166,7 @@ Just copy the `android/app/main` folder and rename it to the referring names pla
       android:name=".MainApplication"
       android:label="@string/APP_NAME" // change this line
       android:icon="@mipmap/ic_launcher"
-      android:roundIcon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
       <activity
