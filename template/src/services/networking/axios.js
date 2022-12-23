@@ -38,13 +38,13 @@ const interceptor = instance.interceptors.response.use(
   async error => {
     const originalConfig = error?.config
     const token = await getString(TOKEN_KEY)
+    const localRefreshToken = await getString(REFRESH_TOKEN_KEY)
 
-    if (!token && error?.response?.status === UNAUTHORIZED) {
+    if (!token && localRefreshToken && error?.response?.status === UNAUTHORIZED) {
       try {
         // When response code is 401, try to refresh the token.
         // Eject the interceptor so it doesn't loop in case
         instance.interceptors.response.eject(interceptor)
-        const localRefreshToken = await getString(REFRESH_TOKEN_KEY)
         // Call RefreshToken API
         const res = await instance.post('api/refreshToken', {
           refreshToken: localRefreshToken,
