@@ -5,8 +5,6 @@ export const styles = StyleSheet.create({
     borderColor: '#151515',
     paddingBottom: 12,
     justifyContent: 'space-between',
-    flexDirection: 'row',
-    borderBottomWidth: 1,
   },
   titleWrapper: {
     justifyContent: 'space-between',

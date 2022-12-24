@@ -1,28 +1,27 @@
-import I18n from 'i18n-js'
+import {I18n} from 'i18n-js'
 import en from './en'
 
-export function configuration() {
-  I18n.locale = 'en'
-  I18n.fallbacks = true
-  I18n.translations = {
-    en: en,
-  }
+const i18n = new I18n({
+  en: en,
+})
+
+i18n.defaultLocale = 'en'
+i18n.enableFallback = true
+
+i18n.missingTranslation = function (scope, options) {
+  return ''
 }
 
-// I18n.missingTranslation = function (scope, options) {
-//   return ''
-// }
-
 export function setLocale(locale) {
-  I18n.locale = locale
+  i18n.locale = locale
 }
 
 export function getLocale() {
-  return I18n.locale
+  return i18n.locale
 }
 
 export function localize(text, custom) {
-  return I18n.t(text, custom)
+  return i18n.t(text, custom)
 }
 
-export default I18n
+export default i18n

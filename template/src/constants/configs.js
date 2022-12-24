@@ -11,10 +11,10 @@ const AppEnv = {
 
 const appBundleID = getBundleId()
 
-const configs = {
+const Config = {
   appBundleID,
   appVersion: packageJSON.version,
-  APP_ENV: RNConfig.APP_ENV,
+  APP_ENV: RNConfig.APP_ENV || 'dev',
   DEBUG_ENABLED: RNConfig.APP_ENV !== AppEnv.PRODUCTION,
   API_URL: RNConfig.API_URL,
   buildEvn: RNConfig.APP_ENV,
@@ -24,7 +24,30 @@ const configs = {
   }),
 }
 
-export const EXTRA_QA_ENVS =
-  configs.APP_ENV === AppEnv.DEV ? ['https://qa1.com/api/', 'https://qa2.com/api/'] : []
+export const BOTTOM_SHEET_TYPE = {
+  env: '0',
+  codePush: '1',
+}
 
-export default configs
+export const EXTRA_QA_ENVS =
+  Config.APP_ENV === AppEnv.DEV ? ['https://qa1.com/api/', 'https://qa2.com/api/'] : []
+
+export const CODEPUSH_KEYS =
+  Config.APP_ENV === AppEnv.DEV
+    ? [
+        {
+          dev: 'Dev',
+          key: Config.codePushKey,
+        },
+
+        {
+          dev: 'Thinh',
+          key: Platform.select({
+            android: '',
+            ios: '',
+          }),
+        },
+      ]
+    : []
+
+export default Config

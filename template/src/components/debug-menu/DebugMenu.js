@@ -1,55 +1,64 @@
-import {BottomSheetBackdrop, BottomSheetFlatList} from '@gorhom/bottom-sheet'
-import React, {createRef, useCallback, useEffect, useMemo, useState} from 'react'
-import {Image, Modal, Pressable, SafeAreaView, ScrollView, View, Text, Button} from 'react-native'
+import BottomSheet, {BottomSheetFlatList} from '@gorhom/bottom-sheet'
+import React, {useCallback, useMemo, useRef, useState} from 'react'
+import {Modal, Pressable, SafeAreaView, ScrollView, View, Text, Button} from 'react-native'
 import {getApplicationName, getBuildNumber, getDeviceId} from 'react-native-device-info'
 import Draggable from 'react-native-draggable'
 
-import Config, {BOTTOM_SHEET_TYPE, EXTRA_QA_ENVS} from '../../constants/configs'
+import Config, {BOTTOM_SHEET_TYPE, CODEPUSH_KEYS, EXTRA_QA_ENVS} from '../../constants/configs'
 
-import {InfoMenu, InfoMenuLink} from '../info-menu'
+import {InfoMenu, InfoMenuRow, InfoMenuLink} from '../info-menu'
 
 import styles from './styles'
 
 import {colors} from '../../themes'
 import useWindowDimensions from 'react-native/Libraries/Utilities/useWindowDimensions'
-import {configuration, localize} from '../../locale/I18nConfig'
+import {localize} from '../../locale/I18nConfig'
+import {useDispatch, useSelector} from 'react-redux'
+import {getApiUrl, getCodePushKey} from '../../store/selectors'
+import {appActions} from '../../store/reducers'
 
 const debugMenuSize = 50
-const bottomSheetRef = createRef()
 
 const AppInfoSection = () => {
   const appName = useMemo(() => getApplicationName(), [])
   const buildNumber = useMemo(() => getBuildNumber(), [])
   const deviceId = useMemo(() => getDeviceId(), [])
+
   return (
     <View style={styles.section}>
-      <Text>{localize('debug.info')}</Text>
+      <Text style={styles.h3}>{localize('debug.info')}</Text>
       <View style={styles.content}>
-        <InfoMenu style={styles.infoMenu} title={localize('debug.deviceId')} description={deviceId} />
-        <InfoMenu style={styles.infoMenu} title={localize('debug.appName')} description={appName} />
-        <InfoMenu
+        <InfoMenuRow style={styles.infoMenu} title={localize('debug.deviceId')} description={deviceId} />
+        <InfoMenuRow style={styles.infoMenu} title={localize('debug.appName')} description={appName} />
+        <InfoMenuRow
           style={styles.infoMenu}
           title={localize('debug.appVersion')}
           description={Config.appVersion}
         />
-        <InfoMenu style={styles.infoMenu} title={localize('debug.buildNumber')} description={buildNumber} />
-        <InfoMenu
+        <InfoMenuRow
+          style={styles.infoMenu}
+          title={localize('debug.buildNumber')}
+          description={buildNumber}
+        />
+        <InfoMenuRow
           style={styles.infoMenu}
           title={localize('debug.bundleId')}
           description={Config.appBundleID}
         />
-        <InfoMenu style={styles.infoMenu} title={localize('debug.appEnv')} description={Config.APP_ENV} />
+        <InfoMenuRow
+          style={styles.infoMenu}
+          title={localize('debug.appEnv')}
+          description={Config.APP_ENV || 'N/A'}
+        />
       </View>
     </View>
   )
 }
 
-const TestingEnvironmentSection = ({onUpdateApiUrl}) => {
-  // const currentApiUrl = useStoreSelector(selectors.storage.selectApiUrl)
-  const currentApiUrl = ''
+const TestingEnvironmentSection = ({onUpdateApiUrl, currentApiUrl}) => {
   return (
     <View style={styles.section}>
-      <Text>{localize('debug.testingEnvironment')}</Text>
+      <Text style={styles.h3}>{localize('debug.testingEnvironment')}</Text>
       <View style={styles.content}>
         {EXTRA_QA_ENVS.length ? (
           <InfoMenuLink
@@ -67,29 +76,84 @@ const TestingEnvironmentSection = ({onUpdateApiUrl}) => {
   )
 }
 
+const CodePushKeySection = ({onUpdateCodePushKey, currentCodePushKey}) => {
+  const codePush = CODEPUSH_KEYS.find(item => item.dev === currentCodePushKey)
+
+  return (
+    <View style={styles.section}>
+      <Text style={styles.h3}>{localize('debug.codePush')}</Text>
+      <View style={styles.content}>
+        {CODEPUSH_KEYS.length ? (
+          <InfoMenuLink
+            style={styles.infoMenu}
+            title={localize('debug.current')}
+            description={codePush?.dev || CODEPUSH_KEYS[0].dev}
+            linkTitle={localize('debug.update')}
+            onPress={onUpdateCodePushKey}
+          />
+        ) : (
+          <InfoMenu
+            style={styles.infoMenu}
+            title={localize('debug.current')}
+            description={codePush?.dev || CODEPUSH_KEYS[0].dev}
+          />
+        )}
+      </View>
+    </View>
+  )
+}
+
 export const DebugMenu = () => {
-  // const dispatch = useStoreDispatch()
-  // const currentApiUrl = useStoreSelector(selectors.storage.selectApiUrl)
   const [modalVisible, setModalVisible] = useState(false)
   const openModal = useCallback(() => setModalVisible(true), [])
   const closeModal = useCallback(() => setModalVisible(false), [])
-  const currentApiUrl = ''
+
+  const dispatch = useDispatch()
+
+  const codePushKey = useSelector(getCodePushKey)
+
+  const currentApiUrl = useSelector(getApiUrl)
+
   const [bottomSheetType, setBottomSheetType] = useState()
 
   const dimensions = useWindowDimensions()
 
+  const bottomSheetRef = useRef(null)
+
+  const snapPoints = useMemo(() => ['95%'], [])
+
+  const handleSnapPress = useCallback(index => {
+    bottomSheetRef.current?.snapToIndex(index)
+  }, [])
+  const handleClosePress = useCallback(() => {
+    bottomSheetRef.current?.close()
+  }, [])
+
   const openEnvironmentBottomSheet = useCallback(() => {
     setBottomSheetType(BOTTOM_SHEET_TYPE.env)
     closeModal()
-    bottomSheetRef.current?.present()
-  }, [closeModal])
+    handleSnapPress(0)
+  }, [closeModal, handleSnapPress])
+
+  const openCodePushBottomSheet = useCallback(() => {
+    setBottomSheetType(BOTTOM_SHEET_TYPE.codePush)
+    closeModal()
+    handleSnapPress(0)
+  }, [closeModal, handleSnapPress])
 
   const renderEnvironmentItem = useCallback(
     ({item}) => {
-      const isActive = item === currentApiUrl
+      const isActive =
+        bottomSheetType === BOTTOM_SHEET_TYPE.env ? item === currentApiUrl : item.dev === codePushKey
+
       const onPress = () => {
-        bottomSheetRef.current?.dismiss()
-        // dispatch(storageAC.itemAdded({key: StorageKeys.API_URL, value: item}))
+        if (bottomSheetType === BOTTOM_SHEET_TYPE.codePush) {
+          dispatch(appActions.setCodePushKey(item.dev))
+          //CodePush.restartApp(false)
+        } else {
+          dispatch(appActions.setApiUrl(item))
+        }
+        handleClosePress()
       }
       return (
         <Pressable disabled={isActive} style={styles.flatListItem} onPress={onPress}>
@@ -99,16 +163,12 @@ export const DebugMenu = () => {
             style={styles.flatListItemTitle}>
             {bottomSheetType === BOTTOM_SHEET_TYPE.env ? item : item.dev}
           </Text>
-          {isActive ? <Image style={styles.flatListItemIcon} source={''} resizeMode="contain" /> : null}
+          {isActive ? <View style={styles.flatListItemIcon} /> : null}
         </Pressable>
       )
     },
-    [currentApiUrl, bottomSheetType],
+    [bottomSheetType, codePushKey, currentApiUrl, dispatch, handleClosePress],
   )
-
-  useEffect(() => {
-    configuration()
-  }, [])
 
   return (
     <>
@@ -125,27 +185,38 @@ export const DebugMenu = () => {
       <Modal animationType="fade" transparent={false} visible={modalVisible} onRequestClose={closeModal}>
         <SafeAreaView style={styles.container}>
           <View style={styles.header}>
-            <Button style={styles.closeButton} onPress={closeModal} title={localize('debug.close')} />
+            <Button
+              color={colors.primary}
+              style={styles.closeButton}
+              onPress={closeModal}
+              title={localize('debug.close')}
+            />
           </View>
           <ScrollView contentContainerStyle={styles.scrollContent}>
             <AppInfoSection />
-            <TestingEnvironmentSection onUpdateApiUrl={openEnvironmentBottomSheet} />
+            <TestingEnvironmentSection
+              onUpdateApiUrl={openEnvironmentBottomSheet}
+              currentApiUrl={currentApiUrl}
+            />
+            <CodePushKeySection
+              onUpdateCodePushKey={openCodePushBottomSheet}
+              currentCodePushKey={codePushKey}
+            />
           </ScrollView>
         </SafeAreaView>
       </Modal>
-      <BottomSheetBackdrop
-        enablePanDownToClose={false}
-        title={localize('debug.update')}
-        ref={bottomSheetRef}
-        snapPoints={['95%']}>
+
+      <BottomSheet ref={bottomSheetRef} index={-1} enablePanDownToClose snapPoints={snapPoints}>
         <BottomSheetFlatList
           style={styles.flatList}
           contentContainerStyle={styles.flatListContent}
-          data={bottomSheetType === [Config.API_URL, ...EXTRA_QA_ENVS]}
-          extraData={[currentApiUrl]}
+          data={
+            bottomSheetType === BOTTOM_SHEET_TYPE.env ? [Config.API_URL, ...EXTRA_QA_ENVS] : CODEPUSH_KEYS
+          }
+          extraData={[currentApiUrl, codePushKey]}
           renderItem={renderEnvironmentItem}
         />
-      </BottomSheetBackdrop>
+      </BottomSheet>
     </>
   )
 }

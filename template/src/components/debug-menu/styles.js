@@ -15,7 +15,6 @@ export default StyleSheet.create({
   },
   closeButton: {
     marginRight: 6,
-    height: '100%',
     paddingHorizontal: 8,
   },
   scrollContent: {
@@ -50,5 +49,11 @@ export default StyleSheet.create({
   flatListItemIcon: {
     width: 24,
     height: 24,
+    backgroundColor: colors.primary,
+    borderWidth: 1,
+    borderRadius: 12,
+  },
+  h3: {
+    fontWeight: 'bold',
   },
 })
