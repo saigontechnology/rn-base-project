@@ -26,9 +26,13 @@ npx react-native init ProjectName --template rn-base-project
 
 ## Android config
 
+## Documents
+
+- [Config scheme](docs/config-scheme.md)
+
 ## Libraries used:
 ```text
-    - @react-native-async-storage/async-storage
+    - react-native-mmkv
     - @react-navigation/bottom-tabs
     - @react-navigation/native
     - @react-navigation/native-stack
@@ -48,6 +52,8 @@ npx react-native init ProjectName --template rn-base-project
     - @gorhom/bottom-sheet
 ```
 
+## mmkv storage
+- [Config mmkv](/template/docs/mmkv.md)
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 

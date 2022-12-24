@@ -1,9 +1,9 @@
 import {combineReducers} from '@reduxjs/toolkit'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import {persistReducer} from 'redux-persist'
 import user, {initialState as userInitialState} from './user'
 import app, {initialState as appInitialState} from './app'
 import loading from './loading'
+import {MMKVStorage} from '../../services'
 
 export * from './app'
 export * from './user'
@@ -15,13 +15,13 @@ const InitialState = {
 
 export const persistConfig = {
   key: 'root',
-  storage: AsyncStorage,
+  storage: MMKVStorage,
   blacklist: Object.keys(InitialState),
 }
 
 const userPersistConfig = {
   key: 'user',
-  storage: AsyncStorage,
+  storage: MMKVStorage,
 }
 
 export default combineReducers({
