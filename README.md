@@ -29,6 +29,7 @@ npx react-native init ProjectName --template rn-base-project
 ## Documents
 
 - [Config scheme](docs/config-scheme.md)
+- [Generate files](/template/docs/generate-files.md)
 
 ## Libraries used:
 ```text
@@ -46,6 +47,7 @@ npx react-native init ProjectName --template rn-base-project
     - react-redux
     - redux-saga
     - i18n-js
+    - plop
 ```
 
 ## mmkv storage
