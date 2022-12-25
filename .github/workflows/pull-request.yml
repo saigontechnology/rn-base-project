@@ -23,7 +23,7 @@ jobs:
               "cards": [
                   {
                       "header": {
-                          "title": "pull_request",
+                          "title": "Pull Request",
                           "subtitle": "Pull Request No: #${{ github.event.pull_request.number }}"
                       },
                       "sections": [
@@ -43,12 +43,6 @@ jobs:
                                    },
                                    {
                                      "keyValue": {
-                                          "topLabel": "Assigned Lables",
-                                          "content": "- ${{ join(github.event.pull_request.labels.*.name) }}"
-                                      }
-                                   },
-                                   {
-                                     "keyValue": {
                                           "topLabel": "Assignees",
                                           "content": "- ${{ join(github.event.pull_request.assignees.*.login) }}"
                                       }
@@ -57,7 +51,7 @@ jobs:
                                       "buttons": [
                                           {
                                               "textButton": {
-                                                  "text": "OPEN PR",
+                                                  "text": "Open Pull Request",
                                                   "onClick": {
                                                       "openLink": {
                                                           "url": "${{ github.event.pull_request.html_url }}"
