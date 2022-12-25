@@ -1,0 +1,75 @@
+name: pull-request
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git Pull Request Details
+        run: |
+          echo "Pull Request Creator: ${{ github.event.pull_request.user.login }}"
+          echo "Pull Request title: ${{ github.event.pull_request.title }}"
+          echo "Pull Request number: ${{ github.event.pull_request.number }}"
+          echo "Pull Request url: ${{ github.event.pull_request.html_url }}"
+          echo "Pull Request body: ${{ github.event.pull_request.body }}"
+          echo "Assigned labels: " ${{ join(github.event.pull_request.labels.*.name) }}
+          echo "Assignees: " ${{ join(github.event.pull_request.assignees.*.login) }}
+      - name: Google Chat Notification
+        run: |
+          curl --location --request POST '${{ secrets.GOOGLECHAT }}' \
+          --header 'Content-Type: application/json' \
+          --data-raw '{
+              "cards": [
+                  {
+                      "header": {
+                          "title": "pull_request",
+                          "subtitle": "Pull Request No: #${{ github.event.pull_request.number }}"
+                      },
+                      "sections": [
+                          {
+                              "widgets": [
+                                  {
+                                     "keyValue": {
+                                          "topLabel": "Creator",
+                                          "content": "${{ github.event.pull_request.user.login }}"
+                                      },
+                                   },
+                                   {
+                                     "keyValue": {
+                                          "topLabel": "Title",
+                                          "content": "${{ github.event.pull_request.title }}"
+                                      }
+                                   },
+                                   {
+                                     "keyValue": {
+                                          "topLabel": "Assigned Lables",
+                                          "content": "- ${{ join(github.event.pull_request.labels.*.name) }}"
+                                      }
+                                   },
+                                   {
+                                     "keyValue": {
+                                          "topLabel": "Assignees",
+                                          "content": "- ${{ join(github.event.pull_request.assignees.*.login) }}"
+                                      }
+                                   },
+                                   {
+                                      "buttons": [
+                                          {
+                                              "textButton": {
+                                                  "text": "OPEN PR",
+                                                  "onClick": {
+                                                      "openLink": {
+                                                          "url": "${{ github.event.pull_request.html_url }}"
+                                                      }
+                                                  }
+                                              }
+                                          }
+                                      ]
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              ]
+          }'
