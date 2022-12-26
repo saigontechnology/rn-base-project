@@ -1,14 +1,9 @@
 import axios from 'axios'
 import {setToken, TokenType} from '.'
-import {
-  RESPONSE_POST_SUCCESS,
-  RESPONSE_SUCCESS,
-  TOKEN_KEY,
-  REFRESH_TOKEN_KEY,
-  UNAUTHORIZED,
-} from '../../constants'
+import {REFRESH_TOKEN_KEY, TOKEN_KEY} from '../../constants'
+import {getRefreshToken} from '../api/auth'
 import Config from 'react-native-config'
-import {setData, getString} from '../../services/mmkv/storage'
+import {setData, getString} from '../mmkv/storage'
 
 const instance = axios.create({
   baseURL: Config.API_URL,
@@ -22,46 +17,46 @@ const instance = axios.create({
   data: {},
 })
 
+const parseJwt = token => {
+  try {
+    // eslint-disable-next-line no-undef
+    return JSON.parse(atob(token.split('.')[1]))
+  } catch (e) {
+    return null
+  }
+}
+
 instance.interceptors.request.use(
-  config => {
-    // Do something before request is sent
-    return config
-  },
-  error => Promise.reject(error),
-)
+  async config => {
+    const token = getString(TOKEN_KEY)
+    const refreshToken = getString(REFRESH_TOKEN_KEY)
 
-const interceptor = instance.interceptors.response.use(
-  response => {
-    // Do something with response data
-    return response
-  },
-  async error => {
-    const originalConfig = error?.config
-    const token = await getString(TOKEN_KEY)
-    const localRefreshToken = await getString(REFRESH_TOKEN_KEY)
+    if (token) {
+      const decodedToken = parseJwt(token)
 
-    if (!token && localRefreshToken && error?.response?.status === UNAUTHORIZED) {
-      try {
-        // When response code is 401, try to refresh the token.
-        // Eject the interceptor so it doesn't loop in case
-        instance.interceptors.response.eject(interceptor)
-        // Call RefreshToken API
-        const res = await instance.post('api/refreshToken', {
-          refreshToken: localRefreshToken,
-        })
-        if (res?.status !== RESPONSE_SUCCESS && res?.status !== RESPONSE_POST_SUCCESS) {
-          throw new Error(res)
-        }
-
+      if (decodedToken?.exp * 1000 < new Date().getTime()) {
+        // // Call RefreshToken API
+        const res = await getRefreshToken(refreshToken)
         // Save AccessToken and RefreshToken
         setToken(res?.data?.accessToken, TokenType.Bearer)
         setData(TOKEN_KEY, res?.data?.accessToken)
         setData(REFRESH_TOKEN_KEY, res?.data?.refreshToken)
-        return instance(originalConfig)
-      } catch (err) {
-        return Promise.reject(err)
       }
     }
+
+    return config
+  },
+  error => {
+    return Promise.reject(error)
+  },
+)
+
+instance.interceptors.response.use(
+  response => {
+    // Do something with response data
+    return response
+  },
+  error => {
     return Promise.reject(error)
   },
 )

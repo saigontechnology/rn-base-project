@@ -26,6 +26,15 @@ Important: If axios is used with multiple domains, the `AUTH_TOKEN` will be sent
 setToken(token, TokenType.Bearer)
 ```
 
+## RefreshToken
+Add refreshToken api to services/api/api
+```text
+export const AUTH_API = {
+  // ADD REFRESH API HERE
+  refreshToken: 'api/refreshToken',
+}
+```
+
 ## Axios API
 ##### getRequest(api_url, config)
 ```text
