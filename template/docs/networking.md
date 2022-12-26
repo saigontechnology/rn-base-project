@@ -71,3 +71,6 @@ instance.interceptors.response.use(
   error => Promise.reject(error),
 )
 ```
+
+## Version
+We downgrade axios to version 0.27.2 to resolve this issue https://github.com/facebook/react-native/issues/34868
