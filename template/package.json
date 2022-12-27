@@ -25,7 +25,6 @@
     "@react-navigation/native-stack": "^6.9.1",
     "@reduxjs/toolkit": "^1.8.6",
     "i18n-js": "^4.1.1",
-    "plop": "^3.1.1",
     "react": "18.1.0",
     "react-native": "0.70.4",
     "react-native-code-push": "^7.0.5",
@@ -54,6 +53,7 @@
     "husky": "^8.0.1",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "0.72.3",
+    "plop": "^3.1.1",
     "react-test-renderer": "18.1.0"
   },
   "jest": {
