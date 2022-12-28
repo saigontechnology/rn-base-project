@@ -1,0 +1,16 @@
+name: PR assignment
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  auto-assign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto-assign Issue
+        uses: pozil/auto-assign-issue@v1.11.0
+        with:
+          assignees: ${{ github.actor }}
+          numOfAssignee: 1
+          allowSelfAssign: true
