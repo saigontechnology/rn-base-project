@@ -30,7 +30,7 @@ setToken(token, TokenType.Bearer)
 Add refreshToken api to services/api/api
 ```text
 export const AUTH_API = {
-  // ADD REFRESH API HERE
+  // ADD ENDPOINT REFRESH TOKEN HERE
   refreshToken: 'api/refreshToken',
 }
 ```
