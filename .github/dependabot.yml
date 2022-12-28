@@ -13,12 +13,6 @@ updates:
     allow:
       # Allow both direct and indirect updates for all packages
       - dependency-type: "all"
-    # # Add assignees
-    # assignees:
-    #   - "honghoangsts"
-    # # Add reviewers
-    # reviewers:
-    #   - "honghoangsts"
     # Specify labels for yarn pull requests
     labels:
       - "yarn"
@@ -34,4 +28,4 @@ updates:
     # Raise pull requests for version updates
     # to pip against the `develop` branch
     target-branch: "develop"
-    # versioning-strategy: increase-if-necessary
+    versioning-strategy: increase
