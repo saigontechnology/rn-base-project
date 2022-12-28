@@ -1,4 +1,4 @@
 export const AUTH_API = {
-  // ADD REFRESH API HERE
+  // ADD ENDPOINT REFRESH TOKEN HERE
   refreshToken: 'api/refreshToken',
 }

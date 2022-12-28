@@ -73,4 +73,4 @@ instance.interceptors.response.use(
 ```
 
 ## Version
-We downgrade axios to version 0.27.2 to resolve this issue https://github.com/facebook/react-native/issues/34868
+We downgrade axios to version 0.27.2 to resolve this issue: https://github.com/facebook/react-native/issues/34868
