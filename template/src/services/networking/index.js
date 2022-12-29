@@ -90,7 +90,7 @@ export function putRequest(api, body, config) {
     body = JSON.stringify(body)
   }
 
-  return axiosAPI({api, method: AxiosMethod.put, config})
+  return axiosAPI({api, method: AxiosMethod.put, body, config})
 }
 
 export function patchRequest(api, body, config) {
