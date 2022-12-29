@@ -6,17 +6,13 @@
 version: 2
 updates:
   # Maintain dependencies for yarn
-  - package-ecosystem: "yarn" # See documentation for possible values
+  - package-ecosystem: "npm" # See documentation for possible values
     directory: "/template/" # Location of package manifests
     schedule:
       interval: "weekly"
     allow:
       # Allow both direct and indirect updates for all packages
       - dependency-type: "all"
-    # Specify labels for yarn pull requests
-    labels:
-      - "yarn"
-      - "dependencies"
     # Allow up to 10 open pull requests for pip dependencies (default: 5)
     open-pull-requests-limit: 10
     pull-request-branch-name:
