@@ -19,8 +19,8 @@ updates:
       # Separate sections of the branch name with a hyphen
       # for example, `dependabot-npm_and_yarn-next_js-acorn-6.4.1`
       separator: "-"
-    # Disable rebasing for pull requests
-    rebase-strategy: "disabled"
+    # Auto rebasing for pull requests
+    rebase-strategy: "auto"
     # Raise pull requests for version updates
     # to pip against the `develop` branch
     target-branch: "develop"
