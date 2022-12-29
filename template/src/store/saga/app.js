@@ -1,7 +1,7 @@
 import {takeLatest, call, put} from 'redux-saga/effects'
 import {appActions} from '../reducers'
 import RouteKey from '../../navigation/RouteKey'
-import {getString} from '../../store/mmkv/storage'
+import {getString} from '../../services/mmkv/storage'
 import {TOKEN_KEY} from '../../constants'
 
 function* getAppSettingSaga() {
