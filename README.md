@@ -29,7 +29,7 @@ npx react-native init ProjectName --template rn-base-project
 ## Documents
 
 - [Config scheme](docs/config-scheme.md)
-- [Generate files](/template/docs/generate-files.md)
+- [Generate files](docs/generate-files.md)
 
 ## Libraries used:
 ```text
