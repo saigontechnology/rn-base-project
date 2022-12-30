@@ -1,0 +1,26 @@
+import { {{constantCase name}}_CONSTANTS_ACTIONS } from '../constants/{{camelCase name}}'
+import {createSlice} from '@reduxjs/toolkit'
+
+export const initialState = {
+  // TODO
+}
+
+export const {{camelCase name}}Slice = createSlice({
+  name: '{{camelCase name}}',
+  initialState,
+  reducers: {
+    [{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}_ACTIONS.HANDLER]: (state, action) => {},
+    [{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}_ACTIONS.SUCCESS]: (state, action) => {},
+    [{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}_ACTIONS.FAILURE]: (state, action) => {},
+  },
+  extraReducers: builder => {},
+})
+
+export const {{camelCase name}}Actions = {
+  ...{{camelCase name}}Slice.actions,
+  {{camelCase name}}Handler: {{camelCase name}}Slice.actions[{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}_ACTIONS.HANDLER],
+  {{camelCase name}}Success: {{camelCase name}}Slice.actions[{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}_ACTIONS.SUCCESS],
+  {{camelCase name}}Failure: {{camelCase name}}Slice.actions[{{constantCase name}}_CONSTANTS_ACTIONS.{{constantCase name}}_ACTIONS.FAILURE],
+}
+
+export default {{camelCase name}}Slice.reducer

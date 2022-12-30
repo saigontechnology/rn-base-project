@@ -17,7 +17,8 @@
     "postinstall": "bash ./scripts/post-install.sh",
     "reverse": "adb reverse tcp:8081 tcp:8081",
     "generateimages": "node scripts/genimg src/assets/images --output src/themes/image.js --name Images",
-    "generatefonts": "node scripts/fonts"
+    "generatefonts": "node scripts/fonts",
+    "plop": "plop"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.13",
@@ -52,6 +53,7 @@
     "husky": "^8.0.1",
     "jest": "^29.3.1",
     "metro-react-native-babel-preset": "0.72.3",
+    "plop": "^3.1.1",
     "prettier": "^2.8.1",
     "react-test-renderer": "18.1.0"
   },
