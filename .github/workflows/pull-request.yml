@@ -20,46 +20,48 @@ jobs:
           curl --location --request POST '${{ secrets.GOOGLECHAT }}' \
           --header 'Content-Type: application/json' \
           --data-raw '{
-              "cardsV2": [
-                  {
-                      "card": {
-                          "header": {
-                              "title": "${{ github.event.pull_request.user.login }}",
-                              "subtitle": "Pull Request No: #${{ github.event.pull_request.number }}",
-                              "imageUrl": "${{ github.event.pull_request.user.avatar }}",
-                              "imageType": "CIRCLE",
+              "cardsV2":[
+                {
+                  "card":{
+                    "header":{
+                      "title":"${{ github.event.pull_request.user.login }}",
+                      "subtitle":"Pull Request No: #${{ github.event.pull_request.number }}",
+                      "imageUrl":"${{ github.event.pull_request.user.avatar }}",
+                      "imageType":"CIRCLE"
+                    },
+                    "sections":[
+                      {
+                        "header":"${{ github.event.pull_request.title }}",
+                        "widgets":[
+                          {
+                            "text":"${{ github.event.pull_request.body }}"
                           },
-                          "sections": [
-                              {
-                                  "header": "${{ github.event.pull_request.title }}"
-                                  "widgets": [
-                                       {
-                                          "text":"${{ github.event.pull_request.body }}"
-                                       },
-                                       {
-                                          "buttons": [
-                                              {
-                                                  "textButton": {
-                                                      "text": "Open Pull Request",
-                                                      "color": {
-                                                          "red": 1,
-                                                          "green": 0,
-                                                          "blue": 0,
-                                                          "alpha": 1
-                                                      },
-                                                      "onClick": {
-                                                          "openLink": {
-                                                              "url": "${{ github.event.pull_request.html_url }}"
-                                                          }
-                                                      }
-                                                  }
-                                              }
-                                          ]
+                          {
+                            "buttonList":{
+                              "buttons":[
+                                {
+                                  "textButton":{
+                                    "text":"Open Pull Request",
+                                    "color":{
+                                      "red":1,
+                                      "green":0,
+                                      "blue":0,
+                                      "alpha":1
+                                    },
+                                    "onClick":{
+                                      "openLink":{
+                                        "url":"${{ github.event.pull_request.html_url }}"
                                       }
-                                  ]
-                              }
-                          ]
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
                       }
+                    ]
                   }
+                }
               ]
           }'
