@@ -24,7 +24,7 @@ jobs:
                   {
                       "card": {
                           "header": {
-                              "title": "${{ github.event.pull_request.user.login }}"
+                              "title": "${{ github.event.pull_request.user.login }}",
                               "subtitle": "Pull Request No: #${{ github.event.pull_request.number }}",
                               "imageUrl": "${{ github.event.pull_request.user.avatar }}",
                               "imageType": "CIRCLE",
