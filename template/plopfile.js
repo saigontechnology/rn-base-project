@@ -1,7 +1,7 @@
-const module_type = {
-  screen: 'screens',
-  store: 'store',
-  component: 'component',
+const MODULE_TYPE = {
+  Screen: 'screens',
+  Store: 'store',
+  Component: 'component',
 }
 
 module.exports = function (plop) {
@@ -138,11 +138,11 @@ module.exports = function (plop) {
     ],
     actions(data) {
       switch (data.type) {
-        case module_type.screen:
+        case MODULE_TYPE.Screen:
           return screensView
-        case module_type.store:
+        case MODULE_TYPE.Store:
           return store
-        case module_type.component:
+        case MODULE_TYPE.Component:
           return component
         default:
           break
