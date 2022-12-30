@@ -23,8 +23,7 @@ jobs:
               "cards": [
                   {
                       "header": {
-                          "title": "Pull Request",
-                          "subtitle": "Pull Request No: #${{ github.event.pull_request.number }}"
+                          "title": "Pull Request No: #${{ github.event.pull_request.number }}"
                       },
                       "sections": [
                           {
@@ -43,8 +42,8 @@ jobs:
                                    },
                                    {
                                      "keyValue": {
-                                          "topLabel": "Assignees",
-                                          "content": "- ${{ join(github.event.pull_request.assignees.*.login) }}"
+                                          "topLabel": "Description",
+                                          "content": "${{ github.event.pull_request.body }}"
                                       }
                                    },
                                    {
@@ -56,7 +55,8 @@ jobs:
                                                       "openLink": {
                                                           "url": "${{ github.event.pull_request.html_url }}"
                                                       }
-                                                  }
+                                                  },
+                                                  "color": {"red": 1, "green": 0,"blue": 0,"alpha": 0.5}
                                               }
                                           }
                                       ]
