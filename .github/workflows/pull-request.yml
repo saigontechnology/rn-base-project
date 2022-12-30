@@ -20,7 +20,7 @@ jobs:
           curl --location --request POST '${{ secrets.GOOGLECHAT }}' \
           --header 'Content-Type: application/json' \
           --data-raw '{
-              "cards": [
+              "cardsV2": [
                   {
                       "header": {
                           "title": "Pull Request No: #${{ github.event.pull_request.number }}"
@@ -51,6 +51,12 @@ jobs:
                                           {
                                               "textButton": {
                                                   "text": "Open Pull Request",
+                                                  "color": {
+                                                      "red": 1,
+                                                      "green": 0,
+                                                      "blue": 0,
+                                                      "alpha": 1
+                                                  },
                                                   "onClick": {
                                                       "openLink": {
                                                           "url": "${{ github.event.pull_request.html_url }}"
