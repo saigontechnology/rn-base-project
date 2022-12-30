@@ -22,53 +22,55 @@ jobs:
           --data-raw '{
               "cardsV2": [
                   {
-                      "header": {
-                          "title": "Pull Request No: #${{ github.event.pull_request.number }}"
-                      },
-                      "sections": [
-                          {
-                              "widgets": [
-                                  {
-                                     "keyValue": {
-                                          "topLabel": "Creator",
-                                          "content": "${{ github.event.pull_request.user.login }}"
-                                      },
-                                   },
-                                   {
-                                     "keyValue": {
-                                          "topLabel": "Title",
-                                          "content": "${{ github.event.pull_request.title }}"
-                                      }
-                                   },
-                                   {
-                                     "keyValue": {
-                                          "topLabel": "Description",
-                                          "content": "${{ github.event.pull_request.body }}"
-                                      }
-                                   },
-                                   {
-                                      "buttons": [
-                                          {
-                                              "textButton": {
-                                                  "text": "Open Pull Request",
-                                                  "color": {
-                                                      "red": 1,
-                                                      "green": 0,
-                                                      "blue": 0,
-                                                      "alpha": 1
-                                                  },
-                                                  "onClick": {
-                                                      "openLink": {
-                                                          "url": "${{ github.event.pull_request.html_url }}"
+                      "card": {
+                          "header": {
+                              "title": "Pull Request No: #${{ github.event.pull_request.number }}"
+                          },
+                          "sections": [
+                              {
+                                  "widgets": [
+                                      {
+                                         "keyValue": {
+                                              "topLabel": "Creator",
+                                              "content": "${{ github.event.pull_request.user.login }}"
+                                          },
+                                       },
+                                       {
+                                         "keyValue": {
+                                              "topLabel": "Title",
+                                              "content": "${{ github.event.pull_request.title }}"
+                                          }
+                                       },
+                                       {
+                                         "keyValue": {
+                                              "topLabel": "Description",
+                                              "content": "${{ github.event.pull_request.body }}"
+                                          }
+                                       },
+                                       {
+                                          "buttons": [
+                                              {
+                                                  "textButton": {
+                                                      "text": "Open Pull Request",
+                                                      "color": {
+                                                          "red": 1,
+                                                          "green": 0,
+                                                          "blue": 0,
+                                                          "alpha": 1
+                                                      },
+                                                      "onClick": {
+                                                          "openLink": {
+                                                              "url": "${{ github.event.pull_request.html_url }}"
+                                                          }
                                                       }
                                                   }
                                               }
-                                          }
-                                      ]
-                                  }
-                              ]
-                          }
-                      ]
+                                          ]
+                                      }
+                                  ]
+                              }
+                          ]
+                      }
                   }
               ]
           }'
