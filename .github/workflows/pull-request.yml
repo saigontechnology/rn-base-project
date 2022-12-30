@@ -51,12 +51,6 @@ jobs:
                                           {
                                               "textButton": {
                                                   "text": "Open Pull Request",
-                                                  "color": {
-                                                      "red": 1,
-                                                      "green": 0,
-                                                      "blue": 0,
-                                                      "alpha": 1
-                                                  },
                                                   "onClick": {
                                                       "openLink": {
                                                           "url": "${{ github.event.pull_request.html_url }}"
