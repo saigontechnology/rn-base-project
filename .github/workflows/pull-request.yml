@@ -24,28 +24,17 @@ jobs:
                   {
                       "card": {
                           "header": {
-                              "title": "Pull Request No: #${{ github.event.pull_request.number }}"
+                              "title": "${{ github.event.pull_request.user.login }}"
+                              "subtitle": "Pull Request No: #${{ github.event.pull_request.number }}",
+                              "imageUrl": "${{ github.event.pull_request.user.avatar }}",
+                              "imageType": "CIRCLE",
                           },
                           "sections": [
                               {
+                                  "header": "${{ github.event.pull_request.title }}"
                                   "widgets": [
-                                      {
-                                         "keyValue": {
-                                              "topLabel": "Creator",
-                                              "content": "${{ github.event.pull_request.user.login }}"
-                                          },
-                                       },
                                        {
-                                         "keyValue": {
-                                              "topLabel": "Title",
-                                              "content": "${{ github.event.pull_request.title }}"
-                                          }
-                                       },
-                                       {
-                                         "keyValue": {
-                                              "topLabel": "Description",
-                                              "content": "${{ github.event.pull_request.body }}"
-                                          }
+                                          "text":"${{ github.event.pull_request.body }}"
                                        },
                                        {
                                           "buttons": [
