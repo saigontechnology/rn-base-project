@@ -1,5 +1,7 @@
 #1/use/bin/env bash
 
+npx jetify
+
 if [[ ! "$CI" = true ]]; then
   # Do not install iOS Pods on CI
   if [[ $(sysctl -n machdep.cpu.brand_string) =~ "Apple" ]]; then
