@@ -48,7 +48,7 @@ async function axiosAPI({api, method, body, config}) {
       return {...response.data, status: response.status}
     })
     .catch(error => {
-      return {message: error.response.data.message, status: error.response.status}
+      return {data: error?.response?.data, status: error?.response?.status}
     })
 }
 

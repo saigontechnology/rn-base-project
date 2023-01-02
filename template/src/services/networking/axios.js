@@ -1,19 +1,15 @@
 import axios from 'axios'
 import {setToken, TokenType} from '.'
-import {
-  REFRESH_TOKEN_KEY,
-  RESPONSE_POST_SUCCESS,
-  RESPONSE_SUCCESS,
-  TOKEN_KEY,
-  UNAUTHORIZED,
-} from '../../constants'
+import {REFRESH_TOKEN_KEY, TOKEN_KEY, UNAUTHORIZED} from '../../constants'
 import {getRefreshToken} from '../api'
+import {clearAllKeys, getString, setData} from '../../services/mmkv/storage'
+import {replace} from '../../navigation/NavigationService'
+import RouteKey from '../../navigation/RouteKey'
 import Config from 'react-native-config'
-import {setData, getString} from '../../services/mmkv/storage'
 
 const instance = axios.create({
   baseURL: Config.API_URL,
-  timeout: 60000,
+  timeout: Config.API_TIMEOUT,
   withCredentials: false,
   responseType: 'json',
   headers: {
@@ -23,22 +19,25 @@ const instance = axios.create({
   data: {},
 })
 
-const handleRefreshToken = async (refreshToken, originalConfig) => {
-  try {
-    // Call RefreshToken API
-    const res = await getRefreshToken(refreshToken)
-    if (res?.status !== RESPONSE_SUCCESS && res?.status !== RESPONSE_POST_SUCCESS) {
-      throw new Error(res)
-    }
+const backToLogin = () => {
+  replace(RouteKey.LoginScreen)
+}
 
-    // Save AccessToken and RefreshToken
-    setToken(res?.data?.token, TokenType.Bearer)
-    setData(TOKEN_KEY, res?.data?.token)
-    setData(REFRESH_TOKEN_KEY, res?.data?.refreshToken)
-    return instance(originalConfig)
-  } catch (err) {
-    return Promise.reject(err)
-  }
+const handleRefreshToken = async (refreshToken, originalConfig) => {
+  // Call RefreshToken API
+  return getRefreshToken(refreshToken)
+    .then(response => {
+      // Save new Token and RefreshToken
+      setToken(response?.data?.token, TokenType.Bearer)
+      setData(TOKEN_KEY, response?.data?.token)
+      setData(REFRESH_TOKEN_KEY, response?.data?.refreshToken)
+      return instance(originalConfig)
+    })
+    .catch(() => {
+      // Remove all keys and back to login screen to get new token
+      clearAllKeys()
+      backToLogin()
+    })
 }
 
 const interceptor = instance.interceptors.response.use(
@@ -50,7 +49,7 @@ const interceptor = instance.interceptors.response.use(
     const originalConfig = error?.config
     const token = await getString(TOKEN_KEY)
     const refreshToken = await getString(REFRESH_TOKEN_KEY)
-    const isExpiredToken = token && error?.response?.status === UNAUTHORIZED
+    const isExpiredToken = token && UNAUTHORIZED.includes(error?.response?.status)
 
     if (isExpiredToken) {
       if (refreshToken) {
