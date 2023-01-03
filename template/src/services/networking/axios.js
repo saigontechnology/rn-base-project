@@ -6,6 +6,8 @@ import {clearAllKeys, getString, setData} from '../../services/mmkv/storage'
 import {replace} from '../../navigation/NavigationService'
 import RouteKey from '../../navigation/RouteKey'
 import Config from 'react-native-config'
+import {store} from '../../store/store'
+import { appActions } from '../../store/reducers'
 
 const instance = axios.create({
   baseURL: Config.API_URL,
@@ -20,7 +22,7 @@ const instance = axios.create({
 })
 
 const backToLogin = () => {
-  replace(RouteKey.LoginScreen)
+  store.dispatch(appActions.setAppStack(RouteKey.AuthStack))
 }
 
 const handleRefreshToken = async (refreshToken, originalConfig) => {
