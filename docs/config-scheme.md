@@ -9,7 +9,7 @@ Install the package
 // yarn 
 yarn add react-native-config
 
-// npm 
+// npmmmmm 
 npm install react-native-config --save
 ```
 
