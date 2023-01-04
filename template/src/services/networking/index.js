@@ -34,7 +34,7 @@ export function setToken(token, type = null) {
 }
 
 async function axiosAPI({url, method, data, config}) {
-  if (data && isObject(data)) {
+  if (isObject(data)) {
     data = JSON.stringify(data)
   }
 

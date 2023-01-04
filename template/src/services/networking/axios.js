@@ -70,10 +70,10 @@ const interceptor = instance.interceptors.response.use(
 
 instance.interceptors.request.use(config => {
   // Do something before request is sent
-  return config;
-}, function (error) {
+  return config
+}, error => {
   // Do something with request error
-  return Promise.reject(error);
+  return Promise.reject(error)
 })
 
 export default instance
