@@ -41,5 +41,5 @@ export function isDarkMode() {
 }
 
 export function isObject(val) {
-  return typeof val === 'object' && val.constructor !== FormData
+  return typeof val === 'object' && val.constructor !== FormData && val !== null
 }

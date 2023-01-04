@@ -2,7 +2,6 @@ import {isObject} from '../../utilities/utils'
 import instance from './axios'
 
 export const TokenType = {
-  Paymentez: 'Paymentez',
   Bearer: 'Bearer',
   Basic: 'Basic',
 }
@@ -25,9 +24,6 @@ export function setBaseURL(baseURL) {
 
 export function setToken(token, type = null) {
   switch (type) {
-    case TokenType.Paymentez: {
-      return (instance.defaults.headers.common['Auth-Token'] = token)
-    }
     case TokenType.Bearer: {
       return (instance.defaults.headers.common.Authorization = `Bearer ${token}`)
     }
@@ -37,11 +33,15 @@ export function setToken(token, type = null) {
   }
 }
 
-async function axiosAPI({api, method, body, config}) {
+async function axiosAPI({url, method, data, config}) {
+  if (data && isObject(data)) {
+    data = JSON.stringify(data)
+  }
+
   return instance({
-    url: api,
+    url,
     method,
-    data: body,
+    data,
     headers: {...config},
   })
     .then(response => {
@@ -52,22 +52,15 @@ async function axiosAPI({api, method, body, config}) {
     })
 }
 
-export function getRequest(api, config) {
-  return axiosAPI({api, method: AxiosMethod.get, config})
+export function getRequest(url, config) {
+  return axiosAPI({url, method: AxiosMethod.get, config})
 }
 
-function post(api, body, config) {
-  return axiosAPI({api, method: AxiosMethod.post, body, config})
+export function postRequest(url, data, config) {
+  return axiosAPI({url, method: AxiosMethod.post, data, config})
 }
 
-export function postRequest(api, body, config) {
-  if (isObject(body)) {
-    body = JSON.stringify(body)
-  }
-  return post(api, body, config)
-}
-
-export function postFormDataRequest(api, data, config) {
+export function postFormDataRequest(url, data, config) {
   try {
     if (data.constructor !== FormData) {
       throw new Error('Unrecognized FormData part')
@@ -79,28 +72,20 @@ export function postFormDataRequest(api, data, config) {
       ...config,
       headers,
     }
-    return post(api, data, config)
+    return axiosAPI({url, method: AxiosMethod.post, data, config})
   } catch (error) {
     return {error: error.response.data.message}
   }
 }
 
-export function putRequest(api, body, config) {
-  if (isObject(body)) {
-    body = JSON.stringify(body)
-  }
-
-  return axiosAPI({api, method: AxiosMethod.put, body, config})
+export function putRequest(url, data, config) {
+  return axiosAPI({url, method: AxiosMethod.put, data, config})
 }
 
-export function patchRequest(api, body, config) {
-  if (isObject(body)) {
-    body = JSON.stringify(body)
-  }
-
-  return axiosAPI({api, method: AxiosMethod.patch, body, config})
+export function patchRequest(url, data, config) {
+  return axiosAPI({url, method: AxiosMethod.patch, data, config})
 }
 
-export function deleteRequest(api, config) {
-  return axiosAPI({api, method: AxiosMethod.delete, config})
+export function deleteRequest(url, config) {
+  return axiosAPI({url, method: AxiosMethod.delete, config})
 }

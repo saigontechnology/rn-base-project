@@ -1,17 +1,16 @@
 import axios from 'axios'
 import {setToken, TokenType} from '.'
-import {REFRESH_TOKEN_KEY, TOKEN_KEY, UNAUTHORIZED} from '../../constants'
+import {AXIOS_TIMEOUT, REFRESH_TOKEN_KEY, TOKEN_KEY, UNAUTHORIZED} from '../../constants'
 import {getRefreshToken} from '../api'
 import {clearAllKeys, getString, setData} from '../../services/mmkv/storage'
-import {replace} from '../../navigation/NavigationService'
 import RouteKey from '../../navigation/RouteKey'
 import Config from 'react-native-config'
 import {store} from '../../store/store'
-import { appActions } from '../../store/reducers'
+import {appActions} from '../../store/reducers'
 
 const instance = axios.create({
   baseURL: Config.API_URL,
-  timeout: Config.API_TIMEOUT,
+  timeout: AXIOS_TIMEOUT,
   withCredentials: false,
   responseType: 'json',
   headers: {
@@ -51,9 +50,9 @@ const interceptor = instance.interceptors.response.use(
     const originalConfig = error?.config
     const token = await getString(TOKEN_KEY)
     const refreshToken = await getString(REFRESH_TOKEN_KEY)
-    const isExpiredToken = token && UNAUTHORIZED.includes(error?.response?.status)
+    const isTokenExpired = token && UNAUTHORIZED.includes(error?.response?.status)
 
-    if (isExpiredToken) {
+    if (isTokenExpired) {
       if (refreshToken) {
         // Eject the interceptor so it doesn't loop in case
         instance.interceptors.response.eject(interceptor)
@@ -69,14 +68,12 @@ const interceptor = instance.interceptors.response.use(
   },
 )
 
-instance.interceptors.response.use(
-  response => {
-    // Do something with response data
-    return response
-  },
-  error => {
-    return Promise.reject(error)
-  },
-)
+instance.interceptors.request.use(config => {
+  // Do something before request is sent
+  return config;
+}, function (error) {
+  // Do something with request error
+  return Promise.reject(error);
+})
 
 export default instance
