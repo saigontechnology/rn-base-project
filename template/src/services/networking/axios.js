@@ -6,7 +6,7 @@ import {clearAllKeys, getString, setData} from '../../services/mmkv/storage'
 import RouteKey from '../../navigation/RouteKey'
 import Config from 'react-native-config'
 import {store} from '../../store/store'
-import {appActions} from '../../store/reducers'
+import {appActions, userActions} from '../../store/reducers'
 
 const instance = axios.create({
   baseURL: Config.API_URL,
@@ -20,8 +20,8 @@ const instance = axios.create({
   data: {},
 })
 
-const backToLogin = () => {
-  store.dispatch(appActions.setAppStack(RouteKey.AuthStack))
+const logout = () => {
+  store.dispatch(userActions.logout())
 }
 
 const handleRefreshToken = async (refreshToken, originalConfig) => {
@@ -37,7 +37,7 @@ const handleRefreshToken = async (refreshToken, originalConfig) => {
     .catch(() => {
       // Remove all keys and back to login screen to get new token
       clearAllKeys()
-      backToLogin()
+      logout()
     })
 }
 
