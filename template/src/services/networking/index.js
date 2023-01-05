@@ -1,36 +1,12 @@
 import {isObject} from '../../utilities/utils'
 import instance from './axios'
 
-export const TokenType = {
-  Bearer: 'Bearer',
-  Basic: 'Basic',
-}
-
 const AxiosMethod = {
   get: 'GET',
   post: 'POST',
   put: 'PUT',
   delete: 'DELETE',
   patch: 'PATCH',
-}
-
-export function setHeader(property, data) {
-  instance.defaults.headers.common[property] = data
-}
-
-export function setBaseURL(baseURL) {
-  instance.defaults.baseURL = baseURL
-}
-
-export function setToken(token, type = null) {
-  switch (type) {
-    case TokenType.Bearer: {
-      return (instance.defaults.headers.common.Authorization = `Bearer ${token}`)
-    }
-    default: {
-      return (instance.defaults.headers.common.Authorization = token)
-    }
-  }
 }
 
 async function axiosAPI({url, method, data, config}) {

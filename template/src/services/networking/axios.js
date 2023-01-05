@@ -1,12 +1,34 @@
 import axios from 'axios'
-import {setToken, TokenType} from '.'
 import {AXIOS_TIMEOUT, REFRESH_TOKEN_KEY, TOKEN_KEY, UNAUTHORIZED} from '../../constants'
-import {getRefreshToken} from '../api'
 import {clearAllKeys, getString, setData} from '../../services/mmkv/storage'
-import RouteKey from '../../navigation/RouteKey'
 import Config from 'react-native-config'
 import {store} from '../../store/store'
-import {appActions, userActions} from '../../store/reducers'
+import {userActions} from '../../store/reducers'
+import {AUTH_API} from '../api/api'
+
+export function setHeader(property, data) {
+  instance.defaults.headers.common[property] = data
+}
+
+export function setBaseURL(baseURL) {
+  instance.defaults.baseURL = baseURL
+}
+
+export const TokenType = {
+  Bearer: 'Bearer',
+  Basic: 'Basic',
+}
+
+export function setToken(token, type = null) {
+  switch (type) {
+    case TokenType.Bearer: {
+      return (instance.defaults.headers.common.Authorization = `Bearer ${token}`)
+    }
+    default: {
+      return (instance.defaults.headers.common.Authorization = token)
+    }
+  }
+}
 
 const instance = axios.create({
   baseURL: Config.API_URL,
@@ -26,7 +48,8 @@ const logout = () => {
 
 const handleRefreshToken = async (refreshToken, originalConfig) => {
   // Call RefreshToken API
-  return getRefreshToken(refreshToken)
+  return instance
+    .post(AUTH_API.refreshToken, refreshToken)
     .then(response => {
       // Save new Token and RefreshToken
       setToken(response?.data?.token, TokenType.Bearer)
@@ -68,12 +91,15 @@ const interceptor = instance.interceptors.response.use(
   },
 )
 
-instance.interceptors.request.use(config => {
-  // Do something before request is sent
-  return config
-}, error => {
-  // Do something with request error
-  return Promise.reject(error)
-})
+instance.interceptors.request.use(
+  config => {
+    // Do something before request is sent
+    return config
+  },
+  error => {
+    // Do something with request error
+    return Promise.reject(error)
+  },
+)
 
 export default instance
