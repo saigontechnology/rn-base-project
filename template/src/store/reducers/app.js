@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit'
 import RouteKey from '../../navigation/RouteKey'
 import {APP_CONSTANTS_ACTIONS} from '../constants/app'
 
-export const initialState = {
+export const appInitialState = {
   showGlobalIndicator: false,
   appState: RouteKey.SplashScreen,
   showSearchBar: false,
@@ -10,7 +10,7 @@ export const initialState = {
 
 const appSlice = createSlice({
   name: 'app',
-  initialState,
+  initialState: appInitialState,
   reducers: {
     [APP_CONSTANTS_ACTIONS.GET_SETTING_APP_ACTIONS.HANDLER]: (state, action) => {},
     [APP_CONSTANTS_ACTIONS.GET_SETTING_APP_ACTIONS.SUCCESS]: (state, action) => {},

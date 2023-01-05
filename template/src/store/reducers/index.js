@@ -1,8 +1,8 @@
 import {combineReducers} from '@reduxjs/toolkit'
 import {persistReducer} from 'redux-persist'
 // Reducer Imports
-import user, {initialState as userInitialState} from './user'
-import app, {initialState as appInitialState} from './app'
+import user, {userInitialState} from './user'
+import app, {appInitialState} from './app'
 import loading from './loading'
 import {MMKVStorage} from '../../services'
 

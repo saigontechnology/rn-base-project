@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit'
 import {APP_CONSTANTS_ACTIONS} from '../constants/app'
 import {USER_CONSTANTS_ACTIONS} from '../constants/user'
 
-export const initialState = {
+export const userInitialState = {
   userInfo: {},
   isEndUser: false,
   tokenData: {},
@@ -10,8 +10,8 @@ export const initialState = {
 }
 
 export const userSlice = createSlice({
-  name: 'auth',
-  initialState,
+  name: 'user',
+  initialState: userInitialState,
   reducers: {
     [USER_CONSTANTS_ACTIONS.USER_LOGIN_ACTIONS.HANDLER]: () => {},
     [USER_CONSTANTS_ACTIONS.USER_LOGIN_ACTIONS.SUCCESS]: () => {},
