@@ -235,6 +235,7 @@ export const DebugMenu = () => {
           data={
             bottomSheetType === BOTTOM_SHEET_TYPE.env ? [Config.API_URL, ...EXTRA_QA_ENVS] : CODEPUSH_KEYS
           }
+          keyExtractor={(item)=> item.dev || item}
           extraData={[currentApiUrl, codePushKey]}
           renderItem={renderEnvironmentItem}
         />

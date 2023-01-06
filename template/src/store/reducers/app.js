@@ -3,7 +3,7 @@ import Config, {CODEPUSH_KEYS} from '../../constants/configs'
 import RouteKey from '../../navigation/RouteKey'
 import {APP_CONSTANTS_ACTIONS} from '../constants/app'
 
-export const appInitialState = {
+const appInitialState = {
   showGlobalIndicator: false,
   appState: RouteKey.SplashScreen,
   showSearchBar: false,
