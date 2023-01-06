@@ -21,7 +21,7 @@ if [[ ! "$CI" = true ]]; then
         arch -x86_64 npx pod install --repo-update && cd ..
     else
       echo "Intel"
-      nxp pod install --repo-update && cd ..
+      npx pod install --repo-update && cd ..
     fi
   else
     exit $error_code
