@@ -2,9 +2,14 @@ import axios from 'axios'
 import {AXIOS_TIMEOUT, REFRESH_TOKEN_KEY, TOKEN_KEY, UNAUTHORIZED} from '../../constants'
 import {clearAllKeys, getString, setData} from '../../services/mmkv/storage'
 import Config from 'react-native-config'
-import {store} from '../../store/store'
 import {userActions} from '../../store/reducers'
 import {AUTH_API} from '../api/api'
+
+let store
+
+export const injectStore = _store => {
+  store = _store
+}
 
 export function setHeader(property, data) {
   instance.defaults.headers.common[property] = data
