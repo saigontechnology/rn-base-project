@@ -1,28 +1,42 @@
 import BottomSheet, {BottomSheetFlatList} from '@gorhom/bottom-sheet'
 import React, {useCallback, useMemo, useRef, useState} from 'react'
-import {Modal, Pressable, SafeAreaView, ScrollView, View, Text, Button} from 'react-native'
+import {
+  Modal,
+  Pressable,
+  SafeAreaView,
+  ScrollView,
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  useWindowDimensions,
+} from 'react-native'
 import {getApplicationName, getBuildNumber, getDeviceId} from 'react-native-device-info'
 import Draggable from 'react-native-draggable'
 
-import Config, {BOTTOM_SHEET_TYPE, CODEPUSH_KEYS, EXTRA_QA_ENVS} from '../../constants/configs'
+import Config, {BOTTOM_SHEET_TYPE, CODEPUSH_KEYS, EXTRA_QA_ENVS} from '../constants/configs'
 
-import {InfoMenu, InfoMenuRow, InfoMenuLink} from '../info-menu'
+import {InfoMenu, InfoMenuRow, InfoMenuLink} from './InfoMenu'
 
-import styles from './styles'
+import {colors} from '../themes'
 
-import {colors} from '../../themes'
-import useWindowDimensions from 'react-native/Libraries/Utilities/useWindowDimensions'
-import {localize} from '../../locale/I18nConfig'
+import {localize} from '../locale/I18nConfig'
 import {useDispatch, useSelector} from 'react-redux'
-import {getApiUrl, getCodePushKey} from '../../store/selectors'
-import {appActions} from '../../store/reducers'
+import {getApiUrl, getCodePushKey} from '../store/selectors'
+import {appActions} from '../store/reducers'
 
 const debugMenuSize = 50
 
 const AppInfoSection = () => {
-  const appName = useMemo(() => getApplicationName(), [])
-  const buildNumber = useMemo(() => getBuildNumber(), [])
-  const deviceId = useMemo(() => getDeviceId(), [])
+  const appName = useMemo(() => {
+    return getApplicationName()
+  }, [])
+  const buildNumber = useMemo(() => {
+    return getBuildNumber()
+  }, [])
+  const deviceId = useMemo(() => {
+    return getDeviceId()
+  }, [])
 
   return (
     <View style={styles.section}>
@@ -77,7 +91,9 @@ const TestingEnvironmentSection = ({onUpdateApiUrl, currentApiUrl}) => {
 }
 
 const CodePushKeySection = ({onUpdateCodePushKey, currentCodePushKey}) => {
-  const codePush = CODEPUSH_KEYS.find(item => item.dev === currentCodePushKey)
+  const codePush = CODEPUSH_KEYS.find(item => {
+    return item.dev === currentCodePushKey
+  })
 
   return (
     <View style={styles.section}>
@@ -105,8 +121,12 @@ const CodePushKeySection = ({onUpdateCodePushKey, currentCodePushKey}) => {
 
 export const DebugMenu = () => {
   const [modalVisible, setModalVisible] = useState(false)
-  const openModal = useCallback(() => setModalVisible(true), [])
-  const closeModal = useCallback(() => setModalVisible(false), [])
+  const openModal = useCallback(() => {
+    return setModalVisible(true)
+  }, [])
+  const closeModal = useCallback(() => {
+    return setModalVisible(false)
+  }, [])
 
   const dispatch = useDispatch()
 
@@ -120,7 +140,9 @@ export const DebugMenu = () => {
 
   const bottomSheetRef = useRef(null)
 
-  const snapPoints = useMemo(() => ['95%'], [])
+  const snapPoints = useMemo(() => {
+    return ['95%']
+  }, [])
 
   const handleSnapPress = useCallback(index => {
     bottomSheetRef.current?.snapToIndex(index)
@@ -220,3 +242,60 @@ export const DebugMenu = () => {
     </>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.white,
+  },
+  header: {
+    height: 44,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    borderBottomColor: colors.placeholder,
+    borderBottomWidth: 1,
+  },
+  closeButton: {
+    marginRight: 6,
+    paddingHorizontal: 8,
+  },
+  scrollContent: {
+    paddingHorizontal: 8,
+  },
+  section: {
+    marginTop: 24,
+  },
+  content: {
+    marginVertical: 8,
+  },
+  infoMenu: {
+    marginTop: 16,
+  },
+  flatList: {
+    flex: 1,
+  },
+  flatListContent: {
+    padding: 12,
+  },
+  flatListItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+    borderBottomColor: colors.placeholder,
+    borderBottomWidth: 1,
+  },
+  flatListItemTitle: {
+    flex: 1,
+    marginRight: 8,
+  },
+  flatListItemIcon: {
+    width: 24,
+    height: 24,
+    backgroundColor: colors.primary,
+    borderWidth: 1,
+    borderRadius: 12,
+  },
+  h3: {
+    fontWeight: 'bold',
+  },
+})
