@@ -3,7 +3,7 @@ import Config, {CODEPUSH_KEYS} from '../../constants/configs'
 import RouteKey from '../../navigation/RouteKey'
 import {APP_CONSTANTS_ACTIONS} from '../constants/app'
 
-const initialState = {
+export const appInitialState = {
   showGlobalIndicator: false,
   appState: RouteKey.SplashScreen,
   showSearchBar: false,
@@ -13,7 +13,7 @@ const initialState = {
 
 const appSlice = createSlice({
   name: 'app',
-  initialState,
+  initialState: appInitialState,
   reducers: {
     [APP_CONSTANTS_ACTIONS.GET_SETTING_APP_ACTIONS.HANDLER]: (state, action) => {},
     [APP_CONSTANTS_ACTIONS.GET_SETTING_APP_ACTIONS.SUCCESS]: (state, action) => {},
