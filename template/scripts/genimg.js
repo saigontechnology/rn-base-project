@@ -1,6 +1,3 @@
-/* eslint-disable func-names */
-/* eslint-disable prefer-rest-params */
-/* eslint-disable guard-for-in */
 /* eslint-disable no-extend-native */
 /**
  * @flow
@@ -27,7 +24,9 @@ const getFileName = file => {
   const fileNameMatch = file.match(/^(.+)\.[^\.]+$/)
   return (
     fileNameMatch &&
-    fileNameMatch[1].toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase())
+    fileNameMatch[1].toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => {
+      return chr.toUpperCase()
+    })
   )
 }
 

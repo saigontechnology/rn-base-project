@@ -1,3 +1,7 @@
-const getUserData = state => state.user
+const getUserData = state => {
+  return state.user
+}
 
-export const getUserInfo = state => getUserData(state).userInfo
+export const getUserInfo = state => {
+  return getUserData(state).userInfo
+}

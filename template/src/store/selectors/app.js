@@ -1,4 +1,10 @@
-const getAppData = state => state.app
+const getAppData = state => {
+  return state.app
+}
 
-export const getLoadingIndicator = state => getAppData(state).showGlobalIndicator
-export const getAppStackState = state => getAppData(state).appState
+export const getLoadingIndicator = state => {
+  return getAppData(state).showGlobalIndicator
+}
+export const getAppStackState = state => {
+  return getAppData(state).appState
+}

@@ -149,12 +149,14 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
-  messageContainer: backgroundColor => ({
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    backgroundColor,
-  }),
+  messageContainer: backgroundColor => {
+    return {
+      flex: 1,
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+      backgroundColor,
+    }
+  },
   textStyle: {
     fontSize: FontSizes.span,
     marginBottom: metrics.marginVertical,

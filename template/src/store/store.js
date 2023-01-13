@@ -12,7 +12,9 @@ const persistedReducer = persistReducer(persistConfig, reducers)
 
 const store = configureStore({
   reducer: persistedReducer,
-  middleware: getDefaultMiddleware => getDefaultMiddleware({serializableCheck: false, thunk: false}),
+  middleware: getDefaultMiddleware => {
+    return getDefaultMiddleware({serializableCheck: false, thunk: false})
+  },
   enhancers: [middlewareEnhancer],
 })
 

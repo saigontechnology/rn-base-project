@@ -7,9 +7,13 @@ if [[ ! "$CI" = true ]]; then
   if [[ $(sysctl -n machdep.cpu.brand_string) =~ "Apple" ]]; then
     echo "M1"
     cd ./ios && arch -x86_64 npx pod install && cd ..
+    echo "prepare husky"
+    yarn prepare
   else
     echo "Intel"
     cd ./ios && npx pod install && cd ..
+    echo "prepare husky"
+    yarn prepare
   fi
   error_code=$?
   echo "Pods error_code: ${error_code}"
