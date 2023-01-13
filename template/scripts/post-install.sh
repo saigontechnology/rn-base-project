@@ -9,7 +9,7 @@ if [[ ! "$CI" = true ]]; then
     cd ./ios && arch -x86_64 pod install && cd ..
   else
     echo "Intel"
-    cd ./ios && npx pod install && cd ..
+    cd ./ios && pod install && cd ..
   fi
   error_code=$?
   echo "Pods error_code: ${error_code}"
@@ -21,7 +21,7 @@ if [[ ! "$CI" = true ]]; then
         arch -x86_64 pod install --repo-update && cd ..
     else
       echo "Intel"
-      npx pod install --repo-update && cd ..
+     pod install --repo-update && cd ..
     fi
   else
     exit $error_code
