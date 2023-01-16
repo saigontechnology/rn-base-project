@@ -29,7 +29,7 @@
     "react": "18.1.0",
     "react-native": "0.70.6",
     "react-native-code-push": "^7.0.5",
-    "react-native-config": "^1.4.11",
+    "react-native-config": "^1.4.12",
     "react-native-gesture-handler": "^2.8.0",
     "react-native-mmkv": "^2.5.1",
     "react-native-progress": "^5.0.0",
