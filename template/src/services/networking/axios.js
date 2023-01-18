@@ -51,9 +51,9 @@ const logout = () => {
   store.dispatch(userActions.logout())
 }
 
-const handleRefreshToken = async (refreshToken, originalConfig) => {
+const handleRefreshToken = async (refreshToken, originalConfig) =>
   // Call RefreshToken API
-  return instance
+  instance
     .post(AUTH_API.refreshToken, refreshToken)
     .then(response => {
       // Save new Token and RefreshToken
@@ -67,13 +67,11 @@ const handleRefreshToken = async (refreshToken, originalConfig) => {
       clearAllKeys()
       logout()
     })
-}
 
 const interceptor = instance.interceptors.response.use(
-  response => {
+  response =>
     // Do something with response data
-    return response
-  },
+    response,
   async error => {
     const originalConfig = error?.config
     const token = await getString(TOKEN_KEY)
@@ -97,14 +95,12 @@ const interceptor = instance.interceptors.response.use(
 )
 
 instance.interceptors.request.use(
-  config => {
+  config =>
     // Do something before request is sent
-    return config
-  },
-  error => {
+    config,
+  error =>
     // Do something with request error
-    return Promise.reject(error)
-  },
+    Promise.reject(error),
 )
 
 export default instance

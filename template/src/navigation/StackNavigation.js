@@ -14,40 +14,34 @@ export const componentMatch = stackName => {
 
 const Stack = createNativeStackNavigator()
 
-export const HomeNavigator = () => {
-  return (
-    <Stack.Navigator>
-      {/* Plop screen */}
-      <Stack.Screen
-        name={RouteKey.HomeScreen}
-        component={screenMatch(RouteKey.HomeScreen)}
-        options={optionsMatch(RouteKey.HomeScreen)}
-      />
-    </Stack.Navigator>
-  )
-}
+export const HomeNavigator = () => (
+  <Stack.Navigator>
+    {/* Plop screen */}
+    <Stack.Screen
+      name={RouteKey.HomeScreen}
+      component={screenMatch(RouteKey.HomeScreen)}
+      options={optionsMatch(RouteKey.HomeScreen)}
+    />
+  </Stack.Navigator>
+)
 
-export const AuthNavigator = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name={RouteKey.LoginScreen}
-        component={screenMatch(RouteKey.LoginScreen)}
-        options={optionsMatch(RouteKey.LoginScreen)}
-      />
-      <Stack.Screen
-        name={RouteKey.SignUpScreen}
-        component={screenMatch(RouteKey.SignUpScreen)}
-        options={optionsMatch(RouteKey.SignUpScreen)}
-      />
-    </Stack.Navigator>
-  )
-}
+export const AuthNavigator = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name={RouteKey.LoginScreen}
+      component={screenMatch(RouteKey.LoginScreen)}
+      options={optionsMatch(RouteKey.LoginScreen)}
+    />
+    <Stack.Screen
+      name={RouteKey.SignUpScreen}
+      component={screenMatch(RouteKey.SignUpScreen)}
+      options={optionsMatch(RouteKey.SignUpScreen)}
+    />
+  </Stack.Navigator>
+)
 
-export const MainStackNavigator = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name={RouteKey.HomeStack} component={HomeNavigator} />
-    </Stack.Navigator>
-  )
-}
+export const MainStackNavigator = () => (
+  <Stack.Navigator>
+    <Stack.Screen name={RouteKey.HomeStack} component={HomeNavigator} />
+  </Stack.Navigator>
+)
