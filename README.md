@@ -57,8 +57,7 @@ npx react-native init ProjectName --template rn-base-project
 ## Debug menu 
 Helper menu for QAs to examine the apps during the development:
 - Device Info
-- Environment/Backend switcher
-The most frequent practice may be switching quickly between several backend environments.
+- Environment/Backend switcher: The most frequent practice may be switching quickly between several backend environments.
 - CodePush Environment switcher
 
 Dependencies: 
