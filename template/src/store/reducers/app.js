@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
-import Config, {CODEPUSH_KEYS} from '../../constants/configs'
+import Config, {CODEPUSH_KEYS} from '../../constants/Config'
 import RouteKey from '../../navigation/RouteKey'
 import {APP_CONSTANTS_ACTIONS} from '../constants/app'
 

@@ -14,7 +14,7 @@ import {
 import {getApplicationName, getBuildNumber, getDeviceId} from 'react-native-device-info'
 import Draggable from 'react-native-draggable'
 
-import Config, {BOTTOM_SHEET_TYPE, CODEPUSH_KEYS, EXTRA_QA_ENVS} from '../constants/configs'
+import Config, {BOTTOM_SHEET_TYPE, CODEPUSH_KEYS, EXTRA_QA_ENVS} from '../constants/Config'
 
 import {InfoMenu, InfoMenuRow, InfoMenuLink} from './InfoMenu'
 
