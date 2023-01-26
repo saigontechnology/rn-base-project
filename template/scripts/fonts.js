@@ -4,9 +4,7 @@
 
 const fs = require('fs')
 const fontFileNames = () => {
-  const array = fs.readdirSync('src/assets/fonts').map(file => {
-    return file.replace(/.ttf|.otf/gi, '')
-  })
+  const array = fs.readdirSync('src/assets/fonts').map(file => file.replace(/.ttf|.otf/gi, ''))
   return Array.from(new Set(array))
 }
 const generate = () => {

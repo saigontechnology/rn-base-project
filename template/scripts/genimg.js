@@ -1,6 +1,3 @@
-/* eslint-disable func-names */
-/* eslint-disable prefer-rest-params */
-/* eslint-disable guard-for-in */
 /* eslint-disable no-extend-native */
 /**
  * @flow
