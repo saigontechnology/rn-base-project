@@ -48,6 +48,7 @@ npx react-native init ProjectName --template rn-base-project
     - redux-saga
     - i18n-js
     - plop
+    - test
 ```
 
 ## mmkv storage
