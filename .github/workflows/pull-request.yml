@@ -40,6 +40,12 @@ jobs:
                                           "content": "${{ github.event.pull_request.title }}"
                                       }
                                    },
+                                    {
+                                     "keyValue": {
+                                          "topLabel": "Assignees",
+                                          "content": "- ${{ join(github.event.pull_request.assignees.*.login) }}"
+                                      }
+                                   },
                                    {
                                       "buttons": [
                                           {
