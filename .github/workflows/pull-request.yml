@@ -41,12 +41,6 @@ jobs:
                                       }
                                    },
                                    {
-                                     "keyValue": {
-                                          "topLabel": "Description",
-                                          "content": "${{ github.event.pull_request.body }}"
-                                      }
-                                   },
-                                   {
                                       "buttons": [
                                           {
                                               "textButton": {
