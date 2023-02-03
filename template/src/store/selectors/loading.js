@@ -5,7 +5,7 @@ export const getLoadingSelector = (state, actionTypes) => {
       if (!matches) {
         return false
       }
-      const [, requestName, requestState] = matches
+      const [, requestName] = matches
       return state.loading[`${requestName}`] || false
     })
   }

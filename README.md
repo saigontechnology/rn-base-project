@@ -31,7 +31,7 @@ npx react-native init ProjectName --template rn-base-project
 - [Config scheme](docs/config-scheme.md)
 - [Generate files](docs/generate-files.md)
 
-## Libraries used:
+## Dependencies
 ```text
     - react-native-mmkv
     - @react-navigation/bottom-tabs
