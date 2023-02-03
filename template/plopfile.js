@@ -37,13 +37,6 @@ module.exports = function (plop) {
     },
     {
       type: 'modify',
-      path: 'src/navigation/StackNavigation.js',
-      pattern: /\{\/\* Plop screen \*\/}/gi,
-      template:
-        '{/* Plop screen */}\r\n      <Stack.Screen\r\n        name={RouteKey.{{properCase name}}Screen}\r\n        component={screenMatch(RouteKey.{{properCase name}}Screen)}\r\n        options={optionsMatch(RouteKey.{{properCase name}}Screen)}\r\n      />',
-    },
-    {
-      type: 'modify',
       path: 'src/navigation/ScreenService.js',
       pattern: /\/\/ Screen Import/gi,
       template:
