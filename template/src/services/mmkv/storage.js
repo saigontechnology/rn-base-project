@@ -17,21 +17,13 @@ export const setData = (key, data) => {
   storage.set(key, data)
 }
 
-export const getString = key => {
-  return storage.getString(key)
-}
+export const getString = key => storage.getString(key)
 
-export const getNumber = key => {
-  return storage.getNumber(key)
-}
+export const getNumber = key => storage.getNumber(key)
 
-export const getBoolean = key => {
-  return storage.getBoolean(key)
-}
+export const getBoolean = key => storage.getBoolean(key)
 
-export const getAllKeys = () => {
-  return storage.getAllKeys()
-}
+export const getAllKeys = () => storage.getAllKeys()
 
 export const clearAllKeys = () => {
   storage.clearAll()

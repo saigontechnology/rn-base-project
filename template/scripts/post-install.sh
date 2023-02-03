@@ -1,6 +1,6 @@
 #1/use/bin/env bash
 
-yarn jetify
+npx jetify
 
 if [[ ! "$CI" = true ]]; then
   # Do not install iOS Pods on CI
@@ -21,7 +21,7 @@ if [[ ! "$CI" = true ]]; then
         arch -x86_64 pod install --repo-update && cd ..
     else
       echo "Intel"
-      pod install --repo-update && cd ..
+     pod install --repo-update && cd ..
     fi
   else
     exit $error_code
