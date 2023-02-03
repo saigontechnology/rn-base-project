@@ -28,15 +28,9 @@ import {appActions} from '../store/reducers'
 const debugMenuSize = 50
 
 const AppInfoSection = () => {
-  const appName = useMemo(() => {
-    return getApplicationName()
-  }, [])
-  const buildNumber = useMemo(() => {
-    return getBuildNumber()
-  }, [])
-  const deviceId = useMemo(() => {
-    return getDeviceId()
-  }, [])
+  const appName = useMemo(() => getApplicationName(), [])
+  const buildNumber = useMemo(() => getBuildNumber(), [])
+  const deviceId = useMemo(() => getDeviceId(), [])
 
   return (
     <View style={styles.section}>
@@ -69,31 +63,27 @@ const AppInfoSection = () => {
   )
 }
 
-const TestingEnvironmentSection = ({onUpdateApiUrl, currentApiUrl}) => {
-  return (
-    <View style={styles.section}>
-      <Text style={styles.h3}>{localize('debug.testingEnvironment')}</Text>
-      <View style={styles.content}>
-        {EXTRA_QA_ENVS.length ? (
-          <InfoMenuLink
-            style={styles.infoMenu}
-            title={localize('debug.current')}
-            description={currentApiUrl}
-            linkTitle={localize('debug.update')}
-            onPress={onUpdateApiUrl}
-          />
-        ) : (
-          <InfoMenu style={styles.infoMenu} title={localize('debug.current')} description={currentApiUrl} />
-        )}
-      </View>
+const TestingEnvironmentSection = ({onUpdateApiUrl, currentApiUrl}) => (
+  <View style={styles.section}>
+    <Text style={styles.h3}>{localize('debug.testingEnvironment')}</Text>
+    <View style={styles.content}>
+      {EXTRA_QA_ENVS.length ? (
+        <InfoMenuLink
+          style={styles.infoMenu}
+          title={localize('debug.current')}
+          description={currentApiUrl}
+          linkTitle={localize('debug.update')}
+          onPress={onUpdateApiUrl}
+        />
+      ) : (
+        <InfoMenu style={styles.infoMenu} title={localize('debug.current')} description={currentApiUrl} />
+      )}
     </View>
-  )
-}
+  </View>
+)
 
 const CodePushKeySection = ({onUpdateCodePushKey, currentCodePushKey}) => {
-  const codePush = CODEPUSH_KEYS.find(item => {
-    return item.dev === currentCodePushKey
-  })
+  const codePush = CODEPUSH_KEYS.find(item => item.dev === currentCodePushKey)
 
   return (
     <View style={styles.section}>
@@ -121,12 +111,8 @@ const CodePushKeySection = ({onUpdateCodePushKey, currentCodePushKey}) => {
 
 export const DebugMenu = () => {
   const [modalVisible, setModalVisible] = useState(false)
-  const openModal = useCallback(() => {
-    return setModalVisible(true)
-  }, [])
-  const closeModal = useCallback(() => {
-    return setModalVisible(false)
-  }, [])
+  const openModal = useCallback(() => setModalVisible(true), [])
+  const closeModal = useCallback(() => setModalVisible(false), [])
 
   const dispatch = useDispatch()
 
@@ -140,9 +126,7 @@ export const DebugMenu = () => {
 
   const bottomSheetRef = useRef(null)
 
-  const snapPoints = useMemo(() => {
-    return ['95%']
-  }, [])
+  const snapPoints = useMemo(() => ['95%'], [])
 
   const handleSnapPress = useCallback(index => {
     bottomSheetRef.current?.snapToIndex(index)
@@ -235,7 +219,7 @@ export const DebugMenu = () => {
           data={
             bottomSheetType === BOTTOM_SHEET_TYPE.env ? [Config.API_URL, ...EXTRA_QA_ENVS] : CODEPUSH_KEYS
           }
-          keyExtractor={(item)=> item.dev || item}
+          keyExtractor={item => item.dev || item}
           extraData={[currentApiUrl, codePushKey]}
           renderItem={renderEnvironmentItem}
         />
