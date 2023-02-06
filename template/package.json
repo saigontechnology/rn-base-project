@@ -23,7 +23,7 @@
   "dependencies": {
     "@react-navigation/native": "^6.1.2",
     "@react-navigation/native-stack": "^6.9.9",
-    "@reduxjs/toolkit": "^1.8.6",
+    "@reduxjs/toolkit": "^1.9.2",
     "i18n-js": "^4.2.2",
     "axios": "^0.27.2",
     "react": "18.1.0",
