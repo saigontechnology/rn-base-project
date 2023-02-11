@@ -1,0 +1,61 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+require 'dotenv'
+
+default_platform(:ios)
+
+platform :ios do
+
+  owner_name = "Saigontechnology" #Replace owner name here
+  my_app = "ReactNativeBaseIos" #Replace my app here
+  platform = 'ios'
+
+  desc "Build and upload to TestFlight"
+  lane :upload do |options|
+    env = options[:env].downcase
+    projectName = "RNBaseProject"
+    workspace = projectName + ".xcworkspace"
+    scheme = projectName + "-#{env.capitalize}"
+    Dotenv.load("../../.env.#{env}")
+    build_app(workspace: workspace, scheme: scheme) # enter your prod scheme
+    upload_to_testflight(
+        skip_waiting_for_build_processing: true,
+        changelog: "#{ENV["APPCENTER_RELEASE_NOTE"]}"
+    )
+  end
+
+  desc "====CODE PUSH===="
+  lane :codepush do |options|
+    appcenter_codepush(
+      env: options[:env],
+      owner_name: owner_name,
+      my_app: my_app,
+      platform: platform
+    )
+  end
+
+  desc "Build or codepush" #type = [codepush, build]
+  lane :build do |options|
+    type = options[:type]
+    if type === 'codepush'
+      codepush env:options[:env]
+    elsif type === 'build'
+      upload env:options[:env]
+    else 
+      printf "\nPlease enter type is [codepush, build]\n"
+    end
+  end
+end

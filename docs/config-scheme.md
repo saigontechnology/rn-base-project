@@ -144,47 +144,18 @@ buildTypes {
 
 ### Android Change App name and App Icon
 
-Just copy the `android/app/main` folder and rename it to the referring names placed in the flavors in our case we put it
-**development** and **staging**.
+Edit file `android/app/src/main/res/values/string.xml`.
 
-- Duplicate main file
-
-![](https://res.cloudinary.com/practicaldev/image/fetch/s--npUCbFOy--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9mudwxn57m3puga1g698.png)
-
-- Rename file to **development** or **staging** and remove file java
-
-![](https://res.cloudinary.com/practicaldev/image/fetch/s--uj3HJFhr--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/al7sumomfwa8j6nspbuu.png)
-
-- To change the app icons, just add it inside the specific mipmap of the build development, staging or main(production).
-
-- To change app name, open file and rename
-
-`android/app/src/main/AndroidManifest.xml`
+- Change `app_name` using env: 
 
 ```bash
-    <application
-      android:name=".MainApplication"
-      android:label="@string/APP_NAME" // change this line
-      android:icon="@mipmap/ic_launcher"
-      android:roundIcon="@mipmap/ic_launcher_round"
-      android:allowBackup="false"
-      android:theme="@style/AppTheme">
-      <activity
-        android:name=".MainActivity"
-        android:label="@string/APP_NAME" // change this line
-        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
-        android:launchMode="singleTask"
-        android:windowSoftInputMode="adjustResize"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-      </activity>
-    </application>
+<resources>
+    <string name="app_name">@string/APP_NAME</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">@string/CODEPUSH_KEY_ANDROID</string>
+</resources>
 ```
 
-- Value `APP_NAME` in env 
+- Value `APP_NAME` and `CODEPUSH_KEY_ANDROID` in file env 
 
 ```bash
 API_URL=
