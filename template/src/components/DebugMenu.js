@@ -14,11 +14,11 @@ import {
 import {getApplicationName, getBuildNumber, getDeviceId} from 'react-native-device-info'
 import Draggable from 'react-native-draggable'
 
-import Config, {BOTTOM_SHEET_TYPE, CODEPUSH_KEYS, EXTRA_QA_ENVS} from '../constants/Config'
+import Config, {BOTTOM_SHEET_TYPE, CODEPUSH_KEYS, EXTRA_QA_ENVS} from '../constants/config'
 
 import {InfoMenu, InfoMenuRow, InfoMenuLink} from './InfoMenu'
 
-import {colors} from '../themes'
+import {colors, fonts} from '../themes'
 
 import {localize} from '../locale/I18nConfig'
 import {useDispatch, useSelector} from 'react-redux'
@@ -281,6 +281,6 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   h3: {
-    fontWeight: 'bold',
+    fontFamily: fonts.RobotoRegular,
   },
 })

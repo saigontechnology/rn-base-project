@@ -5,7 +5,7 @@ import {deviceWidth, responsiveHeight, colors} from '../themes'
 import {useDispatch} from 'react-redux'
 import CodePush from 'react-native-code-push'
 import Progress from 'react-native-progress'
-import Config from '../constants/Config'
+import Config from '../constants/config'
 import {appActions} from '../store/reducers'
 
 const codePushOptions = {

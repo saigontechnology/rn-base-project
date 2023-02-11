@@ -1,6 +1,6 @@
 import React from 'react'
 import {View, Text, Switch, TouchableOpacity, StyleSheet} from 'react-native'
-import {colors} from '../themes'
+import {colors, metrics} from '../themes'
 
 const InfoMenu = ({
   title,
@@ -9,10 +9,9 @@ const InfoMenu = ({
   style,
   titleStyle,
   action,
-  horizontal,
   children,
 }) => (
-  <View style={[styles.container, {flexDirection: horizontal ? 'row' : 'column'}, style]}>
+  <View style={[styles.container, style, horizontal && styles.row]}>
     <View style={styles.titleWrapper}>
       <Text style={titleStyle}>{title}</Text>
       {action}
@@ -42,13 +41,16 @@ export {InfoMenu, InfoMenuRow, InfoMenuLink, InfoMenuToggle}
 
 const styles = StyleSheet.create({
   container: {
-    borderColor: '#151515',
-    paddingBottom: 12,
+    borderColor: colors.gray,
+    paddingBottom: metrics.xs,
     justifyContent: 'space-between',
   },
   titleWrapper: {
     justifyContent: 'space-between',
     flexDirection: 'row',
-    marginBottom: 8,
+    marginBottom: metrics.xxs,
   },
+  row: {
+    flexDirection : 'row'
+  }
 })
