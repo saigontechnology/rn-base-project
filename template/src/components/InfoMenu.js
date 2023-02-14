@@ -9,6 +9,7 @@ const InfoMenu = ({
   style,
   titleStyle,
   action,
+  horizontal,
   children,
 }) => (
   <View style={[styles.container, style, horizontal && styles.row]}>
@@ -27,7 +28,7 @@ const InfoMenuLink = ({linkTitle, onPress, linkTitleStyle, ...rest}) => (
   <InfoMenu
     {...rest}
     action={
-      <TouchableOpacity style={styles.actionContainer} onPress={onPress}>
+      <TouchableOpacity onPress={onPress}>
         <Text style={[{color: colors.primary}, linkTitleStyle]}>{linkTitle}</Text>
       </TouchableOpacity>
     }
@@ -51,6 +52,6 @@ const styles = StyleSheet.create({
     marginBottom: metrics.xxs,
   },
   row: {
-    flexDirection : 'row'
-  }
+    flexDirection: 'row',
+  },
 })

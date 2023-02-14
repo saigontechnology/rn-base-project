@@ -1,9 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit'
-import Config, {CODEPUSH_KEYS} from '../../constants/config'
+import Config, {CODEPUSH_KEYS} from '../../constants/configs'
 import RouteKey from '../../navigation/RouteKey'
 import {APP_CONSTANTS_ACTIONS} from '../constants/app'
 
-const appInitialState = {
+export const appInitialState = {
   showGlobalIndicator: false,
   appState: RouteKey.SplashScreen,
   showSearchBar: false,

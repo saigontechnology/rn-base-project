@@ -10,7 +10,7 @@ import {MMKVStorage} from '../../services'
 export * from './app'
 export * from './user'
 
-const InitialState = {
+export const InitialState = {
   user: userInitialState,
   app: appInitialState,
 }
