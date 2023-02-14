@@ -32,82 +32,36 @@ const AppInfoSection = () => {
   const buildNumber = useMemo(() => getBuildNumber(), [])
   const deviceId = useMemo(() => getDeviceId(), [])
 
+  const infos = useMemo(
+    () => [
+      {title: localize('debug.deviceId'), description: deviceId},
+      {title: localize('debug.appName'), description: appName},
+      {title: localize('debug.buildNumber'), description: buildNumber},
+      {title: localize('debug.appVersion'), description: Config.appVersion},
+      {title: localize('debug.bundleId'), description: Config.appBundleID},
+      {title: localize('debug.appEnv'), description: Config.APP_ENV || 'N/A'},
+    ],
+    [appName, buildNumber, deviceId],
+  )
+
   return (
     <View style={styles.section}>
       <Text style={styles.h3}>{localize('debug.info')}</Text>
       <View style={styles.content}>
-        <InfoMenuRow style={styles.infoMenu} title={localize('debug.deviceId')} description={deviceId} />
-        <InfoMenuRow style={styles.infoMenu} title={localize('debug.appName')} description={appName} />
-        <InfoMenuRow
-          style={styles.infoMenu}
-          title={localize('debug.appVersion')}
-          description={Config.appVersion}
-        />
-        <InfoMenuRow
-          style={styles.infoMenu}
-          title={localize('debug.buildNumber')}
-          description={buildNumber}
-        />
-        <InfoMenuRow
-          style={styles.infoMenu}
-          title={localize('debug.bundleId')}
-          description={Config.appBundleID}
-        />
-        <InfoMenuRow
-          style={styles.infoMenu}
-          title={localize('debug.appEnv')}
-          description={Config.APP_ENV || 'N/A'}
-        />
+        {infos.map(({title, description}) => (
+          <InfoMenuRow style={styles.infoMenu} title={title} description={description} />
+        ))}
       </View>
     </View>
   )
 }
 
-const TestingEnvironmentSection = ({onUpdateApiUrl, currentApiUrl}) => (
+const EnvironmentSection = ({title, children}) => (
   <View style={styles.section}>
-    <Text style={styles.h3}>{localize('debug.testingEnvironment')}</Text>
-    <View style={styles.content}>
-      {EXTRA_QA_ENVS.length ? (
-        <InfoMenuLink
-          style={styles.infoMenu}
-          title={localize('debug.current')}
-          description={currentApiUrl}
-          linkTitle={localize('debug.update')}
-          onPress={onUpdateApiUrl}
-        />
-      ) : (
-        <InfoMenu style={styles.infoMenu} title={localize('debug.current')} description={currentApiUrl} />
-      )}
-    </View>
+    <Text style={styles.h3}>{title}</Text>
+    <View style={styles.content}>{children}</View>
   </View>
 )
-
-const CodePushKeySection = ({onUpdateCodePushKey, currentCodePushKey}) => {
-  const codePush = CODEPUSH_KEYS.find(item => item.dev === currentCodePushKey)
-
-  return (
-    <View style={styles.section}>
-      <Text style={styles.h3}>{localize('debug.codePush')}</Text>
-      <View style={styles.content}>
-        {CODEPUSH_KEYS.length ? (
-          <InfoMenuLink
-            style={styles.infoMenu}
-            title={localize('debug.current')}
-            description={codePush?.dev || CODEPUSH_KEYS[0].dev}
-            linkTitle={localize('debug.update')}
-            onPress={onUpdateCodePushKey}
-          />
-        ) : (
-          <InfoMenu
-            style={styles.infoMenu}
-            title={localize('debug.current')}
-            description={codePush?.dev || CODEPUSH_KEYS[0].dev}
-          />
-        )}
-      </View>
-    </View>
-  )
-}
 
 export const DebugMenu = () => {
   const [modalVisible, setModalVisible] = useState(false)
@@ -176,6 +130,8 @@ export const DebugMenu = () => {
     [bottomSheetType, codePushKey, currentApiUrl, dispatch, handleClosePress],
   )
 
+  const codePush = useMemo(() => CODEPUSH_KEYS.find(item => item.dev === codePushKey), [codePushKey])
+
   return (
     <>
       <Draggable
@@ -191,23 +147,45 @@ export const DebugMenu = () => {
       <Modal animationType="fade" transparent={false} visible={modalVisible} onRequestClose={closeModal}>
         <SafeAreaView style={styles.container}>
           <View style={styles.header}>
-            <Button
-              color={colors.primary}
-              style={styles.closeButton}
-              onPress={closeModal}
-              title={localize('debug.close')}
-            />
+            <Button color={colors.primary} onPress={closeModal} title={localize('debug.close')} />
           </View>
           <ScrollView contentContainerStyle={styles.scrollContent}>
             <AppInfoSection />
-            <TestingEnvironmentSection
-              onUpdateApiUrl={openEnvironmentBottomSheet}
-              currentApiUrl={currentApiUrl}
-            />
-            <CodePushKeySection
-              onUpdateCodePushKey={openCodePushBottomSheet}
-              currentCodePushKey={codePushKey}
-            />
+            <EnvironmentSection title={localize('debug.testingEnvironment')}>
+              {EXTRA_QA_ENVS.length ? (
+                <InfoMenuLink
+                  style={styles.infoMenu}
+                  title={localize('debug.current')}
+                  description={currentApiUrl}
+                  linkTitle={localize('debug.update')}
+                  onPress={openEnvironmentBottomSheet}
+                />
+              ) : (
+                <InfoMenu
+                  style={styles.infoMenu}
+                  title={localize('debug.current')}
+                  description={currentApiUrl}
+                />
+              )}
+            </EnvironmentSection>
+
+            <EnvironmentSection title={localize('debug.codePush')}>
+              {CODEPUSH_KEYS.length ? (
+                <InfoMenuLink
+                  style={styles.infoMenu}
+                  title={localize('debug.current')}
+                  description={codePush?.dev || CODEPUSH_KEYS[0].dev}
+                  linkTitle={localize('debug.update')}
+                  onPress={openCodePushBottomSheet}
+                />
+              ) : (
+                <InfoMenu
+                  style={styles.infoMenu}
+                  title={localize('debug.current')}
+                  description={codePush?.dev || CODEPUSH_KEYS[0].dev}
+                />
+              )}
+            </EnvironmentSection>
           </ScrollView>
         </SafeAreaView>
       </Modal>
@@ -234,15 +212,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   header: {
-    height: 44,
     flexDirection: 'row',
     justifyContent: 'flex-end',
     borderBottomColor: colors.placeholder,
     borderBottomWidth: 1,
-  },
-  closeButton: {
-    marginRight: 6,
-    paddingHorizontal: 8,
   },
   scrollContent: {
     paddingHorizontal: 8,
@@ -281,6 +254,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   h3: {
-    fontFamily: fonts.RobotoRegular,
+    fontFamily: fonts.RobotoBold,
+    fontWeight: 'bold',
   },
 })

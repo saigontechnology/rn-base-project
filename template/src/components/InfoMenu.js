@@ -9,6 +9,7 @@ const InfoMenu = ({
   style,
   titleStyle,
   action,
+  horizontal,
   children,
 }) => (
   <View style={[styles.container, style, horizontal && styles.row]}>
@@ -51,6 +52,6 @@ const styles = StyleSheet.create({
     marginBottom: metrics.xxs,
   },
   row: {
-    flexDirection : 'row'
-  }
+    flexDirection: 'row',
+  },
 })
