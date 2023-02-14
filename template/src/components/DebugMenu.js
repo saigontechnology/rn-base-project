@@ -255,6 +255,5 @@ const styles = StyleSheet.create({
   },
   h3: {
     fontFamily: fonts.RobotoBold,
-    fontWeight: 'bold',
   },
 })
