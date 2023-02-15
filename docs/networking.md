@@ -10,7 +10,7 @@ These are the basic configuration options for making requests.
 ```text
 const instance = axios.create({
   baseURL: Config.API_URL,
-  timeout: Config.API_TIMEOUT,
+  timeout: AXIOS_TIMEOUT,
   withCredentials: false,
   responseType: 'json',
   headers: {
