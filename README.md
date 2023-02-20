@@ -1,3 +1,7 @@
+<div>
+    <img src="docs/images/Logo.png" alt="Logo">
+</div>
+
 # rn-base-project
 
 This project is a template for [React Native](https://reactnative.dev/) that can be used to build mobile application.
