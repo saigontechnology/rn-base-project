@@ -59,4 +59,13 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
+## Base dependencies
+
+- [React-Navigation](https://reactnavigation.org)
+- [Redux-toolkit](https://redux-toolkit.js.org)
+- [Axios](https://github.com/axios/axios)
+- [React-Native-Code-Push](https://github.com/microsoft/react-native-code-push)
+- [React-Redux](https://react-redux.js.org)
+- [Redux-Saga](https://redux-saga.js.org)
+
 ## License
