@@ -2,6 +2,14 @@
 
 This project is a template for [React Native](https://reactnative.dev/) that can be used to build mobile application.
 
+[![React Native Base STS License](https://img.shields.io/github/license/saigon-technology/rn-base-project)](https://choosealicense.com/licenses/mit/)
+![React Native Base STS NPM](https://img.shields.io/npm/v/rn-base-project)
+![React Native Base STS Downloads](https://img.shields.io/github/downloads/saigon-technology/rn-base-project/total)
+![React Native Base STS Release Date](https://img.shields.io/github/release-date/saigon-technology/rn-base-project)
+![React Native Base STS Stars](https://img.shields.io/github/stars/saigon-technology/rn-base-project)
+![React Native Base STS Top Language](https://img.shields.io/github/languages/top/saigon-technology/rn-base-project)
+![React Native Base STS Contributors](https://img.shields.io/github/contributors/saigon-technology/rn-base-project)
+
 ## Prerequisites
 This template requires NodeJS (version 16 or later) and NPM.
 [Node](http://nodejs.org/) and [NPM](https://npmjs.org/) are really easy to install.
