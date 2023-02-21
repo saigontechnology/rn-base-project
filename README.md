@@ -115,7 +115,6 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 
 ## Base dependencies
-
 - [React-Navigation](https://reactnavigation.org)
 - [Redux-toolkit](https://redux-toolkit.js.org)
 - [Axios](https://github.com/axios/axios)
