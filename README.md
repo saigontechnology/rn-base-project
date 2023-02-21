@@ -33,6 +33,7 @@ v16.19.0
 ```bash
 npx react-native init ProjectName --template rn-base-project
 ```
+[Check out the full documentation!](#documents)
 
 ## ⭐ Features
 
@@ -71,7 +72,6 @@ Our template is ship with the following rock-solid technical decisions out of th
 | Jest              | Test Runner          | v26     | Standard test runner for JS apps               |
 | Husky             | Native Git Hook    | v8     | Improves your commits and more testing                     |
 
-[Check out the full documentation!](#documents)
 
 ## Documents
 
