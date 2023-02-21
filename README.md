@@ -43,7 +43,7 @@ npx react-native init ProjectName --template rn-base-project
 - [Config scheme](docs/config-scheme.md)
 - [Generate files](docs/generate-files.md)
 
-## ⭐ key Features
+## ⭐ Features
 
 - 🎉 Provide scripts that perform various tasks, such as building the project, generate files, starting the development server and more.
 - 💅 Integrate in-app debug menu that help you to get the information of device, environment, bundleId, version,... and also allow you to change environment directly in your app.
