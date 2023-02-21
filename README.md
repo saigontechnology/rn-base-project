@@ -36,15 +36,7 @@ Follow instructions for your given `development OS` and `target OS`.
 ```bash
 npx react-native init ProjectName --template rn-base-project
 ```
-
-## iOS config
-
-## Android config
-
-## Documents
-
-- [Config scheme](docs/config-scheme.md)
-- [Generate files](docs/generate-files.md)
+[Check out the full documentation!](#documents)
 
 ## ⭐ Features
 
@@ -83,12 +75,15 @@ Our template is ship with the following rock-solid technical decisions out of th
 | Jest              | Test Runner          | v26     | Standard test runner for JS apps               |
 | Husky             | Native Git Hook    | v8     | Improves your commits and more testing                     |
 
-[Check out the full documentation!](#documents)
 
-## mmkv storage
-- [Config mmkv](/docs/mmkv.md)
-## Networking
-- [Networking](/docs/networking.md)
+## Documents
+
+- [Networking](docs/networking.md)
+- [Generate files](docs/generate-files.md)
+- [Multiple schemes](docs/config-scheme.md)
+- [MMKV Configuration](docs/mmkv.md)
+- [Fastlane Configuration](docs/fastlane.md)
+
 ## Contributors ✨
 Thanks goes to these wonderful people
 <table>

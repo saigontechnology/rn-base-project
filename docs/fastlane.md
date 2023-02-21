@@ -1,4 +1,4 @@
-# Integrate fastlane
+# Fastlane Configuration
 
 ## IOS
 
