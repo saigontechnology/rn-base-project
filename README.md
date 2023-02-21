@@ -43,6 +43,21 @@ npx react-native init ProjectName --template rn-base-project
 - [Config scheme](docs/config-scheme.md)
 - [Generate files](docs/generate-files.md)
 
+## ⭐ Features
+
+- 🎉 Provide scripts that perform various tasks, such as building the project, generate files, starting the development server and more.
+- 💅 Integrate in-app debug menu that help you to get the information of device, environment, bundleId, version,... and also allow you to change environment directly in your app.
+- ⚙️ Support for multiple environment builds, including Production, Staging, and Development.
+- 🦊 Husky for Git Hooks, to automate your git hooks and enforce code standards.
+- 💡 State management with [Redux Toolkit](https://redux-toolkit.js.org) along with [Redux Saga](https://redux-saga.js.org).
+- 🚫 Lint-staged to ensure that your code is always up to standards.
+- ☂️ Pre-installed [React Navigation](https://reactnavigation.org) to provide a comprehensive navigation solution for your app.
+- 💫 [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) as a storage solution to save sensitive data.
+- 🛠 A simple workflow for building, releasing, and distributing your app using [fastlane](https://fastlane.tools).
+- 🔥 [axios](https://github.com/axios/axios) for fetching data, to help you build efficient and performant apps.
+- 🧵 [CodePush](https://github.com/microsoft/react-native-code-push) to deploy mobile app updates directly to their users’ devices.
+- 🎯 Localization with [i18n-js](https://github.com/fnando/i18n).
+
 ## Dependencies
 
 Our template is ship with the following rock-solid technical decisions out of the box:
@@ -97,6 +112,5 @@ Thanks goes to these wonderful people
 </table>
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
 
 ## License
