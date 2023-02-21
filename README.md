@@ -113,13 +113,4 @@ Thanks goes to these wonderful people
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-
-## Base dependencies
-- [React-Navigation](https://reactnavigation.org)
-- [Redux-toolkit](https://redux-toolkit.js.org)
-- [Axios](https://github.com/axios/axios)
-- [React-Native-Code-Push](https://github.com/microsoft/react-native-code-push)
-- [React-Redux](https://react-redux.js.org)
-- [Redux-Saga](https://redux-saga.js.org)
-
 ## License
