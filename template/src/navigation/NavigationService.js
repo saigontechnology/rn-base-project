@@ -7,9 +7,7 @@ export function navigate(name, params) {
   navigationRef.current?.navigate(name, params)
 }
 
-export const checkRouteOrigin = () => {
-  return navigationRef.current.getRootState().routeNames[0]
-}
+export const checkRouteOrigin = () => navigationRef.current.getRootState().routeNames[0]
 
 export function navigationPop() {
   navigationRef.current?.dispatch(StackActions.pop(1))

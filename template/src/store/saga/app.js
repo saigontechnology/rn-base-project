@@ -1,11 +1,12 @@
 import {takeLatest, call, put} from 'redux-saga/effects'
 import {appActions} from '../reducers'
 import RouteKey from '../../navigation/RouteKey'
-import {getData} from '../../utilities/storage'
+import {getString} from '../../services/mmkv/storage'
+import {TOKEN_KEY} from '../../constants'
 
 function* getAppSettingSaga() {
   try {
-    const token = yield call(getData, 'token')
+    const token = yield call(getString, TOKEN_KEY)
     if (!token) {
       throw new Error('Token does not existed!')
     }

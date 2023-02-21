@@ -1,0 +1,70 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+require 'dotenv'
+
+default_platform(:android)
+
+platform :android do
+
+  owner_name = "Saigontechnology" #Replace owner name here
+  my_app = "ReactNativeBaseAndroid" #Replace my app here
+  platform = 'android'
+
+  desc "Build file apk and upload to appcenter"
+  lane :upload do |options|
+    env = options[:env].downcase
+    file = "app/build/outputs/apk/#{env}/release/app-#{env}-release.apk" #You can change this path to get file apk
+    Dotenv.load("../../.env.#{env}")
+    gradle(
+      task: "assemble",
+      flavor: "#{env.capitalize}",
+      build_type: "Release"
+    )
+    appcenter_upload(
+      api_token: ENV["APPCENTER_TOKEN_UPLOAD_APP"],
+      owner_name: owner_name,
+      app_name: ENV["APPCENTER_APP_NAME"],
+      app_display_name: ENV["APPCENTER_APP_DISPLAY_NAME"],
+      app_os: "Android",
+      file: file,
+      release_notes: ENV["APPCENTER_RELEASE_NOTE"],
+      destinations: ENV["APPCENTER_DISTRIBUTE_DESTINATIONS"],
+      notify_testers: true
+    )
+  end
+
+  desc "====CODE PUSH===="
+  lane :codepush do |options|
+    appcenter_codepush(
+      env: options[:env],
+      owner_name: owner_name,
+      my_app: my_app,
+      platform: platform
+    )
+  end
+
+  desc "Build or codepush" #type = [codepush, build]
+  lane :build do |options|
+    type = options[:type]
+    if type === 'codepush'
+      codepush env:options[:env]
+    elsif type === 'build'
+      upload env:options[:env]
+    else 
+      printf "\nPlease enter type is [codepush, build]\n"
+    end
+  end
+end

@@ -1,6 +1,6 @@
 {
   "name": "rn-base-project",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "main": "index.js",
   "repository": "https://github.com/saigon-technology/rn-base-project.git",
   "author": "React Native Teeam <SaiGon Technology Solutions>",

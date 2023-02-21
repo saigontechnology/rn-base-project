@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">RNBaseProject</string>
-    <string moduleConfig="true" name="CodePushDeploymentKey">DeploymentKey</string>
+    <string name="app_name">@string/APP_NAME</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">@string/CODEPUSH_KEY_ANDROID</string>
 </resources>
