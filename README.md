@@ -96,7 +96,7 @@ Thanks goes to these wonderful people
   </tr>
 </table>
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/saigon-technology/rn-base-project/graphs/contributors) specification. Contributions of any kind welcome!
 
 
 ## License
