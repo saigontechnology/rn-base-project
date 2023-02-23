@@ -18,6 +18,47 @@ This project is a template for [React Native](https://reactnative.dev/) that can
 
 NodeJS (version 16 or later) and NPM is required.
 To make sure you have them available on your machine, try running the following command
+## About Us
+
+Welcome to Awesome App! We're a small team of developers passionate about creating library that make people's lives easier.
+
+### Team Members
+
+Our team consists of 14 developers with diverse backgrounds:
+
+- Hong Hoang: Our lead developer with over 10 years of experience in software development and 5 years of experience in mobile application (react native). He's responsible for the overall architecture and technical implementation of the app.
+- Chung Nguyen: 
+- Phi Tran: 
+- Vu Nguyen: 
+- Huy Duong: 
+- Anh Le Hoang: 
+- Thinh Vo: 
+- Loc Nguyen: 
+- Hoang Dinh Tien: 
+- Loi Do: 
+- Bao Nguyen: 
+- Huy Do: 
+- Hang Nguyen: 
+- Tung Le: He is a intermediate react native, he has over 2 years about react native and he has experience working through healthcare apps.
+
+### Mission
+
+Our mission is to create the best library for implementing project stucture easily. We believe that everyone can benefit from tools that help them work smarter, not harder. We're committed to building an library that's easy to use, reliable, and affordable for everyone.
+
+### History
+
+My library was founded on Oct 2023 with the goal of making productivity library more accessible to everyone. Since then, we've been working tirelessly to improve the library and add new features.
+
+### Contact Us
+
+If you have any questions or feedback, we'd love to hear from you! You can reach us at hong.hoang@saigontechnology.com.
+
+## Prerequisites
+
+This template requires NodeJS (version 16 or later) and NPM.
+[Node](http://nodejs.org/) and [NPM](https://npmjs.org/) are really easy to install.
+To make sure you have them available on your machine,
+try running the following command.
 
 ```sh
 $ npm -v && node -v
@@ -110,5 +151,38 @@ Thanks goes to these wonderful people
 </table>
 
 This project follows the [all-contributors](https://github.com/saigon-technology/rn-base-project/graphs/contributors) specification. Contributions of any kind welcome!
+## Dependencies
+
+```text
+    - react-native-mmkv
+    - @react-navigation/bottom-tabs
+    - @react-navigation/native
+    - @react-navigation/native-stack
+    - react-native-code-push
+    - react-native-fast-image
+    - react-native-gesture-handler
+    - react-native-progress
+    - react-native-reanimated
+    - react-native-safe-area-context
+    - react-native-screens
+    - react-redux
+    - redux-saga
+    - i18n-js
+    - plop
+```
+
+## mmkv storage
+
+- [Config mmkv](/docs/mmkv.md)
+
+## Networking
+
+- [Networking](/docs/networking.md)
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
 
 ## License
