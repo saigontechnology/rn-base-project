@@ -36,7 +36,6 @@ export const optionsMatch = ({route}) => {
     default:
       break
   }
-  // Screen Options
   return {
     headerShown,
     title: title,
