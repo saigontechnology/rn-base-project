@@ -6,6 +6,8 @@ import {useSelector} from 'react-redux'
 import Toast from './components/Toast'
 import {getAppStackState, getLoadingIndicator} from './store/selectors'
 import RouteKey from './navigation/RouteKey'
+import {DebugMenu} from './components/DebugMenu'
+import Config from './constants/configs'
 
 function MainLayout() {
   const appState = useSelector(getAppStackState)
@@ -44,6 +46,7 @@ function MainLayout() {
       <StatusBar barStyle="light-content" />
       <AppNavigation />
       {showGlobalIndicator && <IndicatorDialog />}
+      {Config.DEBUG_ENABLED && <DebugMenu />}
       <Toast />
     </View>
   )

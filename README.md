@@ -109,6 +109,28 @@ Thanks goes to these wonderful people
   </tr>
 </table>
 
+## mmkv storage
+- [Config mmkv](/docs/mmkv.md)
+## Networking
+- [Networking](/docs/networking.md)
+## Debug menu 
+Helper menu for QAs to examine the apps during the development:
+- Device Info
+- Environment/Backend switcher: The most frequent practice may be switching quickly between several backend environments.
+- CodePush Environment switcher
+
+Dependencies: 
+``` 
+- @gorhom/bottom-sheet
+- @react-native-async-storage/async-storage
+- react-native-device-info,
+- react-native-draggable,
+```    
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
 This project follows the [all-contributors](https://github.com/saigon-technology/rn-base-project/graphs/contributors) specification. Contributions of any kind welcome!
 
 ## License
