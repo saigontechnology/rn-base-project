@@ -1,4 +1,4 @@
-/* eslint-disable no-extend-native */
+/* eslint-disable */
 /**
  * @flow
  */
