@@ -1,18 +1,24 @@
-import * as React from 'react'
 import {StackActions} from '@react-navigation/native'
+import {createNavigationContainerRef} from '@react-navigation/native';
 
-export const navigationRef = React.createRef()
+export const navigationRef = createNavigationContainerRef()
 
 export function navigate(name, params) {
-  navigationRef.current?.navigate(name, params)
+  if (navigationRef.isReady()) {
+    navigationRef.navigate(name, params)
+  }
 }
 
-export const checkRouteOrigin = () => navigationRef.current.getRootState().routeNames[0]
+export const checkRouteOrigin = () => navigationRef.getRootState().routeNames[0]
 
-export function navigationPop() {
-  navigationRef.current?.dispatch(StackActions.pop(1))
+export function navigationPop(numberToPop = 1) {
+  if (navigationRef.isReady()) {
+    navigationRef.dispatch(StackActions.pop(numberToPop))
+  }
 }
 
 export function popToTop() {
-  navigationRef.current?.dispatch(StackActions.popToTop())
+  if (navigationRef.isReady()) {
+    navigationRef.dispatch(StackActions.popToTop())
+  }
 }
