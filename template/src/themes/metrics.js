@@ -12,8 +12,10 @@ function responsiveHeight(value = 0) {
   return (height * value) / DESIGN_HEIGHT
 }
 
-function responsiveFont(value = 0) {
-  return (width * value) / DESIGN_WIDTH
+const scale = size => (width / DESIGN_WIDTH) * size
+
+function responsiveFont(fontSize, factor = 0.5) {
+  return fontSize + (scale(fontSize) - fontSize) * factor
 }
 
 function deviceWidth() {
