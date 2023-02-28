@@ -49,12 +49,6 @@ module.exports = function (plop) {
       template:
         '// Screen Match\r\n    case RouteKey.{{properCase name}}Screen:\r\n      return {{properCase name}}Screen',
     },
-    {
-      type: 'modify',
-      path: 'src/navigation/ScreenService.js',
-      pattern: /\/\/ Screen Options/gi,
-      template: '// Screen Options\r\n    case RouteKey.{{properCase name}}Screen:',
-    },
   ]
   const store = [
     {
