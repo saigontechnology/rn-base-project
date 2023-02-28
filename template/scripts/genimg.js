@@ -38,14 +38,14 @@ const outputName = outputMatch[2]
 const outputPath = outputMatch[1] || '.'
 const requirePath = `./${path.relative(outputPath, folder)}`
 const author = argv.author || argv.a || 'Robot'
-const template = `/* eslint-disable global-require */\n/**
+const template = `/**
  * @flow
  */
 
 const {0} = {
 {1}
 }
-export default {0}\n`
+export {{0}}\n`
 
 const moduleName = argv.name || getFileName(outputName)
 fs.readdir(folder, (err, files) => {
