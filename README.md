@@ -93,8 +93,6 @@ Our template is ship with the following rock-solid technical decisions out of th
 | [Generate images](template/scripts/genimg.js) | Get all images from [src/assets/images](template/src/assets/images/) and require images in [src/themes/images](template/src/themes/images.js) | ```yarn generateimages``` |
 | [Run App](template/scripts/run-app.sh) | Run app in Android or iOS with selected variants | ```yarn android```<br /> ```yarn ios ``` |
 
-<sub>If you use NPM, change ```yarn``` to ```npm``` for running scripts</sub>
-
 ## Contributors ✨
 Thanks goes to these wonderful people
 <table>
