@@ -29,14 +29,30 @@ You also need to install the dependencies required by React Native.
 Go to the [React Native environment setup](https://reactnative.dev/docs/environment-setup), then select `React Native CLI Quickstart` tab.  
 Follow instructions for your given `development OS` and `target OS`.
 
-## Quick Start
+## Getting Started
+
+- Prerequisites
+
+  - Node.js and yarn should be installed on your system.
+  - Git should be installed on your system.
+  - [React Native CLI should be installed on your system.](https://reactnative.dev/docs/environment-setup)
+
+  <br />
 
 - Init project
 
-```bash
-npx react-native init ProjectName --template rn-base-project
-```
-[Check out the full documentation!](#documents)
+  ```bash
+  npx react-native init YourProjectName --template rn-base-project
+  ```
+
+- Start the app
+  ```bash
+  yarn android
+  ```
+  ```bash
+  yarn ios
+  ```
+  [Check out the full documentation!](#documents)
 
 ## ⭐ Features
 
@@ -110,6 +126,7 @@ Thanks goes to these wonderful people
 </table>
 
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
