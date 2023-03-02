@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+yarn pretty && yarn lint:fix
+cd template && yarn pretty && yarn lint:fix

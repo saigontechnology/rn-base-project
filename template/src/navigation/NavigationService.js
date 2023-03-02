@@ -1,5 +1,4 @@
-import {StackActions} from '@react-navigation/native'
-import {createNavigationContainerRef} from '@react-navigation/native'
+import {StackActions, createNavigationContainerRef} from '@react-navigation/native'
 
 export const navigationRef = createNavigationContainerRef()
 
@@ -74,6 +73,5 @@ export const dispatch = action => {
   }
 }
 
-export const getCurrentRouteName = () => {
-  return navigationRef.isReady() ? navigationRef?.getCurrentRoute()?.name : ''
-}
+export const getCurrentRouteName = () =>
+  navigationRef.isReady() ? navigationRef?.getCurrentRoute()?.name : ''
