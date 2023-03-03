@@ -31,14 +31,6 @@ Follow instructions for your given `development OS` and `target OS`.
 
 ## Getting Started
 
-- Prerequisites
-
-  - Node.js and yarn should be installed on your system.
-  - Git should be installed on your system.
-  - [React Native CLI should be installed on your system.](https://reactnative.dev/docs/environment-setup)
-
-  <br />
-
 - Init project
 
   ```bash
