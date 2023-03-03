@@ -1,5 +1,5 @@
-import BottomSheet, { BottomSheetFlatList } from '@gorhom/bottom-sheet'
-import React, { useCallback, useMemo, useRef, useState } from 'react'
+import BottomSheet, {BottomSheetFlatList} from '@gorhom/bottom-sheet'
+import React, {useCallback, useMemo, useRef, useState} from 'react'
 import {
   Modal,
   Pressable,
@@ -11,19 +11,19 @@ import {
   StyleSheet,
   useWindowDimensions,
 } from 'react-native'
-import { getApplicationName, getBuildNumber, getDeviceId } from 'react-native-device-info'
+import {getApplicationName, getBuildNumber, getDeviceId} from 'react-native-device-info'
 import Draggable from 'react-native-draggable'
 
-import Config, { BOTTOM_SHEET_TYPE, CODEPUSH_KEYS, EXTRA_QA_ENVS } from '../constants/configs'
+import Config, {BOTTOM_SHEET_TYPE, CODEPUSH_KEYS, EXTRA_QA_ENVS} from '../constants/configs'
 
-import { InfoMenu, InfoMenuRow, InfoMenuLink } from './InfoMenu'
+import {InfoMenu, InfoMenuRow, InfoMenuLink} from './InfoMenu'
 
-import { colors, fonts, metrics } from '../themes'
+import {colors, fonts, metrics} from '../themes'
 
-import { localize } from '../locale/I18nConfig'
-import { useDispatch, useSelector } from 'react-redux'
-import { getApiUrl, getCodePushKey } from '../store/selectors'
-import { appActions } from '../store/reducers'
+import {localize} from '../locale/I18nConfig'
+import {useDispatch, useSelector} from 'react-redux'
+import {getApiUrl, getCodePushKey} from '../store/selectors'
+import {appActions} from '../store/reducers'
 
 const DEBUGMENU_SIZE = 50
 const SNAPPOINTS = ['95%']
@@ -35,12 +35,12 @@ const AppInfoSection = () => {
 
   const infos = useMemo(
     () => [
-      { title: localize('debug.deviceId'), description: deviceId },
-      { title: localize('debug.appName'), description: appName },
-      { title: localize('debug.buildNumber'), description: buildNumber },
-      { title: localize('debug.appVersion'), description: Config.appVersion },
-      { title: localize('debug.bundleId'), description: Config.appBundleID },
-      { title: localize('debug.appEnv'), description: Config.APP_ENV || 'N/A' },
+      {title: localize('debug.deviceId'), description: deviceId},
+      {title: localize('debug.appName'), description: appName},
+      {title: localize('debug.buildNumber'), description: buildNumber},
+      {title: localize('debug.appVersion'), description: Config.appVersion},
+      {title: localize('debug.bundleId'), description: Config.appBundleID},
+      {title: localize('debug.appEnv'), description: Config.APP_ENV || 'N/A'},
     ],
     [appName, buildNumber, deviceId],
   )
@@ -49,7 +49,7 @@ const AppInfoSection = () => {
     <View style={styles.section}>
       <Text style={styles.h3}>{localize('debug.info')}</Text>
       <View style={styles.content}>
-        {infos.map(({ title, description }) => (
+        {infos.map(({title, description}) => (
           <InfoMenuRow key={title} style={styles.infoMenu} title={title} description={description} />
         ))}
       </View>
@@ -57,7 +57,7 @@ const AppInfoSection = () => {
   )
 }
 
-const EnvironmentSection = ({ title, children }) => (
+const EnvironmentSection = ({title, children}) => (
   <View style={styles.section}>
     <Text style={styles.h3}>{title}</Text>
     <View style={styles.content}>{children}</View>
@@ -101,7 +101,7 @@ export const DebugMenu = () => {
   }, [closeModal, handleSnapPress])
 
   const renderEnvironmentItem = useCallback(
-    ({ item }) => {
+    ({item}) => {
       const isActive =
         bottomSheetType === BOTTOM_SHEET_TYPE.env ? item === currentApiUrl : item.dev === codePushKey
 
@@ -137,7 +137,7 @@ export const DebugMenu = () => {
         isCircle
         renderColor={colors.primary}
         renderSize={DEBUGMENU_SIZE}
-        animatedViewProps={{ height: dimensions.height }}
+        animatedViewProps={{height: dimensions.height}}
         x={dimensions.width - DEBUGMENU_SIZE * 1.5}
         y={dimensions.height - DEBUGMENU_SIZE * 2}
         renderText={Config.appVersion}

@@ -16,6 +16,10 @@
   ],
   "bugs": "https://github.com/saigon-technology/rn-base-project/issues",
   "scripts": {
-    "release": "yarn publish"
+    "release": "yarn publish",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3"
   }
 }
