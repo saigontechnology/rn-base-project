@@ -2,6 +2,7 @@ import RouteKey from './RouteKey'
 import {LoginScreen, SignUpScreen} from '../screens'
 // Screen Import
 import HomeScreen from '../screens/HomeComponent/HomeScreen'
+import {colors} from '../themes'
 
 export const screenMatch = screen => {
   switch (screen) {

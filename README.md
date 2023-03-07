@@ -37,13 +37,6 @@ Follow instructions for your given `development OS` and `target OS`.
   npx react-native init YourProjectName --template rn-base-project
   ```
 
-- Start the app
-  ```bash
-  yarn android
-  ```
-  ```bash
-  yarn ios
-  ```
   [Check out the full documentation!](#documents)
 
 ## ⭐ Features
@@ -92,6 +85,15 @@ Our template is ship with the following rock-solid technical decisions out of th
 - [MMKV Configuration](docs/mmkv.md)
 - [Fastlane Configuration](docs/fastlane.md)
 
+## Table of scripts
+| Script | Description | Syntax |
+| ------ | ----------- | ------ |
+| [Codepush](template/scripts/codepush.sh) | Deploy Android and iOS app  with Codepush | ```yarn codepush``` |
+| [Build App](template/scripts/build-app.sh) | Build Android & iOS app using Fastlane | ```yarn build``` |
+| [Generate fonts](template/scripts/fonts.js)| Get all fonts name from [src/assets/fonts](template/src/assets/fonts/) and store in [src/themes/fonts](template/src/themes/fonts.js) | ```yarn generatefonts``` |
+| [Generate images](template/scripts/genimg.js) | Get all images from [src/assets/images](template/src/assets/images/) and require images in [src/themes/images](template/src/themes/images.js) | ```yarn generateimages``` |
+| [Run App](template/scripts/run-app.sh) | Run app in Android or iOS with selected variants | ```yarn android```<br /> ```yarn ios ``` |
+
 ## Contributors ✨
 Thanks goes to these wonderful people
 <table>
@@ -118,7 +120,6 @@ Thanks goes to these wonderful people
 </table>
 
 ## Contributing
-
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
