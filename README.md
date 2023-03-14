@@ -29,14 +29,15 @@ You also need to install the dependencies required by React Native.
 Go to the [React Native environment setup](https://reactnative.dev/docs/environment-setup), then select `React Native CLI Quickstart` tab.  
 Follow instructions for your given `development OS` and `target OS`.
 
-## Quick Start
+## Getting Started
 
 - Init project
 
-```bash
-npx react-native init ProjectName --template rn-base-project
-```
-[Check out the full documentation!](#documents)
+  ```bash
+  npx react-native init YourProjectName --template rn-base-project
+  ```
+
+  [Check out the full documentation!](#documents)
 
 ## ⭐ Features
 
