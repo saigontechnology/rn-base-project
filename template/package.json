@@ -31,7 +31,7 @@
     "axios": "^1.3.4",
     "react": "18.1.0",
     "react-native": "0.70.6",
-    "react-native-code-push": "^7.0.5",
+    "react-native-code-push": "^8.0.0",
     "react-native-config": "^1.4.11",
     "react-native-device-info": "^10.4.0",
     "react-native-draggable": "^3.3.0",
