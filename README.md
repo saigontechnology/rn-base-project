@@ -14,22 +14,6 @@ This project is a template for [React Native](https://reactnative.dev/) that can
 ![React Native Base STS Top Language](https://img.shields.io/github/languages/top/saigon-technology/rn-base-project)
 ![React Native Base STS Contributors](https://img.shields.io/github/contributors/saigon-technology/rn-base-project)
 
-## About Us
-
-Welcome to Awesome Library! We're a small team of developers passionate about creating library that make people's lives easier.
-
-### Mission
-
-Our mission is to create the best library for implementing project stucture easily. We believe that everyone can benefit from tools that help them work smarter, not harder. We're committed to building an library that's easy to use, reliable, and affordable for everyone.
-
-### History
-
-My library was founded on Oct 2022 with the goal of making productivity library more accessible to everyone. Since then, we've been working tirelessly to improve the library and add new features.
-
-### Contact Us
-
-If you have any questions or feedback, we'd love to hear from you! You can reach us at reactnativeststeam@gmail.com
-
 ## Requirements
 
 NodeJS (version 16 or later) and NPM is required.
@@ -142,5 +126,21 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 This project follows the [all-contributors](https://github.com/saigon-technology/rn-base-project/graphs/contributors) specification. Contributions of any kind welcome!
+
+## About Us
+
+Welcome to Awesome Library! We're a small team of developers passionate about creating library that make people's lives easier.
+
+### Mission
+
+Our mission is to create the best library for implementing project stucture easily. We believe that everyone can benefit from tools that help them work smarter, not harder. We're committed to building an library that's easy to use, reliable, and affordable for everyone.
+
+### History
+
+My library was founded on Oct 2022 with the goal of making productivity library more accessible to everyone. Since then, we've been working tirelessly to improve the library and add new features.
+
+### Contact Us
+
+If you have any questions or feedback, we'd love to hear from you! You can reach us at reactnativeststeam@gmail.com
 
 ## License
