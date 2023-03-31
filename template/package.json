@@ -41,7 +41,7 @@
     "react-native-reanimated": "^2.13.0",
     "react-native-safe-area-context": "^4.4.1",
     "react-native-screens": "^3.18.2",
-    "react-native-svg": "^13.7.0",
+    "react-native-svg": "^13.9.0",
     "react-redux": "^8.0.4",
     "redux-persist": "^6.0.0",
     "redux-saga": "^1.2.3"
