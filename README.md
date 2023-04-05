@@ -31,6 +31,8 @@ Follow instructions for your given `development OS` and `target OS`.
 
 ## Getting Started
 
+## Quick Start
+
 - Init project
 
   ```bash
@@ -48,7 +50,7 @@ Follow instructions for your given `development OS` and `target OS`.
 - 💡 State management with [Redux Toolkit](https://redux-toolkit.js.org) along with [Redux Saga](https://redux-saga.js.org).
 - 🚫 Lint-staged to ensure that your code is always up to standards.
 - ☂️ Pre-installed [React Navigation](https://reactnavigation.org) to provide a comprehensive navigation solution for your app.
-- 💫 [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) as a storage solution to save sensitive data.
+- 💫 [@react-native-async-storage/async-storage](https://github.com/react-native-async-storage/async-storage) as a storage solution to save sensitive data.
 - 🛠 A simple workflow for building, releasing, and distributing your app using [fastlane](https://fastlane.tools).
 - 🔥 [axios](https://github.com/axios/axios) for fetching data, to help you build efficient and performant apps.
 - 🧵 [CodePush](https://github.com/microsoft/react-native-code-push) to deploy mobile app updates directly to their users’ devices.
@@ -67,7 +69,7 @@ Our template is ship with the following rock-solid technical decisions out of th
 | React Navigation  | Navigation           | v1      | Expose config variables to your javascript code |                |             |                         |
 | i18n-js     | Translation           | v4      | Provide the i18n translations on the JavaScript            |
 | RN Reanimated     | Animations           | v2      | Beautiful and performant animations            |
-| React Native MMKV      | Persistence          | v2     | State persistence                              |
+| Async-storage      | Persistence          | v1     | State persistence                              |
 | React Native SVG      | SVG Image          | v13     | Provides SVG support to React Native                              |
 | Axios      | Network Services          | v1     | Provides promise based HTTP client                              |   
 | Redux / Redux-toolkit      | State Management          | v8     | Provides state container for JavaScript apps                              |
@@ -82,7 +84,6 @@ Our template is ship with the following rock-solid technical decisions out of th
 - [Networking](docs/networking.md)
 - [Generate files](docs/generate-files.md)
 - [Multiple schemes](docs/config-scheme.md)
-- [MMKV Configuration](docs/mmkv.md)
 - [Fastlane Configuration](docs/fastlane.md)
 
 ## Table of scripts
@@ -124,5 +125,21 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 This project follows the [all-contributors](https://github.com/saigon-technology/rn-base-project/graphs/contributors) specification. Contributions of any kind welcome!
+
+## About Us
+
+Welcome to Awesome Library! We're a small team of developers passionate about creating library that make people's lives easier.
+
+### Mission
+
+Our mission is to create the best library for implementing project stucture easily. We believe that everyone can benefit from tools that help them work smarter, not harder. We're committed to building an library that's easy to use, reliable, and affordable for everyone.
+
+### History
+
+My library was founded on Oct 2022 with the goal of making productivity library more accessible to everyone. Since then, we've been working tirelessly to improve the library and add new features.
+
+### Contact Us
+
+If you have any questions or feedback, we'd love to hear from you! You can reach us at reactnativeststeam@gmail.com
 
 ## License
