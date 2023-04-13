@@ -6785,10 +6785,10 @@ react-native-config@^1.4.11:
   resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-1.5.0.tgz#ff5a78fbbc2c2a0525788e5f3c86101110651ba4"
   integrity sha512-slecooA/0tCwhb+RuWEbwLqtKirGh9vWPRpgDfH7uPAraCciqHNH2XjS9ylW+Spn4FUrHg5KWTqUGs9BdBADHg==
 
-react-native-device-info@^10.5.1:
-  version "10.5.1"
-  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-10.5.1.tgz#16a24e2b32c14af1b00994019c850ad2088b30f3"
-  integrity sha512-fOoynmthZnoP7avXpUE/RP8F6Fw/ThFd3aF2C+jbyNCls9+ls4SKU7/opQJvZxd2/9vo//jBJ8AEloEcTpBIqw==
+react-native-device-info@^10.6.0:
+  version "10.6.0"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-10.6.0.tgz#51f1b2ec98abc32747149b0a5b7fb662b44d50e4"
+  integrity sha512-/MmINdojWdw2/9rwYpH/dX+1gFP0o78p8yYPjwxiPhoySSL2rZaNi+Mq9VwC+zFi/yQmJUvHntkKSw2KUc7rFw==
 
 react-native-draggable@^3.3.0:
   version "3.3.0"
