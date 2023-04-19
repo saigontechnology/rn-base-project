@@ -48,6 +48,19 @@ export const CODEPUSH_KEYS =
           }),
         },
       ]
-    : []
+    : [
+        {
+          dev: '',
+          key: '',
+        },
+
+        {
+          dev: '',
+          key: Platform.select({
+            android: '',
+            ios: '',
+          }),
+        },
+      ]
 
 export default Config

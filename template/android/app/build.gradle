@@ -145,9 +145,24 @@ android {
     // add this block
     flavorDimensions "default"
      productFlavors {
-        development {}
-        staging {}
-        production {}
+        development {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId project.env.get("APP_ID")
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.saigontechnolgy.rnbaseproject"
+        }
+        staging {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId project.env.get("APP_ID")
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.saigontechnolgy.rnbaseproject"
+        }
+        production {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId project.env.get("APP_ID")
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.saigontechnolgy.rnbaseproject"
+        }
     }
     
     defaultConfig {
