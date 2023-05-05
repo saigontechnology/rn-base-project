@@ -30,7 +30,7 @@
     "i18n-js": "^4.2.3",
     "axios": "^1.3.5",
     "react": "18.1.0",
-    "react-native": "0.70.7",
+    "react-native": "0.70.9",
     "react-native-code-push": "^8.0.1",
     "react-native-config": "^1.4.11",
     "react-native-device-info": "^10.6.0",
