@@ -2,6 +2,7 @@ import RouteKey from './RouteKey'
 import {LoginScreen, SignUpScreen} from '../screens'
 // Screen Import
 import HomeScreen from '../screens/HomeComponent/HomeScreen'
+import {colors} from '../themes'
 
 export const screenMatch = screen => {
   switch (screen) {
@@ -17,15 +18,35 @@ export const screenMatch = screen => {
   }
 }
 
-export const optionsMatch = screen => {
-  switch (screen) {
-    // Screen Options
+export const optionsMatch = ({route}) => {
+  const name = route?.name
+  let headerShown = true
+  let headerBackVisible = true
+  let headerTintColor = colors.black
+  let headerTransparent = false
+  let headerBackTitleVisible = false
+  let gestureEnabled = true
+  let animation = 'default'
+  let title = ''
+  let headerLeft = null
+  switch (name) {
     case RouteKey.HomeScreen:
     case RouteKey.HomeStack:
-      return {
-        headerLeft: null,
-      }
+      headerLeft = null
+      break
     default:
-      return {}
+      break
+  }
+  return {
+    headerShown,
+    title: title,
+    headerTitleAlign: 'center',
+    headerBackVisible,
+    headerTintColor,
+    headerTransparent,
+    animation,
+    gestureEnabled,
+    headerBackTitleVisible,
+    headerLeft,
   }
 }

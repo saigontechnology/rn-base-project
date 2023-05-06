@@ -29,14 +29,17 @@ You also need to install the dependencies required by React Native.
 Go to the [React Native environment setup](https://reactnative.dev/docs/environment-setup), then select `React Native CLI Quickstart` tab.  
 Follow instructions for your given `development OS` and `target OS`.
 
+## Getting Started
+
 ## Quick Start
 
 - Init project
 
-```bash
-npx react-native init ProjectName --template rn-base-project
-```
-[Check out the full documentation!](#documents)
+  ```bash
+  npx react-native init YourProjectName --template rn-base-project
+  ```
+
+  [Check out the full documentation!](#documents)
 
 ## ⭐ Features
 
@@ -47,7 +50,7 @@ npx react-native init ProjectName --template rn-base-project
 - 💡 State management with [Redux Toolkit](https://redux-toolkit.js.org) along with [Redux Saga](https://redux-saga.js.org).
 - 🚫 Lint-staged to ensure that your code is always up to standards.
 - ☂️ Pre-installed [React Navigation](https://reactnavigation.org) to provide a comprehensive navigation solution for your app.
-- 💫 [react-native-mmkv](https://github.com/mrousavy/react-native-mmkv) as a storage solution to save sensitive data.
+- 💫 [@react-native-async-storage/async-storage](https://github.com/react-native-async-storage/async-storage) as a storage solution to save sensitive data.
 - 🛠 A simple workflow for building, releasing, and distributing your app using [fastlane](https://fastlane.tools).
 - 🔥 [axios](https://github.com/axios/axios) for fetching data, to help you build efficient and performant apps.
 - 🧵 [CodePush](https://github.com/microsoft/react-native-code-push) to deploy mobile app updates directly to their users’ devices.
@@ -66,7 +69,7 @@ Our template is ship with the following rock-solid technical decisions out of th
 | React Navigation  | Navigation           | v1      | Expose config variables to your javascript code |                |             |                         |
 | i18n-js     | Translation           | v4      | Provide the i18n translations on the JavaScript            |
 | RN Reanimated     | Animations           | v2      | Beautiful and performant animations            |
-| React Native MMKV      | Persistence          | v2     | State persistence                              |
+| Async-storage      | Persistence          | v1     | State persistence                              |
 | React Native SVG      | SVG Image          | v13     | Provides SVG support to React Native                              |
 | Axios      | Network Services          | v1     | Provides promise based HTTP client                              |   
 | Redux / Redux-toolkit      | State Management          | v8     | Provides state container for JavaScript apps                              |
@@ -81,8 +84,16 @@ Our template is ship with the following rock-solid technical decisions out of th
 - [Networking](docs/networking.md)
 - [Generate files](docs/generate-files.md)
 - [Multiple schemes](docs/config-scheme.md)
-- [MMKV Configuration](docs/mmkv.md)
 - [Fastlane Configuration](docs/fastlane.md)
+
+## Table of scripts
+| Script | Description | Syntax |
+| ------ | ----------- | ------ |
+| [Codepush](template/scripts/codepush.sh) | Deploy Android and iOS app  with Codepush | ```yarn codepush``` |
+| [Build App](template/scripts/build-app.sh) | Build Android & iOS app using Fastlane | ```yarn build``` |
+| [Generate fonts](template/scripts/fonts.js)| Get all fonts name from [src/assets/fonts](template/src/assets/fonts/) and store in [src/themes/fonts](template/src/themes/fonts.js) | ```yarn generatefonts``` |
+| [Generate images](template/scripts/genimg.js) | Get all images from [src/assets/images](template/src/assets/images/) and require images in [src/themes/images](template/src/themes/images.js) | ```yarn generateimages``` |
+| [Run App](template/scripts/run-app.sh) | Run app in Android or iOS with selected variants | ```yarn android```<br /> ```yarn ios ``` |
 
 ## Contributors ✨
 Thanks goes to these wonderful people
@@ -93,6 +104,7 @@ Thanks goes to these wonderful people
     <td align="center"><a href="https://github.com/baonguyenhsts/"><img src="https://avatars.githubusercontent.com/u/62632321?v=4" width="100px;" alt="Bao Nguyenh" style="border-radius: 10%;"/><br /><sub><b>Bao Nguyenh</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/TranQuangPhi/"><img src="https://avatars.githubusercontent.com/u/105619840?v=4" width="100px;" alt="Phi Tran" style="border-radius: 10%;"/><br /><sub><b>Phi Tran</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/nghoangchung/"><img src="https://avatars.githubusercontent.com/u/39869268?v=4" width="100px;" alt="Chung Nguyenh" style="border-radius: 10%;"/><br /><sub><b>Chung Nguyenh</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/vunguyendhSTS/"><img src="https://avatars.githubusercontent.com/u/117509324?v=4" width="100px;" alt="Vu NguyenDH" style="border-radius: 10%;"/><br /><sub><b>Vu NguyenDH</b></sub></a><br /></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/anhle10051996/"><img src="https://avatars.githubusercontent.com/u/88309815?v=4" width="100px;" alt="Anh Lehoang" style="border-radius: 10%;"/><br /><sub><b>Anh Lehoang</b></sub></a><br /></td>
@@ -100,15 +112,34 @@ Thanks goes to these wonderful people
     <td align="center"><a href="https://github.com/loc-nguyenthien/"><img src="https://avatars.githubusercontent.com/u/114563576?v=4" width="100px;" alt="Loc NguyenT" style="border-radius: 10%;"/><br /><sub><b>Loc NguyenT</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/hoangSTS/"><img src="https://avatars.githubusercontent.com/u/117052298?v=4" width="100px;" alt="Hoang Dinh Tien" style="border-radius: 10%;"/><br /><sub><b>Hoang Dinh Tien</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/loido/"><img src="https://avatars.githubusercontent.com/u/117077260?v=4" width="100px;" alt="Loi Do" style="border-radius: 10%;"/><br /><sub><b>Loi Do</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/ngochuyduong/"><img src="https://avatars.githubusercontent.com/u/124558477?v=4" width="100px;" alt="Huy Duong" style="border-radius: 10%;"/><br /><sub><b>Huy Duong</b></sub></a><br /></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/vunguyendhSTS/"><img src="https://avatars.githubusercontent.com/u/117509324?v=4" width="100px;" alt="Vu NguyenDH" style="border-radius: 10%;"/><br /><sub><b>Vu NguyenDH</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/ngochuyduong/"><img src="https://avatars.githubusercontent.com/u/124558477?v=4" width="100px;" alt="Huy Duong" style="border-radius: 10%;"/><br /><sub><b>Huy Duong</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/hangnguyensaigontech/"><img src="https://avatars.githubusercontent.com/u/124117862?v=4" width="100px;" alt="Hang Nguyen" style="border-radius: 10%;"/><br /><sub><b>Hang Nguyen</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/tuledu/"><img src="https://avatars.githubusercontent.com/u/111717882?v=4" width="100px;" alt="Tung Le" style="border-radius: 10%;"/><br /><sub><b>Tung Le</b></sub></a><br /></td>
   </tr>
 </table>
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+This project follows the [all-contributors](https://github.com/saigon-technology/rn-base-project/graphs/contributors) specification. Contributions of any kind welcome!
+
+## About Us
+
+Welcome to Awesome Library! We're a small team of developers passionate about creating library that make people's lives easier.
+
+### Mission
+
+Our mission is to create the best library for implementing project stucture easily. We believe that everyone can benefit from tools that help them work smarter, not harder. We're committed to building an library that's easy to use, reliable, and affordable for everyone.
+
+### History
+
+My library was founded on Oct 2022 with the goal of making productivity library more accessible to everyone. Since then, we've been working tirelessly to improve the library and add new features.
+
+### Contact Us
+
+If you have any questions or feedback, we'd love to hear from you! You can reach us at reactnativeststeam@gmail.com
 
 ## License

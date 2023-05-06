@@ -19,7 +19,7 @@ export const HomeNavigator = () => (
     <Stack.Screen
       name={RouteKey.HomeScreen}
       component={screenMatch(RouteKey.HomeScreen)}
-      options={optionsMatch(RouteKey.HomeScreen)}
+      options={optionsMatch}
     />
   </Stack.Navigator>
 )
@@ -29,12 +29,12 @@ export const AuthNavigator = () => (
     <Stack.Screen
       name={RouteKey.LoginScreen}
       component={screenMatch(RouteKey.LoginScreen)}
-      options={optionsMatch(RouteKey.LoginScreen)}
+      options={optionsMatch}
     />
     <Stack.Screen
       name={RouteKey.SignUpScreen}
       component={screenMatch(RouteKey.SignUpScreen)}
-      options={optionsMatch(RouteKey.SignUpScreen)}
+      options={optionsMatch}
     />
   </Stack.Navigator>
 )

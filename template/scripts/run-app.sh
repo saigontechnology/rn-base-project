@@ -22,7 +22,7 @@ then
             echo "Invalid"
         else
              echo "Variant: $opt"
-             npx react-native run-android --variant=$opt
+             npx react-native run-android --variant=$opt --appIdSuffix=development
             break
         fi 
     done
