@@ -6,13 +6,13 @@
 
 This project is a template for [React Native](https://reactnative.dev/) that can be used to build mobile application.
 
-[![React Native Base STS License](https://img.shields.io/github/license/saigon-technology/rn-base-project)](https://choosealicense.com/licenses/mit/)
+[![React Native Base STS License](https://img.shields.io/github/license/saigontechnology/rn-base-project)](https://choosealicense.com/licenses/mit/)
 ![React Native Base STS NPM](https://img.shields.io/npm/v/rn-base-project)
-![React Native Base STS Downloads](https://img.shields.io/github/downloads/saigon-technology/rn-base-project/total)
-![React Native Base STS Release Date](https://img.shields.io/github/release-date/saigon-technology/rn-base-project)
-![React Native Base STS Stars](https://img.shields.io/github/stars/saigon-technology/rn-base-project)
-![React Native Base STS Top Language](https://img.shields.io/github/languages/top/saigon-technology/rn-base-project)
-![React Native Base STS Contributors](https://img.shields.io/github/contributors/saigon-technology/rn-base-project)
+![React Native Base STS Downloads](https://img.shields.io/github/downloads/saigontechnology/rn-base-project/total)
+![React Native Base STS Release Date](https://img.shields.io/github/release-date/saigontechnology/rn-base-project)
+![React Native Base STS Stars](https://img.shields.io/github/stars/saigontechnology/rn-base-project)
+![React Native Base STS Top Language](https://img.shields.io/github/languages/top/saigontechnology/rn-base-project)
+![React Native Base STS Contributors](https://img.shields.io/github/contributors/saigontechnology/rn-base-project)
 
 ## Requirements
 
@@ -124,7 +124,7 @@ Thanks goes to these wonderful people
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
-This project follows the [all-contributors](https://github.com/saigon-technology/rn-base-project/graphs/contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/saigontechnology/rn-base-project/graphs/contributors) specification. Contributions of any kind welcome!
 
 ## About Us
 
