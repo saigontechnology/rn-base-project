@@ -54,9 +54,9 @@ target 'RNBaseProject' do
       # necessary for Mac Catalyst builds
       :mac_catalyst_enabled => false
     )
-    # NOTE: Change IPHONEOS_DEPLOYMENT_TARGET to 12.4
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
+        # NOTE: Change IPHONEOS_DEPLOYMENT_TARGET to 12.4
         config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.4'
         # NOTE: Add `arm64` to EXCLUDED_ARCHS in Pods
         config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
