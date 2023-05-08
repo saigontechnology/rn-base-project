@@ -42,8 +42,8 @@ jobs:
                                    },
                                     {
                                      "keyValue": {
-                                          "topLabel": "Assignees",
-                                          "content": "- ${{ join(github.event.pull_request.assignees.*.login) }}"
+                                          "topLabel": "Description",
+                                          "content": "${{ github.event.pull_request.body }}"
                                       }
                                    },
                                    {
