@@ -12,7 +12,7 @@ import {
   useWindowDimensions,
 } from 'react-native'
 import {getApplicationName, getBuildNumber, getDeviceId} from 'react-native-device-info'
-import Draggable from 'react-native-draggable'
+import Draggable from './Draggable'
 
 import Config, {BOTTOM_SHEET_TYPE, CODEPUSH_KEYS, EXTRA_QA_ENVS} from '../constants/configs'
 

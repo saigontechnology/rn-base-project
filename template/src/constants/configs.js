@@ -5,8 +5,8 @@ import packageJSON from '../../package.json'
 
 const AppEnv = {
   DEV: 'dev',
-  STAGING: 'stg',
-  PRODUCTION: 'prd',
+  STAGING: 'staging',
+  PRODUCTION: 'production',
 }
 
 const appBundleID = getBundleId()
@@ -48,6 +48,19 @@ export const CODEPUSH_KEYS =
           }),
         },
       ]
-    : []
+    : [
+        {
+          dev: '',
+          key: '',
+        },
+
+        {
+          dev: '',
+          key: Platform.select({
+            android: '',
+            ios: '',
+          }),
+        },
+      ]
 
 export default Config
