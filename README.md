@@ -91,7 +91,7 @@ Our template is ship with the following rock-solid technical decisions out of th
 | ------ | ----------- | ------ |
 | [Codepush](template/scripts/codepush.sh) | Deploy Android and iOS app  with Codepush | ```yarn codepush``` |
 | [Build App](template/scripts/build-app.sh) | Build Android & iOS app using Fastlane | ```yarn build``` |
-| [Generate fonts](template/scripts/fonts.js)| Get all fonts name from [src/assets/fonts](template/src/assets/fonts/) and store in [src/themes/fonts](template/src/themes/fonts.js) | ```yarn generatefonts``` |
+| Get all fonts name from [src/assets/fonts](template/src/assets/fonts/) and store in [src/themes/fonts](template/src/themes/fonts.js) |
 | [Generate images](template/scripts/genimg.js) | Get all images from [src/assets/images](template/src/assets/images/) and require images in [src/themes/images](template/src/themes/images.js) | ```yarn generateimages``` |
 | [Run App](template/scripts/run-app.sh) | Run app in Android or iOS with selected variants | ```yarn android```<br /> ```yarn ios ``` |
 

@@ -1,7 +1,7 @@
 import {takeLatest, delay, put} from 'redux-saga/effects'
 import {appActions, userActions} from '../reducers'
 import RouteKey from '../../navigation/RouteKey'
-import Toast from '../../components/Toast'
+import {Toast} from '../../components'
 
 function* userLoginSaga(action) {
   try {

@@ -64,7 +64,7 @@ const EnvironmentSection = ({title, children}) => (
   </View>
 )
 
-export const DebugMenu = () => {
+const DebugMenu = () => {
   const [modalVisible, setModalVisible] = useState(false)
   const openModal = useCallback(() => setModalVisible(true), [])
   const closeModal = useCallback(() => setModalVisible(false), [])
@@ -205,6 +205,8 @@ export const DebugMenu = () => {
   )
 }
 
+export default DebugMenu
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -253,6 +255,6 @@ const styles = StyleSheet.create({
     borderRadius: metrics.xs,
   },
   h3: {
-    fontFamily: fonts.RobotoBold,
+    fontFamily: fonts.bold,
   },
 })

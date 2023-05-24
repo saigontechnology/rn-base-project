@@ -17,7 +17,6 @@
     "postinstall": "bash ./scripts/post-install.sh",
     "reverse": "adb reverse tcp:8081 tcp:8081",
     "generateimages": "node scripts/genimg src/assets/images --output src/themes/images.js --name Images",
-    "generatefonts": "node scripts/fonts",
     "plop": "plop",
     "codepush": "bash ./scripts/codepush.sh",
     "build": "bash ./scripts/build-app.sh"

@@ -42,29 +42,42 @@ const template = `/**
  * @flow
  */
 
-const {0} = {
-{1}
+const Images = {
+{0}
 }
-export {{0}}\n`
+export {Images}\n`
 
 const moduleName = argv.name || getFileName(outputName)
-fs.readdir(folder, (err, files) => {
-  if (err) {
-    return console.error(err)
-  }
+
+const processFolder = (folderPath, prefix = '') => {
+  const files = fs.readdirSync(folderPath)
   const strCodes = []
   files.forEach(file => {
-    if (file.match(/@\dx\.(png|jpg)/)) {
-      return
-    }
-    const fileName = getFileName(file)
-
-    if (fileName) {
-      // $FlowFixMe
-      strCodes.push("  {0}: require('{1}/{2}'),".format(fileName, requirePath, file))
+    const filePath = path.join(folderPath, file)
+    if (fs.statSync(filePath).isDirectory()) {
+      const subfolderPrefix = prefix ? `${prefix}/` : ''
+      const subfolderPath = path.join(folderPath, file)
+      const subfolderFiles = fs.readdirSync(subfolderPath)
+      subfolderFiles.forEach(subfile => {
+        const subfilePath = path.join(subfolderPath, subfile)
+        const subfileName = getFileName(subfile)
+        if (subfileName) {
+          const subfileKey = `${subfolderPrefix}${subfileName}`
+          const subfileRequirePath = path.relative(outputPath, subfilePath)
+          strCodes.push(`  ${subfileKey}: require('./${subfileRequirePath}'),`)
+        }
+      })
+    } else {
+      const fileName = getFileName(file)
+      if (fileName) {
+        const fileKey = prefix ? `${prefix}/${fileName}` : fileName
+        const fileRequirePath = path.relative(outputPath, filePath)
+        strCodes.push(`  ${fileKey}: require('./${fileRequirePath}'),`)
+      }
     }
   })
-  // $FlowFixMe
-  const code = template.format(moduleName, strCodes.join('\n'), author)
-  fs.writeFileSync(output, code)
-})
+  const code = strCodes.join('\n')
+  fs.writeFileSync(output, template.format(code, author))
+}
+
+processFolder(folder)
