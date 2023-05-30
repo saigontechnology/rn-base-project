@@ -2,7 +2,7 @@ import React from 'react'
 import {View, StyleSheet, Dimensions, ActivityIndicator} from 'react-native'
 
 const {width, height} = Dimensions.get('screen')
-export default function IndicatorDialog() {
+export function IndicatorDialog() {
   return (
     <View style={styles.container}>
       <ActivityIndicator size="large" />

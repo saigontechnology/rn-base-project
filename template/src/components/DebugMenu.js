@@ -12,7 +12,7 @@ import {
   useWindowDimensions,
 } from 'react-native'
 import {getApplicationName, getBuildNumber, getDeviceId} from 'react-native-device-info'
-import Draggable from './Draggable'
+import {Draggable} from './Draggable'
 
 import Config, {BOTTOM_SHEET_TYPE, CODEPUSH_KEYS, EXTRA_QA_ENVS} from '../constants/configs'
 
@@ -64,7 +64,7 @@ const EnvironmentSection = ({title, children}) => (
   </View>
 )
 
-const DebugMenu = () => {
+export const DebugMenu = () => {
   const [modalVisible, setModalVisible] = useState(false)
   const openModal = useCallback(() => setModalVisible(true), [])
   const closeModal = useCallback(() => setModalVisible(false), [])
@@ -204,8 +204,6 @@ const DebugMenu = () => {
     </>
   )
 }
-
-export default DebugMenu
 
 const styles = StyleSheet.create({
   container: {

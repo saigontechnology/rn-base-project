@@ -12,7 +12,7 @@ import {
 
 const clamp = (number, min, max) => Math.max(min, Math.min(number, max))
 
-export default function Draggable(props) {
+export function Draggable(props) {
   const {
     renderText = '＋',
     isCircle,

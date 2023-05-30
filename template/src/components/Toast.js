@@ -6,7 +6,7 @@ import {colors, FontSizes, metrics} from '../themes'
 
 const HEIGHT = getStatusBarHeight() + metrics.marginVertical
 
-class Toast extends React.PureComponent {
+export class Toast extends React.PureComponent {
   // Static methods
   static success(text) {
     Emitter.emit('SHOW_TOAST_MESSAGE', {message: text, type: 'success'})
@@ -161,5 +161,3 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 })
-
-export default Toast
