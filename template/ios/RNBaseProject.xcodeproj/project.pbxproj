@@ -470,7 +470,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.saigontechnolgy.rnbaseproject.development";
+				PRODUCT_BUNDLE_IDENTIFIER = com.saigontechnolgy.rnbaseproject.development;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RNBaseProject.app/RNBaseProject";
 			};
@@ -494,7 +494,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.saigontechnolgy.rnbaseproject";
+				PRODUCT_BUNDLE_IDENTIFIER = com.saigontechnolgy.rnbaseproject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RNBaseProject.app/RNBaseProject";
 			};
@@ -676,7 +676,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.saigontechnolgy.rnbaseproject.staging";
+				PRODUCT_BUNDLE_IDENTIFIER = com.saigontechnolgy.rnbaseproject.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RNBaseProject.app/RNBaseProject";
 			};
