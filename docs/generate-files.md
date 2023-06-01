@@ -1,4 +1,4 @@
-# Generate file
+# Generate files
 
 ```
 This will auto generate the component, screens or redux files base on name and template you defined

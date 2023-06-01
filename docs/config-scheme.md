@@ -1,4 +1,4 @@
-# Config scheme (android & ios)
+# Multiple Schemes (android & ios)
 Many times when developing an application, we developers need to create different builds with different configurations. Facilitating the maintenance and testing process. Usually 3 different builds are created: **development**, **staging** and **production**.
 
 ## Installing react-native-config
@@ -203,6 +203,27 @@ then
     done
 fi
 ```
+## NOTE
+
+If you choose different environment base on "Active Build Variant" from "Android Studio" you may need additional configuration
+
+```bash
+     productFlavors {
+        development {
+            applicationId ${Your Development Id}
+            resValue "string", "build_config_package", "com.saigontechnolgy.rnbaseproject"
+        }
+        staging {
+            applicationId ${Your Staging Id}
+            resValue "string", "build_config_package", "com.saigontechnolgy.rnbaseproject"
+        }
+        production {
+            applicationId ${Your Production Id}
+            resValue "string", "build_config_package", "com.saigontechnolgy.rnbaseproject"
+        }
+    }
+```
+
 
 ## Setup for iOS
 

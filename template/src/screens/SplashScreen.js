@@ -5,12 +5,12 @@ import {deviceWidth, responsiveHeight, colors} from '../themes'
 import {useDispatch} from 'react-redux'
 import CodePush from 'react-native-code-push'
 import Progress from 'react-native-progress'
-import configs from '../constants/configs'
+import Config from '../constants/configs'
 import {appActions} from '../store/reducers'
 
 const codePushOptions = {
   installMode: CodePush.InstallMode.IMMEDIATE,
-  deploymentKey: configs.codePushKey,
+  deploymentKey: Config.codePushKey,
 }
 
 const SplashScreen = () => {
