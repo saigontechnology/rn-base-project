@@ -59,12 +59,12 @@ Follow instructions for your given `development OS` and `target OS`.
 Our template is ship with the following rock-solid technical decisions out of the box:
 
 | Library                | Category          | Version | Description                                                     |
-| ---------------------- | ----------------- | ------- | --------------------------------------------------------------- | --- | --- | --- |
+| ---------------------- | ----------------- | ------- | --------------------------------------------------------------- |
 | React Native           | Mobile Framework  | v0.70   | The best cross-platform mobile framework                        |
-| React                  | UI Framework      | v18     | The most popular UI framework in the world                      |     |
+| React                  | UI Framework      | v18     | The most popular UI framework in the world                      |
 | React Native Code Push | CI/CD             | v7      | Easily add a dynamic update experience to your React Native app |
-| React Native Config    | ENV Configuration | v18     | The most popular UI framework in the world                      |     |
-| React Navigation       | Navigation        | v1      | Expose config variables to your javascript code                 |     |     |     |
+| React Native Config    | ENV Configuration | v18     | The most popular UI framework in the world                      |
+| React Navigation       | Navigation        | v1      | Expose config variables to your javascript code                 |
 | i18n-js                | Translation       | v4      | Provide the i18n translations on the JavaScript                 |
 | RN Reanimated          | Animations        | v2      | Beautiful and performant animations                             |
 | Async-storage          | Persistence       | v1      | State persistence                                               |
