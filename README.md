@@ -8,7 +8,7 @@ This project is a template for [React Native](https://reactnative.dev/) that can
 
 [![React Native Base STS License](https://img.shields.io/github/license/saigon-technology/rn-base-project)](https://choosealicense.com/licenses/mit/)
 ![React Native Base STS NPM](https://img.shields.io/npm/v/rn-base-project)
-![React Native Base STS Downloads](https://img.shields.io/github/downloads/saigon-technology/rn-base-project/total)
+[![React Native Base STS Downloads](https://img.shields.io/npm/dm/rn-base-project)](https://www.npmjs.com/package/rn-base-project)
 ![React Native Base STS Release Date](https://img.shields.io/github/release-date/saigon-technology/rn-base-project)
 ![React Native Base STS Stars](https://img.shields.io/github/stars/saigon-technology/rn-base-project)
 ![React Native Base STS Top Language](https://img.shields.io/github/languages/top/saigon-technology/rn-base-project)
