@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {StyleSheet, View} from 'react-native'
-import ScreenContainer from '../components/ScreenContainer'
+import {ScreenContainer} from '../components'
 import {deviceWidth, responsiveHeight, colors} from '../themes'
 import {useDispatch} from 'react-redux'
 import CodePush from 'react-native-code-push'

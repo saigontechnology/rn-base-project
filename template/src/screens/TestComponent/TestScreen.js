@@ -1,6 +1,6 @@
 import React from 'react'
 import {ScreenContainer} from '../../components'
 
-const HomeScreen = () => <ScreenContainer />
+const Test = () => <ScreenContainer />
 
-export default HomeScreen
+export default Test
