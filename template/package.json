@@ -28,7 +28,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "i18n-js": "^4.2.3",
     "react": "18.2.0",
-    "react-native": "^0.71.7",
+    "react-native": "^0.71.10",
     "react-native-code-push": "^8.0.1",
     "react-native-config": "^1.5.0",
     "react-native-device-info": "^10.6.0",
