@@ -34,6 +34,10 @@ const SplashScreen = () => {
         }
       },
     ).catch(() => {
+      /*
+       * If you tend not to use CodePush Service
+       * please dispatch(appActions.getSettings()) in useEffect hook
+       */
       dispatch(appActions.getSettings())
     })
   }, [dispatch])
