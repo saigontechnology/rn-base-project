@@ -28,7 +28,16 @@ platform :ios do
     env = options[:env].downcase
     projectName = "RNBaseProject"
     workspace = projectName + ".xcworkspace"
-    scheme = projectName + "-#{env.capitalize}"
+    scheme = case env
+    when "development"
+      "#{projectName}Dev"
+    when "staging"
+      "#{projectName}Stg"
+    when "production"
+      projectName
+    else
+      raise "Invalid environment: #{env}"
+    end
     Dotenv.load("../../.env.#{env}")
     build_app(workspace: workspace, scheme: scheme) # enter your prod scheme
     upload_to_testflight(
