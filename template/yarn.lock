@@ -7025,10 +7025,10 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-native-code-push@^8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/react-native-code-push/-/react-native-code-push-8.0.1.tgz#1ef14bd8bdbbca5582ae7ca2be9037ec186bd84d"
-  integrity sha512-I8cKKTVVOdsNwXZOHjajcBtri0qn6CMzSVn7xqmT8r/BioudTUJpSDniFP+xAiUiWDva5I+OwSn1xlReVjcJwg==
+react-native-code-push@^8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-code-push/-/react-native-code-push-8.0.2.tgz#cf86a68232ba98d64588d4f45d7b393d46335587"
+  integrity sha512-0ATo6n2HZ+xAXjuM7MfL5BBul/MhOyUpO0DGUelzFOmvxVfjS+yURQYscRWMhg9nurlIbJz3zGcsbOopF1ZIgw==
   dependencies:
     code-push "^4.1.0"
     glob "^7.1.7"
