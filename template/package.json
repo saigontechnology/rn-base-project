@@ -31,7 +31,7 @@
     "react-native": "^0.71.7",
     "react-native-code-push": "^8.0.2",
     "react-native-config": "^1.5.1",
-    "react-native-device-info": "^10.6.0",
+    "react-native-device-info": "^10.7.0",
     "react-native-gesture-handler": "^2.8.0",
     "@react-native-async-storage/async-storage": "^1.18.1",
     "react-native-progress": "^5.0.0",
