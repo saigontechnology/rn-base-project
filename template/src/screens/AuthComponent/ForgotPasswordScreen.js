@@ -10,7 +10,7 @@ import {userActions} from '../../store/reducers'
 import {navigate} from '../../navigation/NavigationService'
 import RouteKey from '../../navigation/RouteKey'
 
-export const LoginScreen = () => {
+export const ForgotPasswordScreen = () => {
   const dispatch = useDispatch()
   const [inputValue, setInputValue] = useReducer((prev, next) => ({...prev, ...next}), {
     newPassword: '',
@@ -57,13 +57,13 @@ export const LoginScreen = () => {
           onPress={() => {
             navigate(RouteKey.ForgotPasswordScreen)
           }}>
-          <Text style={styles.forgotPassword}>Forgot Password</Text>
+          <Text style={styles.forgotPassword}>Forgot Password ?</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
             navigate(RouteKey.ResetPasswordScreen)
           }}>
-          <Text style={styles.forgotPassword}>Reset Password</Text>
+          <Text style={styles.forgotPassword}>Reset Password ?</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={onPressLogin}>
           <Text>SAVE</Text>

@@ -2,13 +2,17 @@ import {takeLatest, delay, put} from 'redux-saga/effects'
 import {appActions, userActions} from '../reducers'
 import RouteKey from '../../navigation/RouteKey'
 import {Toast} from '../../components'
+import {changePassword} from '../../services/api/api'
 
 function* userLoginSaga(action) {
   try {
     yield put(appActions.setShowGlobalIndicator(true))
-    // TODO: login login
-    yield delay(1000)
-    yield put(appActions.setAppStack(RouteKey.MainStack))
+    const body = {}
+    const res = yield changePassword(body)
+    if (res?.isSuccess === true) {
+      yield delay(1000)
+      yield put(appActions.setAppStack(RouteKey.MainStack))
+    }
   } catch (e) {
     Toast.error(e.message)
     yield put(appActions.setAppStack(RouteKey.AuthStack))

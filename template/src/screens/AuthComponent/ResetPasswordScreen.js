@@ -7,10 +7,8 @@ import {colors} from '../../themes'
 import {useDispatch} from 'react-redux'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 import {userActions} from '../../store/reducers'
-import {navigate} from '../../navigation/NavigationService'
-import RouteKey from '../../navigation/RouteKey'
 
-export const LoginScreen = () => {
+export const ResetPasswordScreen = () => {
   const dispatch = useDispatch()
   const [inputValue, setInputValue] = useReducer((prev, next) => ({...prev, ...next}), {
     newPassword: '',
@@ -53,17 +51,8 @@ export const LoginScreen = () => {
             title="Old Password"
           />
         </View>
-        <TouchableOpacity
-          onPress={() => {
-            navigate(RouteKey.ForgotPasswordScreen)
-          }}>
-          <Text style={styles.forgotPassword}>Forgot Password</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {
-            navigate(RouteKey.ResetPasswordScreen)
-          }}>
-          <Text style={styles.forgotPassword}>Reset Password</Text>
+        <TouchableOpacity>
+          <Text style={styles.forgotPassword}>Forgot Password ?</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={onPressLogin}>
           <Text>SAVE</Text>

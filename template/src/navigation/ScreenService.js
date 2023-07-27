@@ -1,5 +1,5 @@
 import RouteKey from './RouteKey'
-import {LoginScreen, SignUpScreen} from '../screens'
+import {SignUpScreen, LoginScreen, ForgotPasswordScreen, ResetPasswordScreen} from '../screens'
 // Screen Import
 import HomeScreen from '../screens/HomeComponent/HomeScreen'
 import {colors} from '../themes'
@@ -13,6 +13,10 @@ export const screenMatch = screen => {
       return SignUpScreen
     case RouteKey.HomeScreen:
       return HomeScreen
+    case RouteKey.ForgotPasswordScreen:
+      return ForgotPasswordScreen
+    case RouteKey.ResetPasswordScreen:
+      return ResetPasswordScreen
     default:
       return ''
   }
