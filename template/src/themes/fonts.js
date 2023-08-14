@@ -1,5 +1,5 @@
 const fonts = {
-  RobotoBold: 'Roboto-Bold',
-  RobotoRegular: 'Roboto-Regular',
+  bold: 'Roboto-Bold',
+  regular: 'Roboto-Regular',
 }
 export {fonts}

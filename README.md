@@ -6,13 +6,13 @@
 
 This project is a template for [React Native](https://reactnative.dev/) that can be used to build mobile application.
 
-[![React Native Base STS License](https://img.shields.io/github/license/saigontechnology/rn-base-project)](https://choosealicense.com/licenses/mit/)
+[![React Native Base STS License](https://img.shields.io/github/license/saigontechnologyy/rn-base-project)](https://choosealicense.com/licenses/mit/)
 ![React Native Base STS NPM](https://img.shields.io/npm/v/rn-base-project)
-![React Native Base STS Downloads](https://img.shields.io/github/downloads/saigontechnology/rn-base-project/total)
-![React Native Base STS Release Date](https://img.shields.io/github/release-date/saigontechnology/rn-base-project)
-![React Native Base STS Stars](https://img.shields.io/github/stars/saigontechnology/rn-base-project)
-![React Native Base STS Top Language](https://img.shields.io/github/languages/top/saigontechnology/rn-base-project)
-![React Native Base STS Contributors](https://img.shields.io/github/contributors/saigontechnology/rn-base-project)
+[![React Native Base STS Downloads](https://img.shields.io/npm/dm/rn-base-project)](https://www.npmjs.com/package/rn-base-project)
+![React Native Base STS Release Date](https://img.shields.io/github/release-date/saigontechnologyy/rn-base-project)
+![React Native Base STS Stars](https://img.shields.io/github/stars/saigontechnologyy/rn-base-project)
+![React Native Base STS Top Language](https://img.shields.io/github/languages/top/saigontechnologyy/rn-base-project)
+![React Native Base STS Contributors](https://img.shields.io/github/contributors/saigontechnologyy/rn-base-project)
 
 ## Requirements
 
@@ -30,8 +30,6 @@ Go to the [React Native environment setup](https://reactnative.dev/docs/environm
 Follow instructions for your given `development OS` and `target OS`.
 
 ## Getting Started
-
-## Quick Start
 
 - Init project
 
@@ -60,24 +58,23 @@ Follow instructions for your given `development OS` and `target OS`.
 
 Our template is ship with the following rock-solid technical decisions out of the box:
 
-| Library           | Category             | Version | Description                                    |
-| ----------------- | -------------------- | ------- | ---------------------------------------------- |
-| React Native      | Mobile Framework     | v0.70   | The best cross-platform mobile framework       |
-| React             | UI Framework         | v18     | The most popular UI framework in the world     |                         |
-| React Native Code Push      | CI/CD     | v7   | Easily add a dynamic update experience to your React Native app       |
-| React Native Config            | ENV Configuration         | v18     | The most popular UI framework in the world     |                         |
-| React Navigation  | Navigation           | v1      | Expose config variables to your javascript code |                |             |                         |
-| i18n-js     | Translation           | v4      | Provide the i18n translations on the JavaScript            |
-| RN Reanimated     | Animations           | v2      | Beautiful and performant animations            |
-| Async-storage      | Persistence          | v1     | State persistence                              |
-| React Native SVG      | SVG Image          | v13     | Provides SVG support to React Native                              |
-| Axios      | Network Services          | v1     | Provides promise based HTTP client                              |   
-| Redux / Redux-toolkit      | State Management          | v8     | Provides state container for JavaScript apps                              |
-| Redux Saga      | Redux side-effect          | v1     | Provides Redux side effect manager                              |
-| ESLint              | Code Formater          | v8     | Tool for identifying and reporting on patterns Javascript              |
-| Jest              | Test Runner          | v26     | Standard test runner for JS apps               |
-| Husky             | Native Git Hook    | v8     | Improves your commits and more testing                     |
-
+| Library                | Category          | Version | Description                                                     |
+| ---------------------- | ----------------- | ------- | --------------------------------------------------------------- |
+| React Native           | Mobile Framework  | v0.70   | The best cross-platform mobile framework                        |
+| React                  | UI Framework      | v18     | The most popular UI framework in the world                      |
+| React Native Code Push | CI/CD             | v7      | Easily add a dynamic update experience to your React Native app |
+| React Native Config    | ENV Configuration | v18     | The most popular UI framework in the world                      |
+| React Navigation       | Navigation        | v1      | Expose config variables to your javascript code                 |
+| i18n-js                | Translation       | v4      | Provide the i18n translations on the JavaScript                 |
+| RN Reanimated          | Animations        | v2      | Beautiful and performant animations                             |
+| Async-storage          | Persistence       | v1      | State persistence                                               |
+| React Native SVG       | SVG Image         | v13     | Provides SVG support to React Native                            |
+| Axios                  | Network Services  | v1      | Provides promise based HTTP client                              |
+| Redux / Redux-toolkit  | State Management  | v8      | Provides state container for JavaScript apps                    |
+| Redux Saga             | Redux side-effect | v1      | Provides Redux side effect manager                              |
+| ESLint                 | Code Formater     | v8      | Tool for identifying and reporting on patterns Javascript       |
+| Jest                   | Test Runner       | v26     | Standard test runner for JS apps                                |
+| Husky                  | Native Git Hook   | v8      | Improves your commits and more testing                          |
 
 ## Documents
 
@@ -87,16 +84,18 @@ Our template is ship with the following rock-solid technical decisions out of th
 - [Fastlane Configuration](docs/fastlane.md)
 
 ## Table of scripts
-| Script | Description | Syntax |
-| ------ | ----------- | ------ |
-| [Codepush](template/scripts/codepush.sh) | Deploy Android and iOS app  with Codepush | ```yarn codepush``` |
-| [Build App](template/scripts/build-app.sh) | Build Android & iOS app using Fastlane | ```yarn build``` |
-| [Generate fonts](template/scripts/fonts.js)| Get all fonts name from [src/assets/fonts](template/src/assets/fonts/) and store in [src/themes/fonts](template/src/themes/fonts.js) | ```yarn generatefonts``` |
-| [Generate images](template/scripts/genimg.js) | Get all images from [src/assets/images](template/src/assets/images/) and require images in [src/themes/images](template/src/themes/images.js) | ```yarn generateimages``` |
-| [Run App](template/scripts/run-app.sh) | Run app in Android or iOS with selected variants | ```yarn android```<br /> ```yarn ios ``` |
+
+| Script                                        | Description                                                                                                                                   | Syntax                           |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| [Codepush](template/scripts/codepush.sh)      | Deploy Android and iOS app with Codepush                                                                                                      | `yarn codepush`                  |
+| [Build App](template/scripts/build-app.sh)    | Build Android & iOS app using Fastlane                                                                                                        | `yarn build`                     |
+| [Generate images](template/scripts/genimg.js) | Get all images from [src/assets/images](template/src/assets/images/) and require images in [src/themes/images](template/src/themes/images.js) | `yarn generateimages`            |
+| [Run App](template/scripts/run-app.sh)        | Run app in Android or iOS with selected variants                                                                                              | `yarn android`<br /> `yarn ios ` |
 
 ## Contributors ✨
+
 Thanks goes to these wonderful people
+
 <table>
   <tr>
     <td align="center"><a href="https://github.com/honghoangsts/"><img src="https://avatars.githubusercontent.com/u/63329049?v=4" width="100px;" alt="Hong Hoang" style="border-radius: 10%;"/><br /><sub><b>Hong Hoang</b></sub></a><br /></td>
@@ -121,10 +120,11 @@ Thanks goes to these wonderful people
 </table>
 
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
-This project follows the [all-contributors](https://github.com/saigontechnology/rn-base-project/graphs/contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/saigontechnologyy/rn-base-project/graphs/contributors) specification. Contributions of any kind welcome!
 
 ## About Us
 

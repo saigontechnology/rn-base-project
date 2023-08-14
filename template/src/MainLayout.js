@@ -1,12 +1,10 @@
 import React, {useCallback, useEffect, useRef} from 'react'
 import AppNavigation from './navigation/AppNavigator'
 import {AppState, Linking, StatusBar, StyleSheet, View} from 'react-native'
-import IndicatorDialog from './components/IndicatorDialog'
 import {useSelector} from 'react-redux'
-import Toast from './components/Toast'
 import {getAppStackState, getLoadingIndicator} from './store/selectors'
 import RouteKey from './navigation/RouteKey'
-import {DebugMenu} from './components/DebugMenu'
+import {DebugMenu, IndicatorDialog, Toast} from './components'
 import Config from './constants/configs'
 
 function MainLayout() {
