@@ -1,11 +1,12 @@
 import React, {useCallback, useEffect, useRef} from 'react'
 import AppNavigation from './navigation/AppNavigator'
-import {AppState, Linking, StatusBar, StyleSheet, View} from 'react-native'
+import {AppState, Linking, StatusBar, StyleSheet} from 'react-native'
 import {useSelector} from 'react-redux'
 import {getAppStackState, getLoadingIndicator} from './store/selectors'
 import RouteKey from './navigation/RouteKey'
 import {DebugMenu, IndicatorDialog, Toast} from './components'
 import Config from './constants/configs'
+import {GestureHandlerRootView} from 'react-native-gesture-handler'
 
 function MainLayout() {
   const appState = useSelector(getAppStackState)
@@ -40,13 +41,13 @@ function MainLayout() {
   }, [appState, handleAppState, handleDeepLink])
 
   return (
-    <View style={styles.container}>
+    <GestureHandlerRootView style={styles.container}>
       <StatusBar barStyle="light-content" />
       <AppNavigation />
       {showGlobalIndicator && <IndicatorDialog />}
       {Config.DEBUG_ENABLED && <DebugMenu />}
       <Toast />
-    </View>
+    </GestureHandlerRootView>
   )
 }
 
