@@ -1196,10 +1196,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.40.0.tgz#3ba73359e11f5a7bd3e407f70b3528abfae69cec"
   integrity sha512-ElyB54bJIhXQYVKjDSvCkPO1iU1tSAeVQJbllWJq1XQSmmA4dgFk8CbiBGpiOPxleE48vDogxCtmMYku4HSVLA==
 
-"@gorhom/bottom-sheet@^4.4.6":
-  version "4.4.6"
-  resolved "https://registry.yarnpkg.com/@gorhom/bottom-sheet/-/bottom-sheet-4.4.6.tgz#49fa6728f10133de772baaeb67ebe0f63125cf80"
-  integrity sha512-okqJPtFQjfqPZdh6wGDzQKkMevG1IfplQeoWY0VqOFCp3E0p7WHNeW41voK7KXXCVTQaGXibPfd9GNGjXgFNyg==
+"@gorhom/bottom-sheet@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@gorhom/bottom-sheet/-/bottom-sheet-4.5.0.tgz#2d8396e00b9f0f101b060371f91c6430762fcc1a"
+  integrity sha512-YmTVZUuyqTm3w8a2GC9YZZQ9ZcORsoIE7rM8/k/XZitS8juBGa0kyG3lPmwjNdvQuDwRpd536+df3YVJK4z50A==
   dependencies:
     "@gorhom/portal" "1.0.14"
     invariant "^2.2.4"
