@@ -24,7 +24,7 @@
   "dependencies": {
     "@gorhom/bottom-sheet": "^4.4.6",
     "@react-navigation/native": "^6.1.6",
-    "@react-navigation/native-stack": "^6.9.12",
+    "@react-navigation/native-stack": "^6.9.14",
     "@reduxjs/toolkit": "^1.9.5",
     "i18n-js": "^4.2.3",
     "react": "18.2.0",
