@@ -14,7 +14,7 @@ import {
 import {getApplicationName, getBuildNumber, getDeviceId} from 'react-native-device-info'
 import {Draggable} from './Draggable'
 
-import Config, {BOTTOM_SHEET_TYPE, CODEPUSH_KEYS, EXTRA_QA_ENVS} from '../constants/configs'
+import Config, {BOTTOM_SHEET_TYPE, EXTRA_QA_ENVS} from '../constants/configs'
 
 import {InfoMenu, InfoMenuRow, InfoMenuLink} from './InfoMenu'
 
@@ -22,7 +22,7 @@ import {colors, fonts, metrics} from '../themes'
 
 import {localize} from '../locale/I18nConfig'
 import {useDispatch, useSelector} from 'react-redux'
-import {getApiUrl, getCodePushKey} from '../store/selectors'
+import {getApiUrl} from '../store/selectors'
 import {appActions} from '../store/reducers'
 
 const DEBUGMENU_SIZE = 50
@@ -71,65 +71,45 @@ export const DebugMenu = () => {
 
   const dispatch = useDispatch()
 
-  const codePushKey = useSelector(getCodePushKey)
-
-  const currentApiUrl = useSelector(getApiUrl)
-
-  const [bottomSheetType, setBottomSheetType] = useState()
+  const [bottomSheetType, setBottomSheetType] = useState(null)
 
   const dimensions = useWindowDimensions()
 
   const bottomSheetRef = useRef(null)
+
+  const currentApiUrl = useSelector(getApiUrl)
 
   const handleSnapPress = useCallback(index => {
     bottomSheetRef.current?.snapToIndex(index)
   }, [])
   const handleClosePress = useCallback(() => {
     bottomSheetRef.current?.close()
+    setBottomSheetType(null)
   }, [])
 
-  const openEnvironmentBottomSheet = useCallback(() => {
-    setBottomSheetType(BOTTOM_SHEET_TYPE.env)
-    closeModal()
-    handleSnapPress(0)
-  }, [closeModal, handleSnapPress])
-
-  const openCodePushBottomSheet = useCallback(() => {
-    setBottomSheetType(BOTTOM_SHEET_TYPE.codePush)
-    closeModal()
-    handleSnapPress(0)
-  }, [closeModal, handleSnapPress])
-
-  const renderEnvironmentItem = useCallback(
-    ({item}) => {
-      const isActive =
-        bottomSheetType === BOTTOM_SHEET_TYPE.env ? item === currentApiUrl : item.dev === codePushKey
-
-      const onPress = () => {
-        if (bottomSheetType === BOTTOM_SHEET_TYPE.codePush) {
-          dispatch(appActions.setCodePushKey(item.dev))
-          //CodePush.restartApp(false)
-        } else {
-          dispatch(appActions.setApiUrl(item))
-        }
-        handleClosePress()
+  const handleItemPress = useCallback(
+    item => {
+      if (bottomSheetType === BOTTOM_SHEET_TYPE.env) {
+        dispatch(appActions.setApiUrl(item))
       }
-      return (
-        <Pressable disabled={isActive} style={styles.flatListItem} onPress={onPress}>
-          <Text
-            color={isActive ? colors.primary : colors.black}
-            fontWeight={isActive ? 'bold' : 'normal'}
-            style={styles.flatListItemTitle}>
-            {bottomSheetType === BOTTOM_SHEET_TYPE.env ? item : item.dev}
-          </Text>
-          {isActive ? <View style={styles.flatListItemIcon} /> : null}
-        </Pressable>
-      )
+      handleClosePress()
     },
-    [bottomSheetType, codePushKey, currentApiUrl, dispatch, handleClosePress],
+    [bottomSheetType, dispatch, handleClosePress],
   )
 
-  const codePush = useMemo(() => CODEPUSH_KEYS.find(item => item.dev === codePushKey), [codePushKey])
+  const environments = useMemo(
+    () => (bottomSheetType === BOTTOM_SHEET_TYPE.env ? [Config.API_URL, ...EXTRA_QA_ENVS] : []),
+    [bottomSheetType],
+  )
+
+  const renderEnvironmentItem = useCallback(
+    ({item}) => (
+      <Pressable style={styles.flatListItem} onPress={() => handleItemPress(item)}>
+        <Text style={styles.flatListItemTitle}>{item}</Text>
+      </Pressable>
+    ),
+    [handleItemPress],
+  )
 
   return (
     <>
@@ -151,37 +131,23 @@ export const DebugMenu = () => {
           <ScrollView contentContainerStyle={styles.scrollContent}>
             <AppInfoSection />
             <EnvironmentSection title={localize('debug.testingEnvironment')}>
-              {EXTRA_QA_ENVS.length ? (
+              {environments.length > 0 ? (
                 <InfoMenuLink
                   style={styles.infoMenu}
                   title={localize('debug.current')}
                   description={currentApiUrl}
                   linkTitle={localize('debug.update')}
-                  onPress={openEnvironmentBottomSheet}
+                  onPress={() => {
+                    setBottomSheetType(BOTTOM_SHEET_TYPE.env)
+                    closeModal()
+                    handleSnapPress(0)
+                  }}
                 />
               ) : (
                 <InfoMenu
                   style={styles.infoMenu}
                   title={localize('debug.current')}
                   description={currentApiUrl}
-                />
-              )}
-            </EnvironmentSection>
-
-            <EnvironmentSection title={localize('debug.codePush')}>
-              {CODEPUSH_KEYS.length ? (
-                <InfoMenuLink
-                  style={styles.infoMenu}
-                  title={localize('debug.current')}
-                  description={codePush?.dev || CODEPUSH_KEYS[0].dev}
-                  linkTitle={localize('debug.update')}
-                  onPress={openCodePushBottomSheet}
-                />
-              ) : (
-                <InfoMenu
-                  style={styles.infoMenu}
-                  title={localize('debug.current')}
-                  description={codePush?.dev || CODEPUSH_KEYS[0].dev}
                 />
               )}
             </EnvironmentSection>
@@ -193,11 +159,8 @@ export const DebugMenu = () => {
         <BottomSheetFlatList
           style={styles.flatList}
           contentContainerStyle={styles.flatListContent}
-          data={
-            bottomSheetType === BOTTOM_SHEET_TYPE.env ? [Config.API_URL, ...EXTRA_QA_ENVS] : CODEPUSH_KEYS
-          }
-          keyExtractor={item => item.dev || item}
-          extraData={[currentApiUrl, codePushKey]}
+          data={environments}
+          keyExtractor={item => item}
           renderItem={renderEnvironmentItem}
         />
       </BottomSheet>
@@ -244,13 +207,6 @@ const styles = StyleSheet.create({
   flatListItemTitle: {
     flex: 1,
     marginRight: metrics.xxs,
-  },
-  flatListItemIcon: {
-    width: metrics.large,
-    height: metrics.large,
-    backgroundColor: colors.primary,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: metrics.xs,
   },
   h3: {
     fontFamily: fonts.bold,
